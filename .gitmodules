@@ -1,0 +1,3 @@
+[submodule "Carthage/Checkouts/Deferred"]
+	path = Carthage/Checkouts/Deferred
+	url = https://github.com/bignerdranch/Deferred.git

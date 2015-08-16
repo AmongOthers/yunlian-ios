@@ -1,0 +1,2 @@
+github "wesj/Deferred" "master"   # Making Deferred extensible
+github "SnapKit/SnapKit" >= 0.12.0
