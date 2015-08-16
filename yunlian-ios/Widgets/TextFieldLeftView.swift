@@ -42,13 +42,14 @@ class TextFieldLeftView: UIView {
         imageView.image = image
         lineView = UIView()
         addSubview(lineView)
-        lineView.backgroundColor = UIConstants.FirstGray
+        lineView.backgroundColor = UIConstants.FirstGray.colorWithAlphaComponent(0.5)
         setupConstraints()
     }
     
     func setupConstraints() {
         imageView.snp_remakeConstraints { (make) -> Void in
-            make.center.equalTo(self)
+            make.centerY.equalTo(self)
+            make.centerX.equalTo(self).offset(-TextFieldLeftViewUX.LineHorizontalOffset / 2)
         }
         lineView.snp_remakeConstraints { (make) -> Void in
             make.width.equalTo(TextFieldLeftViewUX.LineWidth)

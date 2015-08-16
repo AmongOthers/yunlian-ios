@@ -10,23 +10,30 @@ import UIKit
 import SnapKit
 
 struct LoginViewControllerUX {
-    static let MobileTextFieldTopOffset = 106
+    static let LogoWidth:CGFloat = 66.5
+    static let LogoHeight = 65
+    static let LogoTopOffset = 20
+    static let LogoBottomOffset = 20
     static let LeftViewWidth:CGFloat = 46
+    static let RightViewWidth:CGFloat = 44
     static let TextFieldHeight:CGFloat = 43.5
     static let PasswordTextFieldTopOffset = 9
     static let LoginButtonTopOffset = 24
-    static let ActionButtonOffset = 20
+    static let ActionButtonOffset = 20 - 10 //考虑Button的Padding
     static let LeftOffset = 30
     static let RightOffset = -30
     static let CornerRadius:CGFloat = 3
 }
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
+    var top: UIView!
+    var logo: UIImageView!
     var mobileTextField: UITextField!
     var passwordTextField: UITextField!
     var loginButton: UIButton!
     var takeBackPasswordButton: UIButton!
     var registerButton: UIButton!
+    var isTextFieldEditing = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +41,12 @@ class LoginViewController: UIViewController {
         view.gestureRecognizers = [UITapGestureRecognizer(target: self, action: "backgroundTapped")]
         view.backgroundColor = UIConstants.BackgroundGray
         // Do any additional setup after loading the view, typically from a nib.
+        top = UIView()
+        view.addSubview(top)
+        logo = UIImageView(image: UIImage(named: "loginlogo"))
+        view.addSubview(logo)
         mobileTextField = UITextField()
+        mobileTextField.delegate = self
         view.addSubview(mobileTextField)
         mobileTextField.backgroundColor = UIColor.whiteColor()
         let mobileLeftView = TextFieldLeftView(frame: CGRectMake(0, 0, LoginViewControllerUX.LeftViewWidth, LoginViewControllerUX.TextFieldHeight), image: UIImage(named: "phonenumber")!)
@@ -45,15 +57,42 @@ class LoginViewController: UIViewController {
         mobileTextField.keyboardType = UIKeyboardType.PhonePad
         mobileTextField.placeholder = "手机号码"
         passwordTextField = UITextField()
+        passwordTextField.delegate = self
         view.addSubview(passwordTextField)
         passwordTextField.backgroundColor = UIColor.whiteColor()
         let passwordLeftView = TextFieldLeftView(frame: CGRectMake(0, 0, LoginViewControllerUX.LeftViewWidth, LoginViewControllerUX.TextFieldHeight), image: UIImage(named: "password")!)
         passwordTextField.leftViewMode = UITextFieldViewMode.Always
         passwordTextField.leftView = passwordLeftView
+        let passwordRightView = UIImageView(frame: CGRectMake(0, 0, LoginViewControllerUX.RightViewWidth, LoginViewControllerUX.TextFieldHeight))
+        passwordRightView.image = UIImage(named: "passwordHide")
+        passwordRightView.contentMode = UIViewContentMode.Center
+        passwordRightView.userInteractionEnabled = true
+        passwordRightView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "passwordRightViewTapped"))
+        passwordTextField.rightViewMode = UITextFieldViewMode.Always
+        passwordTextField.rightView = passwordRightView
         passwordTextField.tintColor = UIConstants.TintColor
         passwordTextField.layer.cornerRadius = LoginViewControllerUX.CornerRadius
         passwordTextField.keyboardType = UIKeyboardType.NumbersAndPunctuation
+        passwordTextField.secureTextEntry = true
         passwordTextField.placeholder = "密码"
+        loginButton = UIButton()
+        view.addSubview(loginButton)
+        loginButton.setTitle("登录", forState: UIControlState.Normal)
+        loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        loginButton.backgroundColor = UIConstants.TintColor
+        loginButton.layer.cornerRadius = LoginViewControllerUX.CornerRadius
+        takeBackPasswordButton = UIButton()
+        view.addSubview(takeBackPasswordButton)
+        takeBackPasswordButton.setTitle("找回密码", forState: UIControlState.Normal)
+        takeBackPasswordButton.setTitleColor(UIConstants.FirstGray, forState: UIControlState.Normal)
+        takeBackPasswordButton.titleLabel?.font = UIConstants.DefaultStandardFont
+        takeBackPasswordButton.addTarget(self, action: "takeBackPasswordTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        registerButton = UIButton()
+        view.addSubview(registerButton)
+        registerButton.setTitle("注册", forState: UIControlState.Normal)
+        registerButton.setTitleColor(UIConstants.TintColor, forState: UIControlState.Normal)
+        registerButton.titleLabel?.font = UIConstants.DefaultStandardFont
+        registerButton.addTarget(self, action: "registerTapped", forControlEvents: UIControlEvents.TouchUpInside)
         setupConstraints()
     }
     
@@ -61,23 +100,88 @@ class LoginViewController: UIViewController {
         view.endEditing(true)
     }
     
+    func passwordRightViewTapped() {
+        passwordTextField.secureTextEntry = !passwordTextField.secureTextEntry
+        if(passwordTextField.secureTextEntry) {
+            (passwordTextField.rightView as! UIImageView).image = UIImage(named: "passwordHide")
+        } else {
+            (passwordTextField.rightView as! UIImageView).image = UIImage(named: "passwordDisplay")
+        }
+    }
+    
+    func takeBackPasswordTapped() {
+        
+    }
+    
+    func registerTapped() {
+        
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        isTextFieldEditing = true
+        view.setNeedsUpdateConstraints()
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        isTextFieldEditing = false
+        view.setNeedsUpdateConstraints()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    override func updateViewConstraints() {
+        setupConstraints()
+        super.updateViewConstraints()
+    }
+    
     func setupConstraints() {
+        if(!isTextFieldEditing) {
+            top.snp_remakeConstraints { (make) -> Void in
+                make.top.equalTo(self.snp_topLayoutGuideTop)
+                make.width.height.equalTo(1)
+                make.centerX.equalTo(self.view)
+            }
+        } else {
+            top.snp_remakeConstraints { (make) -> Void in
+                make.top.equalTo(self.snp_topLayoutGuideTop).offset(-LoginViewControllerUX.LogoTopOffset - LoginViewControllerUX.LogoHeight)
+                make.width.height.equalTo(1)
+                make.centerX.equalTo(self.view)
+            }
+        }
+        logo.snp_remakeConstraints { (make) -> Void in
+            make.centerX.equalTo(self.view)
+            make.width.equalTo(LoginViewControllerUX.LogoWidth)
+            make.height.equalTo(LoginViewControllerUX.LogoHeight)
+            make.top.equalTo(self.top).offset(LoginViewControllerUX.LogoTopOffset)
+        }
         mobileTextField.snp_remakeConstraints { (make) -> Void in
             make.height.equalTo(LoginViewControllerUX.TextFieldHeight)
             make.left.equalTo(self.view).offset(LoginViewControllerUX.LeftOffset)
             make.right.equalTo(self.view).offset(LoginViewControllerUX.RightOffset)
-            make.top.equalTo(self.snp_topLayoutGuideBottom).offset(LoginViewControllerUX.MobileTextFieldTopOffset)
+            make.top.equalTo(self.logo.snp_bottom).offset(LoginViewControllerUX.LogoBottomOffset)
         }
         passwordTextField.snp_remakeConstraints { (make) -> Void in
             make.height.equalTo(LoginViewControllerUX.TextFieldHeight)
             make.left.equalTo(self.view).offset(LoginViewControllerUX.LeftOffset)
             make.right.equalTo(self.view).offset(LoginViewControllerUX.RightOffset)
             make.top.equalTo(self.mobileTextField.snp_bottom).offset(LoginViewControllerUX.PasswordTextFieldTopOffset)
+        }
+        loginButton.snp_remakeConstraints { (make) -> Void in
+            make.height.equalTo(LoginViewControllerUX.TextFieldHeight)
+            make.left.equalTo(self.view).offset(LoginViewControllerUX.LeftOffset)
+            make.right.equalTo(self.view).offset(LoginViewControllerUX.RightOffset)
+            make.top.equalTo(self.passwordTextField.snp_bottom).offset(LoginViewControllerUX.LoginButtonTopOffset)
+        }
+        takeBackPasswordButton.snp_remakeConstraints { (make) -> Void in
+            make.top.equalTo(loginButton.snp_bottom).offset(LoginViewControllerUX.ActionButtonOffset)
+            make.left.equalTo(loginButton)
+        }
+        registerButton.snp_remakeConstraints { (make) -> Void in
+            make.top.equalTo(loginButton.snp_bottom).offset(LoginViewControllerUX.ActionButtonOffset)
+            make.right.equalTo(loginButton)
         }
     }
 
