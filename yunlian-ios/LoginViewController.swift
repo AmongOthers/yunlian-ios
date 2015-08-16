@@ -81,23 +81,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         loginButton.backgroundColor = UIConstants.TintColor
         loginButton.layer.cornerRadius = LoginViewControllerUX.CornerRadius
+        loginButton.addTarget(self, action: "loginTapped", forControlEvents: UIControlEvents.TouchUpInside)
         takeBackPasswordButton = UIButton()
         view.addSubview(takeBackPasswordButton)
         takeBackPasswordButton.setTitle("找回密码", forState: UIControlState.Normal)
         takeBackPasswordButton.setTitleColor(UIConstants.FirstGray, forState: UIControlState.Normal)
-        takeBackPasswordButton.titleLabel?.font = UIConstants.DefaultStandardFont
+        takeBackPasswordButton.titleLabel?.font = UIConstants.DefaultMediumFont
         takeBackPasswordButton.addTarget(self, action: "takeBackPasswordTapped", forControlEvents: UIControlEvents.TouchUpInside)
         registerButton = UIButton()
         view.addSubview(registerButton)
         registerButton.setTitle("注册", forState: UIControlState.Normal)
         registerButton.setTitleColor(UIConstants.TintColor, forState: UIControlState.Normal)
-        registerButton.titleLabel?.font = UIConstants.DefaultStandardFont
+        registerButton.titleLabel?.font = UIConstants.DefaultMediumFont
         registerButton.addTarget(self, action: "registerTapped", forControlEvents: UIControlEvents.TouchUpInside)
         setupConstraints()
     }
     
     func backgroundTapped() {
         view.endEditing(true)
+    }
+    
+    func loginTapped() {
+        presentViewController(ViewController(), animated: false, completion: nil)
     }
     
     func passwordRightViewTapped() {

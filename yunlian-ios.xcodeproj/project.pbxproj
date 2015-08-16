@@ -22,6 +22,7 @@
 		D10E8B111B7F38ED00C8658D /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8B101B7F38ED00C8658D /* NewsViewController.swift */; };
 		D10E8B131B7F39C300C8658D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8B121B7F39C300C8658D /* SettingsViewController.swift */; };
 		D11D21131B7F818000309569 /* TextFieldLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D21121B7F818000309569 /* TextFieldLeftView.swift */; };
+		D124F0721B80A4DD00F86780 /* ContactsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0711B80A4DD00F86780 /* ContactsHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		D10E8B101B7F38ED00C8658D /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		D10E8B121B7F39C300C8658D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D11D21121B7F818000309569 /* TextFieldLeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldLeftView.swift; path = Widgets/TextFieldLeftView.swift; sourceTree = "<group>"; };
+		D124F0711B80A4DD00F86780 /* ContactsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsHeaderView.swift; path = Widgets/ContactsHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				D11D21121B7F818000309569 /* TextFieldLeftView.swift */,
+				D124F0711B80A4DD00F86780 /* ContactsHeaderView.swift */,
 			);
 			name = Widgets;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				D10E8B0B1B7F376B00C8658D /* LoginViewController.swift in Sources */,
 				D10E8B071B7F2C6500C8658D /* UIConstants.swift in Sources */,
 				D10E8B0F1B7F38D200C8658D /* CalendarViewController.swift in Sources */,
+				D124F0721B80A4DD00F86780 /* ContactsHeaderView.swift in Sources */,
 				D10E8B0D1B7F38A700C8658D /* ContactsViewController.swift in Sources */,
 				D11D21131B7F818000309569 /* TextFieldLeftView.swift in Sources */,
 				D10E8B111B7F38ED00C8658D /* NewsViewController.swift in Sources */,

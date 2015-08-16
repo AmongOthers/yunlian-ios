@@ -24,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = attrs
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
-        let loginViewController = LoginViewController()
-        loginViewController.title = "登录"
-        window?.rootViewController = UINavigationController(rootViewController: loginViewController)
-        //window?.rootViewController = ViewController()
+//        let loginViewController = LoginViewController()
+//        loginViewController.title = "登录"
+//        window?.rootViewController = UINavigationController(rootViewController: loginViewController)
+        window?.rootViewController = ViewController()
         window?.makeKeyAndVisible()
         return true
     }
