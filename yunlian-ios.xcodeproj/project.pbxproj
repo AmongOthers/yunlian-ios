@@ -23,6 +23,11 @@
 		D10E8B131B7F39C300C8658D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8B121B7F39C300C8658D /* SettingsViewController.swift */; };
 		D11D21131B7F818000309569 /* TextFieldLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D21121B7F818000309569 /* TextFieldLeftView.swift */; };
 		D124F0721B80A4DD00F86780 /* ContactsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0711B80A4DD00F86780 /* ContactsHeaderView.swift */; };
+		D124F0781B82BE9C00F86780 /* FriendsContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0771B82BE9C00F86780 /* FriendsContactsViewController.swift */; };
+		D124F07B1B82C50B00F86780 /* FriendsContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F07A1B82C50B00F86780 /* FriendsContactCell.swift */; };
+		D124F07D1B82C55800F86780 /* FriendsContactHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F07C1B82C55800F86780 /* FriendsContactHeader.swift */; };
+		D124F0811B84161400F86780 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0801B84161400F86780 /* Util.swift */; };
+		D124F0841B84A42E00F86780 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0831B84A42E00F86780 /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +61,11 @@
 		D10E8B121B7F39C300C8658D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D11D21121B7F818000309569 /* TextFieldLeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldLeftView.swift; path = Widgets/TextFieldLeftView.swift; sourceTree = "<group>"; };
 		D124F0711B80A4DD00F86780 /* ContactsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsHeaderView.swift; path = Widgets/ContactsHeaderView.swift; sourceTree = "<group>"; };
+		D124F0771B82BE9C00F86780 /* FriendsContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsContactsViewController.swift; sourceTree = "<group>"; };
+		D124F07A1B82C50B00F86780 /* FriendsContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsContactCell.swift; sourceTree = "<group>"; };
+		D124F07C1B82C55800F86780 /* FriendsContactHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsContactHeader.swift; sourceTree = "<group>"; };
+		D124F0801B84161400F86780 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		D124F0831B84A42E00F86780 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,7 @@
 		D10E8AD01B7EE1C100C8658D /* yunlian-ios */ = {
 			isa = PBXGroup;
 			children = (
+				D124F0821B84A3FC00F86780 /* Models */,
 				D10E8B051B7F2C2E00C8658D /* Extensions */,
 				D10E8AD31B7EE1C100C8658D /* AppDelegate.swift */,
 				D10E8AD51B7EE1C100C8658D /* ViewController.swift */,
@@ -114,6 +125,8 @@
 				D10E8B101B7F38ED00C8658D /* NewsViewController.swift */,
 				D10E8B121B7F39C300C8658D /* SettingsViewController.swift */,
 				D11D21141B7F818500309569 /* Widgets */,
+				D124F0791B82C22600F86780 /* ContactsControllers */,
+				D124F0801B84161400F86780 /* Util.swift */,
 			);
 			path = "yunlian-ios";
 			sourceTree = "<group>";
@@ -158,6 +171,24 @@
 				D124F0711B80A4DD00F86780 /* ContactsHeaderView.swift */,
 			);
 			name = Widgets;
+			sourceTree = "<group>";
+		};
+		D124F0791B82C22600F86780 /* ContactsControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D124F0771B82BE9C00F86780 /* FriendsContactsViewController.swift */,
+				D124F07A1B82C50B00F86780 /* FriendsContactCell.swift */,
+				D124F07C1B82C55800F86780 /* FriendsContactHeader.swift */,
+			);
+			name = ContactsControllers;
+			sourceTree = "<group>";
+		};
+		D124F0821B84A3FC00F86780 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D124F0831B84A42E00F86780 /* Person.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +241,7 @@
 				TargetAttributes = {
 					D10E8ACD1B7EE1C100C8658D = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 6HZ65ZDT2V;
 					};
 					D10E8AE21B7EE1C200C8658D = {
 						CreatedOnToolsVersion = 6.4;
@@ -281,14 +313,19 @@
 				D10E8B041B7F2C2A00C8658D /* UIColorExtensions.swift in Sources */,
 				D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */,
 				D10E8AD41B7EE1C100C8658D /* AppDelegate.swift in Sources */,
+				D124F07B1B82C50B00F86780 /* FriendsContactCell.swift in Sources */,
 				D10E8B0B1B7F376B00C8658D /* LoginViewController.swift in Sources */,
 				D10E8B071B7F2C6500C8658D /* UIConstants.swift in Sources */,
 				D10E8B0F1B7F38D200C8658D /* CalendarViewController.swift in Sources */,
+				D124F0811B84161400F86780 /* Util.swift in Sources */,
 				D124F0721B80A4DD00F86780 /* ContactsHeaderView.swift in Sources */,
 				D10E8B0D1B7F38A700C8658D /* ContactsViewController.swift in Sources */,
 				D11D21131B7F818000309569 /* TextFieldLeftView.swift in Sources */,
 				D10E8B111B7F38ED00C8658D /* NewsViewController.swift in Sources */,
+				D124F07D1B82C55800F86780 /* FriendsContactHeader.swift in Sources */,
 				D10E8B131B7F39C300C8658D /* SettingsViewController.swift in Sources */,
+				D124F0841B84A42E00F86780 /* Person.swift in Sources */,
+				D124F0781B82BE9C00F86780 /* FriendsContactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +446,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -416,6 +455,7 @@
 				INFOPLIST_FILE = "yunlian-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -423,6 +463,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -430,6 +472,7 @@
 				INFOPLIST_FILE = "yunlian-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -16,8 +16,9 @@ class ContactsHeaderView: UIView {
     }
     
     var titleLabel: UILabel!
+    var arrowTouchView: UIView!
     var arrowImageView: UIImageView!
-    var isUpSideDown = false
+    var isOpen = false
 
     /*
     // Only override drawRect: if you perform custom drawing.
@@ -35,27 +36,29 @@ class ContactsHeaderView: UIView {
         fatalError("NotImplemented")
     }
     
-    convenience init(title: String, isUpSideDown: Bool) {
+    convenience init(title: String, isOpen: Bool) {
         self.init(frame: CGRectZero)
-        self.isUpSideDown = isUpSideDown
+        self.isOpen = isOpen
         titleLabel = UILabel()
         addSubview(titleLabel)
         titleLabel.text = title
         titleLabel.textColor = UIConstants.FontColorGray
         titleLabel.font = UIConstants.DefaultMediumFont
+        arrowTouchView = UIView()
+        addSubview(arrowTouchView)
         arrowImageView = UIImageView()
-        addSubview(arrowImageView)
-        arrowImageView.userInteractionEnabled = true
-        arrowImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "arrowTapped"))
+        arrowTouchView.addSubview(arrowImageView)
+        arrowTouchView.userInteractionEnabled = true
+        arrowTouchView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "arrowTapped"))
         arrowImageView.image = UIImage(named: "up")
-        if(isUpSideDown) {
+        if(!isOpen) {
             arrowImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
         }
         setupConstraints()
     }
     
     func arrowTapped() {
-        if(isUpSideDown) {
+        if(!isOpen) {
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.arrowImageView.transform = CGAffineTransformIdentity
             })
@@ -64,7 +67,7 @@ class ContactsHeaderView: UIView {
                 self.arrowImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
             })
         }
-        isUpSideDown = !isUpSideDown
+        isOpen = !isOpen
     }
     
     func setupConstraints() {
@@ -72,9 +75,15 @@ class ContactsHeaderView: UIView {
             make.left.equalTo(self).offset(UX.TitleLabelLeftOffset)
             make.centerY.equalTo(self)
         }
-        arrowImageView.snp_remakeConstraints { (make) -> Void in
-            make.right.equalTo(self).offset(-UX.ArrowRightOffset)
+        arrowTouchView.snp_remakeConstraints { (make) -> Void in
+            make.right.equalTo(self)
             make.centerY.equalTo(self)
+            make.height.equalTo(self)
+            make.width.equalTo(UIConstants.UserTouchAreaSize)
+        }
+        arrowImageView.snp_remakeConstraints { (make) -> Void in
+            make.right.equalTo(self.arrowTouchView).offset(-UX.ArrowRightOffset)
+            make.centerY.equalTo(self.arrowTouchView)
             make.width.height.equalTo(UX.ArrowSize)
         }
     }

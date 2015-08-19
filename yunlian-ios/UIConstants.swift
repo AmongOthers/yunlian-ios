@@ -18,7 +18,7 @@ struct UIConstants {
     static let DefaultMediumFontSize: CGFloat = 15
     static let DefaultMediumFont = UIFont.systemFontOfSize(DefaultMediumFontSize, weight: UIFontWeightRegular)
     static let DefaultMediumBoldFont = UIFont.boldSystemFontOfSize(DefaultMediumFontSize)
-    static let DefaultSmallFontSize: CGFloat = 11
+    static let DefaultSmallFontSize: CGFloat = 12
     static let DefaultSmallFont = UIFont.systemFontOfSize(DefaultSmallFontSize, weight: UIFontWeightRegular)
     static let DefaultSmallFontBold = UIFont.systemFontOfSize(DefaultSmallFontSize, weight: UIFontWeightBold)
     static let DefaultStandardFontSize: CGFloat = 17
@@ -26,4 +26,5 @@ struct UIConstants {
     static let DefaultStandardFontBold = UIFont.systemFontOfSize(DefaultStandardFontSize, weight: UIFontWeightBold)
     static let FontColorGray = UIColor(rgb: 0x474747)
     static let FontColorSecondGray = UIColor(rgb: 0x8e8e8e)
+    static let UserTouchAreaSize = 48
 }
