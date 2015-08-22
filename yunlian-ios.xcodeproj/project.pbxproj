@@ -28,6 +28,11 @@
 		D124F07D1B82C55800F86780 /* FriendsContactHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F07C1B82C55800F86780 /* FriendsContactHeader.swift */; };
 		D124F0811B84161400F86780 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0801B84161400F86780 /* Util.swift */; };
 		D124F0841B84A42E00F86780 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0831B84A42E00F86780 /* Person.swift */; };
+		D124F0861B84C4B000F86780 /* OnewayContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0851B84C4B000F86780 /* OnewayContactCell.swift */; };
+		D124F0881B8551F200F86780 /* OnewayContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0871B8551F200F86780 /* OnewayContactsViewController.swift */; };
+		D124F08A1B8554B600F86780 /* BlackListContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0891B8554B600F86780 /* BlackListContactsViewController.swift */; };
+		D124F08C1B85554200F86780 /* BlackListContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F08B1B85554200F86780 /* BlackListContactCell.swift */; };
+		D124F08E1B87341000F86780 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F08D1B87340F00F86780 /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +71,11 @@
 		D124F07C1B82C55800F86780 /* FriendsContactHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsContactHeader.swift; sourceTree = "<group>"; };
 		D124F0801B84161400F86780 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		D124F0831B84A42E00F86780 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		D124F0851B84C4B000F86780 /* OnewayContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnewayContactCell.swift; sourceTree = "<group>"; };
+		D124F0871B8551F200F86780 /* OnewayContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnewayContactsViewController.swift; sourceTree = "<group>"; };
+		D124F0891B8554B600F86780 /* BlackListContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListContactsViewController.swift; sourceTree = "<group>"; };
+		D124F08B1B85554200F86780 /* BlackListContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListContactCell.swift; sourceTree = "<group>"; };
+		D124F08D1B87340F00F86780 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +137,7 @@
 				D11D21141B7F818500309569 /* Widgets */,
 				D124F0791B82C22600F86780 /* ContactsControllers */,
 				D124F0801B84161400F86780 /* Util.swift */,
+				D124F08D1B87340F00F86780 /* TestViewController.swift */,
 			);
 			path = "yunlian-ios";
 			sourceTree = "<group>";
@@ -179,6 +190,10 @@
 				D124F0771B82BE9C00F86780 /* FriendsContactsViewController.swift */,
 				D124F07A1B82C50B00F86780 /* FriendsContactCell.swift */,
 				D124F07C1B82C55800F86780 /* FriendsContactHeader.swift */,
+				D124F0851B84C4B000F86780 /* OnewayContactCell.swift */,
+				D124F0871B8551F200F86780 /* OnewayContactsViewController.swift */,
+				D124F0891B8554B600F86780 /* BlackListContactsViewController.swift */,
+				D124F08B1B85554200F86780 /* BlackListContactCell.swift */,
 			);
 			name = ContactsControllers;
 			sourceTree = "<group>";
@@ -312,16 +327,21 @@
 			files = (
 				D10E8B041B7F2C2A00C8658D /* UIColorExtensions.swift in Sources */,
 				D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */,
+				D124F08C1B85554200F86780 /* BlackListContactCell.swift in Sources */,
+				D124F08A1B8554B600F86780 /* BlackListContactsViewController.swift in Sources */,
 				D10E8AD41B7EE1C100C8658D /* AppDelegate.swift in Sources */,
 				D124F07B1B82C50B00F86780 /* FriendsContactCell.swift in Sources */,
 				D10E8B0B1B7F376B00C8658D /* LoginViewController.swift in Sources */,
+				D124F08E1B87341000F86780 /* TestViewController.swift in Sources */,
 				D10E8B071B7F2C6500C8658D /* UIConstants.swift in Sources */,
 				D10E8B0F1B7F38D200C8658D /* CalendarViewController.swift in Sources */,
 				D124F0811B84161400F86780 /* Util.swift in Sources */,
 				D124F0721B80A4DD00F86780 /* ContactsHeaderView.swift in Sources */,
 				D10E8B0D1B7F38A700C8658D /* ContactsViewController.swift in Sources */,
+				D124F0881B8551F200F86780 /* OnewayContactsViewController.swift in Sources */,
 				D11D21131B7F818000309569 /* TextFieldLeftView.swift in Sources */,
 				D10E8B111B7F38ED00C8658D /* NewsViewController.swift in Sources */,
+				D124F0861B84C4B000F86780 /* OnewayContactCell.swift in Sources */,
 				D124F07D1B82C55800F86780 /* FriendsContactHeader.swift in Sources */,
 				D10E8B131B7F39C300C8658D /* SettingsViewController.swift in Sources */,
 				D124F0841B84A42E00F86780 /* Person.swift in Sources */,
@@ -455,7 +475,7 @@
 				INFOPLIST_FILE = "yunlian-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1e0c1b6f-9639-4989-abbc-50e52a13559c";
 			};
 			name = Debug;
 		};
@@ -472,7 +492,7 @@
 				INFOPLIST_FILE = "yunlian-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "1e0c1b6f-9639-4989-abbc-50e52a13559c";
 			};
 			name = Release;
 		};

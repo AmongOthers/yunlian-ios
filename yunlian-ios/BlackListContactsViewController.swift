@@ -1,35 +1,32 @@
 //
-//  FriendsContactsViewController.swift
+//  BlackListViewController.swift
 //  yunlian-ios
 //
-//  Created by AmongOthers on 15/8/18.
+//  Created by AmongOthers on 15/8/20.
 //  Copyright (c) 2015年 yunlian. All rights reserved.
 //
 
 import UIKit
 
-class FriendsContactsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BlackListContactsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     struct UX {
-        static let HeightForHeader:CGFloat = 26.5
         static let HeightForRow:CGFloat = 59
     }
     
     let CellIdentifier = "CellIdentifier"
-    let HeaderIdentifier = "HeaderIdentifier"
     
     var tableView: UITableView!
     var data:[Person]!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.redColor()
         
         data = [Person]()
         data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "1"))
         data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "2"))
         data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "3"))
         
-//         Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.
         tableView = UITableView()
         view.addSubview(tableView)
         tableView.snp_makeConstraints { (make) -> Void in
@@ -38,16 +35,10 @@ class FriendsContactsViewController: UIViewController, UITableViewDelegate, UITa
         tableView.backgroundColor = UIConstants.BackgroundGray
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerClass(FriendsContactCell.self, forCellReuseIdentifier: CellIdentifier)
-        tableView.registerClass(FriendsContactHeader.self, forHeaderFooterViewReuseIdentifier: HeaderIdentifier)
+        tableView.registerClass(BlackListContactCell.self, forCellReuseIdentifier: CellIdentifier)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.tableFooterView = UIView()
         tableView.bounces = false
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        //首字母+其他（数字和其他字符）
-        return 4
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,29 +50,16 @@ class FriendsContactsViewController: UIViewController, UITableViewDelegate, UITa
         let index = indexPath.item
         cell.nameLabel.text = data[index].name
         cell.titleLabel.text = data[index].title
-        cell.avatarView.image = UIImage(named: data[index].avatar)
         if(index == data.count - 1) {
             cell.isLastCell = true
-        } else {
-            cell.isLastCell = false
         }
         return cell
-    }
-    
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderIdentifier) as? FriendsContactHeader
-        header?.label.text = "A"
-        return header
-    }
-    
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UX.HeightForHeader
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UX.HeightForRow
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

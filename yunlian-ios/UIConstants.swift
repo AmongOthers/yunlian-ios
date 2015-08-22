@@ -10,6 +10,7 @@ import UIKit
 
 struct UIConstants {
     static let TintColor = UIColor(rgb: 0xff8244)
+    static let TintColorGreen = UIColor(rgb: 0x56c119)
     static let BackgroundColor = UIColor(rgb: 0x607d8b)
     static let BarHeight = 44
     static let StatusBarHeight = 20
@@ -27,4 +28,8 @@ struct UIConstants {
     static let FontColorGray = UIColor(rgb: 0x474747)
     static let FontColorSecondGray = UIColor(rgb: 0x8e8e8e)
     static let UserTouchAreaSize = 48
+    static let DefaultButtonWidth:CGFloat = 65
+    static let DefaultButtonHeight:CGFloat = 28
+    static let DefaultButtonCornerRadius:CGFloat = 4
+    static let DefaultButtonFont = UIFont.systemFontOfSize(16)
 }
