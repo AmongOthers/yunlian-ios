@@ -100,8 +100,8 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
     }
     
     func searchTapped() {
-        let screenshot = UIScreen.mainScreen().snapshotViewAfterScreenUpdates(false)
-        let image = UIImage(UIView: screenshot, andRect: CGRectMake(0, 64, view.frame.width, view.frame.height))
+//        let screenshot = UIScreen.mainScreen().snapshotViewAfterScreenUpdates(true)
+        let image = UIImage(UIView: navigationController?.parentViewController?.view, andRect: CGRectMake(0, 64, view.frame.width, view.frame.height))
         let searchController = SearchContactsViewController()
         searchController.backgroundImage = image
         let controller = UINavigationController(rootViewController: searchController)
