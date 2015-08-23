@@ -45,7 +45,7 @@ class TitleSearchView: UIView {
         textField.backgroundColor = UIColor.whiteColor()
         textField.clearButtonMode = UITextFieldViewMode.WhileEditing
         textField.tintColor = UIConstants.TintColor
-        textField.keyboardType = UIKeyboardType.WebSearch
+        textField.returnKeyType = UIReturnKeyType.Search
         
         cancelButton = UIButton()
         addSubview(cancelButton)

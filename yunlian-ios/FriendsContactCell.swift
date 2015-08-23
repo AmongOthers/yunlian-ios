@@ -43,7 +43,6 @@ class FriendsContactCell: UITableViewCell {
     }
     
     func setupViews() {
-        self.contentView.backgroundColor = UIColor.whiteColor()
         nameLabel = UILabel()
         contentView.addSubview(nameLabel)
         nameLabel.font = UIConstants.DefaultMediumFont

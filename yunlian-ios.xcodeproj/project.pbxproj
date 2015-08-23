@@ -38,6 +38,8 @@
 		D124F09B1B88AE3900F86780 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F09A1B88AE3900F86780 /* TestViewController.swift */; };
 		D124F09D1B8968BA00F86780 /* SearchContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F09C1B8968BA00F86780 /* SearchContactsViewController.swift */; };
 		D124F09F1B896AB000F86780 /* TitleSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F09E1B896AB000F86780 /* TitleSearchView.swift */; };
+		D1A8DF711B89D24200217467 /* SearchContactsResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF701B89D24200217467 /* SearchContactsResultController.swift */; };
+		D1A8DF731B89D3F100217467 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF721B89D3F100217467 /* SearchResultCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		D124F09A1B88AE3900F86780 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D124F09C1B8968BA00F86780 /* SearchContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactsViewController.swift; sourceTree = "<group>"; };
 		D124F09E1B896AB000F86780 /* TitleSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleSearchView.swift; path = Widgets/TitleSearchView.swift; sourceTree = "<group>"; };
+		D1A8DF701B89D24200217467 /* SearchContactsResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactsResultController.swift; sourceTree = "<group>"; };
+		D1A8DF721B89D3F100217467 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +154,6 @@
 				D124F0791B82C22600F86780 /* ContactsControllers */,
 				D124F0801B84161400F86780 /* Util.swift */,
 				D124F09A1B88AE3900F86780 /* TestViewController.swift */,
-				D124F09C1B8968BA00F86780 /* SearchContactsViewController.swift */,
 			);
 			path = "yunlian-ios";
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 		D124F0791B82C22600F86780 /* ContactsControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D124F09C1B8968BA00F86780 /* SearchContactsViewController.swift */,
 				D124F0771B82BE9C00F86780 /* FriendsContactsViewController.swift */,
 				D124F07A1B82C50B00F86780 /* FriendsContactCell.swift */,
 				D124F07C1B82C55800F86780 /* FriendsContactHeader.swift */,
@@ -211,6 +215,8 @@
 				D124F0871B8551F200F86780 /* OnewayContactsViewController.swift */,
 				D124F0891B8554B600F86780 /* BlackListContactsViewController.swift */,
 				D124F08B1B85554200F86780 /* BlackListContactCell.swift */,
+				D1A8DF701B89D24200217467 /* SearchContactsResultController.swift */,
+				D1A8DF721B89D3F100217467 /* SearchResultCell.swift */,
 			);
 			name = ContactsControllers;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 				D124F09B1B88AE3900F86780 /* TestViewController.swift in Sources */,
 				D10E8B0F1B7F38D200C8658D /* CalendarViewController.swift in Sources */,
 				D124F0811B84161400F86780 /* Util.swift in Sources */,
+				D1A8DF731B89D3F100217467 /* SearchResultCell.swift in Sources */,
 				D124F0721B80A4DD00F86780 /* ContactsHeaderView.swift in Sources */,
 				D10E8B0D1B7F38A700C8658D /* ContactsViewController.swift in Sources */,
 				D124F0881B8551F200F86780 /* OnewayContactsViewController.swift in Sources */,
@@ -367,6 +374,7 @@
 				D124F07D1B82C55800F86780 /* FriendsContactHeader.swift in Sources */,
 				D10E8B131B7F39C300C8658D /* SettingsViewController.swift in Sources */,
 				D124F0841B84A42E00F86780 /* Person.swift in Sources */,
+				D1A8DF711B89D24200217467 /* SearchContactsResultController.swift in Sources */,
 				D124F0781B82BE9C00F86780 /* FriendsContactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

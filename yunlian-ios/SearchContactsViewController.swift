@@ -8,10 +8,11 @@
 
 import UIKit
 
-class SearchContactsViewController: UIViewController, TitleSearchViewDelegate {
+class SearchContactsViewController: UIViewController, TitleSearchViewDelegate, UITextFieldDelegate {
     
     struct UX {
         static let TitleSearchViewHeight:CGFloat = 36
+        static let ResultTopOffset:CGFloat = 8
     }
     
     var titleView: TitleSearchView!
@@ -37,8 +38,23 @@ class SearchContactsViewController: UIViewController, TitleSearchViewDelegate {
         titleView.frame = CGRectMake(0, 0, view.frame.size.width, UX.TitleSearchViewHeight)
         titleView.delegate = self
         navigationItem.titleView = titleView
+        titleView.textField.becomeFirstResponder()
+        titleView.textField.delegate = self
         setupViews()
         setupConstraints()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        titleView.textField.resignFirstResponder()
+        let resultController = SearchContactsResultController()
+        addChildViewController(resultController)
+        view.addSubview(resultController.view)
+        resultController.view.snp_makeConstraints { (make) -> Void in
+            make.top.equalTo(view).offset(UX.ResultTopOffset)
+            make.left.bottom.right.equalTo(view)
+        }
+        resultController.didMoveToParentViewController(self)
+        return true
     }
     
     func cancelTapped() {
