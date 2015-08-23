@@ -75,6 +75,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.keyboardType = UIKeyboardType.NumbersAndPunctuation
         passwordTextField.secureTextEntry = true
         passwordTextField.placeholder = "密码"
+        passwordTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
         loginButton = UIButton()
         view.addSubview(loginButton)
         loginButton.setTitle("登录", forState: UIControlState.Normal)

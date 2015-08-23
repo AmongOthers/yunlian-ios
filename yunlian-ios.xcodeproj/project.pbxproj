@@ -32,7 +32,12 @@
 		D124F0881B8551F200F86780 /* OnewayContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0871B8551F200F86780 /* OnewayContactsViewController.swift */; };
 		D124F08A1B8554B600F86780 /* BlackListContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0891B8554B600F86780 /* BlackListContactsViewController.swift */; };
 		D124F08C1B85554200F86780 /* BlackListContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F08B1B85554200F86780 /* BlackListContactCell.swift */; };
-		D124F08E1B87341000F86780 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F08D1B87340F00F86780 /* TestViewController.swift */; };
+		D124F0901B88946900F86780 /* ContactsPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F08F1B88946900F86780 /* ContactsPanelView.swift */; };
+		D124F0971B88AC4600F86780 /* UIImage+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = D124F0961B88AC4600F86780 /* UIImage+Helper.m */; };
+		D124F0991B88AC6100F86780 /* UIImage+Helper.h in Sources */ = {isa = PBXBuildFile; fileRef = D124F0981B88AC6100F86780 /* UIImage+Helper.h */; };
+		D124F09B1B88AE3900F86780 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F09A1B88AE3900F86780 /* TestViewController.swift */; };
+		D124F09D1B8968BA00F86780 /* SearchContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F09C1B8968BA00F86780 /* SearchContactsViewController.swift */; };
+		D124F09F1B896AB000F86780 /* TitleSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F09E1B896AB000F86780 /* TitleSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +80,13 @@
 		D124F0871B8551F200F86780 /* OnewayContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnewayContactsViewController.swift; sourceTree = "<group>"; };
 		D124F0891B8554B600F86780 /* BlackListContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListContactsViewController.swift; sourceTree = "<group>"; };
 		D124F08B1B85554200F86780 /* BlackListContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlackListContactCell.swift; sourceTree = "<group>"; };
-		D124F08D1B87340F00F86780 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		D124F08F1B88946900F86780 /* ContactsPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsPanelView.swift; path = Widgets/ContactsPanelView.swift; sourceTree = "<group>"; };
+		D124F0911B8897F400F86780 /* yunlian-ios-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "yunlian-ios-Bridging-Header.h"; sourceTree = "<group>"; };
+		D124F0961B88AC4600F86780 /* UIImage+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Helper.m"; path = "Widgets/UIImage+Helper.m"; sourceTree = "<group>"; };
+		D124F0981B88AC6100F86780 /* UIImage+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Helper.h"; path = "Extensions/UIImage+Helper.h"; sourceTree = "<group>"; };
+		D124F09A1B88AE3900F86780 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		D124F09C1B8968BA00F86780 /* SearchContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactsViewController.swift; sourceTree = "<group>"; };
+		D124F09E1B896AB000F86780 /* TitleSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleSearchView.swift; path = Widgets/TitleSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +117,7 @@
 				D10E8AD01B7EE1C100C8658D /* yunlian-ios */,
 				D10E8AE61B7EE1C200C8658D /* yunlian-iosTests */,
 				D10E8ACF1B7EE1C100C8658D /* Products */,
+				D124F0911B8897F400F86780 /* yunlian-ios-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,7 +149,8 @@
 				D11D21141B7F818500309569 /* Widgets */,
 				D124F0791B82C22600F86780 /* ContactsControllers */,
 				D124F0801B84161400F86780 /* Util.swift */,
-				D124F08D1B87340F00F86780 /* TestViewController.swift */,
+				D124F09A1B88AE3900F86780 /* TestViewController.swift */,
+				D124F09C1B8968BA00F86780 /* SearchContactsViewController.swift */,
 			);
 			path = "yunlian-ios";
 			sourceTree = "<group>";
@@ -171,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				D10E8B031B7F2C2A00C8658D /* UIColorExtensions.swift */,
+				D124F0961B88AC4600F86780 /* UIImage+Helper.m */,
+				D124F0981B88AC6100F86780 /* UIImage+Helper.h */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -180,6 +195,8 @@
 			children = (
 				D11D21121B7F818000309569 /* TextFieldLeftView.swift */,
 				D124F0711B80A4DD00F86780 /* ContactsHeaderView.swift */,
+				D124F08F1B88946900F86780 /* ContactsPanelView.swift */,
+				D124F09E1B896AB000F86780 /* TitleSearchView.swift */,
 			);
 			name = Widgets;
 			sourceTree = "<group>";
@@ -328,12 +345,15 @@
 				D10E8B041B7F2C2A00C8658D /* UIColorExtensions.swift in Sources */,
 				D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */,
 				D124F08C1B85554200F86780 /* BlackListContactCell.swift in Sources */,
+				D124F09D1B8968BA00F86780 /* SearchContactsViewController.swift in Sources */,
 				D124F08A1B8554B600F86780 /* BlackListContactsViewController.swift in Sources */,
 				D10E8AD41B7EE1C100C8658D /* AppDelegate.swift in Sources */,
 				D124F07B1B82C50B00F86780 /* FriendsContactCell.swift in Sources */,
 				D10E8B0B1B7F376B00C8658D /* LoginViewController.swift in Sources */,
-				D124F08E1B87341000F86780 /* TestViewController.swift in Sources */,
+				D124F0991B88AC6100F86780 /* UIImage+Helper.h in Sources */,
+				D124F0901B88946900F86780 /* ContactsPanelView.swift in Sources */,
 				D10E8B071B7F2C6500C8658D /* UIConstants.swift in Sources */,
+				D124F09B1B88AE3900F86780 /* TestViewController.swift in Sources */,
 				D10E8B0F1B7F38D200C8658D /* CalendarViewController.swift in Sources */,
 				D124F0811B84161400F86780 /* Util.swift in Sources */,
 				D124F0721B80A4DD00F86780 /* ContactsHeaderView.swift in Sources */,
@@ -341,7 +361,9 @@
 				D124F0881B8551F200F86780 /* OnewayContactsViewController.swift in Sources */,
 				D11D21131B7F818000309569 /* TextFieldLeftView.swift in Sources */,
 				D10E8B111B7F38ED00C8658D /* NewsViewController.swift in Sources */,
+				D124F09F1B896AB000F86780 /* TitleSearchView.swift in Sources */,
 				D124F0861B84C4B000F86780 /* OnewayContactCell.swift in Sources */,
+				D124F0971B88AC4600F86780 /* UIImage+Helper.m in Sources */,
 				D124F07D1B82C55800F86780 /* FriendsContactHeader.swift in Sources */,
 				D10E8B131B7F39C300C8658D /* SettingsViewController.swift in Sources */,
 				D124F0841B84A42E00F86780 /* Person.swift in Sources */,
@@ -466,6 +488,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -476,6 +499,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1e0c1b6f-9639-4989-abbc-50e52a13559c";
+				SWIFT_OBJC_BRIDGING_HEADER = "yunlian-ios-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -483,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -493,6 +519,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1e0c1b6f-9639-4989-abbc-50e52a13559c";
+				SWIFT_OBJC_BRIDGING_HEADER = "yunlian-ios-Bridging-Header.h";
 			};
 			name = Release;
 		};

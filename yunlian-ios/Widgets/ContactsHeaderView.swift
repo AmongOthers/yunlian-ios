@@ -8,6 +8,7 @@
 
 import UIKit
 
+@objc
 protocol ContactsHeaderViewDelegate {
     func headerTapped(header: ContactsHeaderView)
 }
@@ -24,7 +25,7 @@ class ContactsHeaderView: UIView {
     var arrowTouchView: UIView!
     var arrowImageView: UIImageView!
     var isOpen = false
-    var delegate: ContactsHeaderViewDelegate?
+    weak var delegate: ContactsHeaderViewDelegate?
 
     /*
     // Only override drawRect: if you perform custom drawing.

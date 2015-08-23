@@ -12,6 +12,7 @@ struct UIConstants {
     static let TintColor = UIColor(rgb: 0xff8244)
     static let TintColorGreen = UIColor(rgb: 0x56c119)
     static let BackgroundColor = UIColor(rgb: 0x607d8b)
+    static let SelectedBackgroundColor = UIColor(rgb: 0x546f7c)
     static let BarHeight = 44
     static let StatusBarHeight = 20
     static let BackgroundGray = UIColor(rgb: 0xebedf0)
@@ -32,4 +33,5 @@ struct UIConstants {
     static let DefaultButtonHeight:CGFloat = 28
     static let DefaultButtonCornerRadius:CGFloat = 4
     static let DefaultButtonFont = UIFont.systemFontOfSize(16)
+    static let DefaultAnimationDuration:NSTimeInterval = 0.2
 }

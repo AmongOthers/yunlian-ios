@@ -23,14 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let attrs = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UINavigationBar.appearance().titleTextAttributes = attrs
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-//        window?.backgroundColor = UIColor.whiteColor()
+        window?.backgroundColor = UIColor.whiteColor()
+        window?.rootViewController = ViewController()
 //        let controller = ContactsViewController()
 //        controller.title = "我的联系人"
 //        window?.rootViewController = UINavigationController(rootViewController: controller)
 //        let controller = LoginViewController()
 //        controller.title = "登录"
 //        window?.rootViewController = UINavigationController(rootViewController: controller)
-        window?.rootViewController = ViewController()
+//        window?.rootViewController = UINavigationController(rootViewController: TestViewController())
         window?.makeKeyAndVisible()
         return true
     }

@@ -21,7 +21,9 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
         static let TopOffset:CGFloat = 8
         static let HeaderInternalOffset:CGFloat = 16
         static let HeaderInternalOffsetShrink:CGFloat = 2
-        static let TableHeightSubset:CGFloat = UX.TopOffset + 3 * UX.HeaderHeight + 3 * UX.HeaderInternalOffsetShrink + 64 + 44 + 10 //加上偏移量让黑名单标题不要离uitabbar太近
+        static let PanelWidth = 105
+        static let PanelHeight = 100
+        static let PanelRightOffset = 4
     }
     
     var friendsHeader: ContactsHeaderView!
@@ -34,11 +36,19 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
     var width:CGFloat = 0
     var preState: ContactsViewControllerState? = nil
     var state = ContactsViewControllerState.Friends
+    var panel: ContactsPanelView!
+    var wrapPanelView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = UX.BackGroundColor
+        
+        let searchItem = UIBarButtonItem(image: UIImage(named: "searchItem"), style: UIBarButtonItemStyle.Plain, target: self, action: "searchTapped")
+        searchItem.tintColor = UIColor.whiteColor()
+        let addItem = UIBarButtonItem(image: UIImage(named: "addItem"), style: UIBarButtonItemStyle.Plain, target: self, action: "addTapped")
+        addItem.tintColor = UIColor.whiteColor()
+        self.navigationItem.rightBarButtonItems = [addItem, searchItem]
         
         friendsHeader = ContactsHeaderView(title: "我的联系人", isOpen: true, state: .Friends)
         friendsHeader.delegate = self
@@ -70,9 +80,54 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
         view.addSubview(blackListController!.view)
         blackListController?.didMoveToParentViewController(self)
         
+        //点击其他区域，让panel消失
+        wrapPanelView = UIView()
+        view.addSubview(wrapPanelView)
+        wrapPanelView.backgroundColor = UIColor.clearColor()
+        wrapPanelView.hidden = true
+        wrapPanelView.userInteractionEnabled = true
+        wrapPanelView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "panelOutsideTapped"))
+        
+        panel = ContactsPanelView()
+        wrapPanelView.addSubview(panel)
+        panel.alpha = 0
+        
         setupConstraints()
     }
     
+    func panelOutsideTapped() {
+        addTapped()
+    }
+    
+    func searchTapped() {
+        let screenshot = UIScreen.mainScreen().snapshotViewAfterScreenUpdates(false)
+        let image = UIImage(UIView: screenshot, andRect: CGRectMake(0, 64, view.frame.width, view.frame.height))
+        let searchController = SearchContactsViewController()
+        searchController.backgroundImage = image
+        let controller = UINavigationController(rootViewController: searchController)
+        presentViewController(controller, animated: false) { () -> Void in
+        }
+    }
+    
+    func addTapped() {
+        if wrapPanelView.hidden {
+            UIView.animateWithDuration(UIConstants.DefaultAnimationDuration, animations: { () -> Void in
+                self.panel.alpha = 1
+                }, completion: { (finished) -> Void in
+                    if finished {
+                        self.wrapPanelView.hidden = false
+                    }
+            })
+        } else {
+            UIView.animateWithDuration(UIConstants.DefaultAnimationDuration, animations: { () -> Void in
+                self.panel.alpha = 0
+                }, completion: { (finished) -> Void in
+                    if finished {
+                        self.wrapPanelView.hidden = true
+                    }
+            })
+        }
+    }
     
     func headerTapped(header: ContactsHeaderView) {
         let tappedState = header.state
@@ -97,11 +152,18 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
         setupConstraints()
     }
     
-//    override func viewDidLayoutSubviews() {
-//        setupLayout()
-//    }
-    
     func setupConstraints() {
+        wrapPanelView.snp_remakeConstraints { (make) -> Void in
+            make.top.equalTo(self.snp_topLayoutGuideBottom)
+            make.bottom.equalTo(self.snp_bottomLayoutGuideTop)
+            make.left.right.equalTo(view)
+        }
+        panel.snp_remakeConstraints { (make) -> Void in
+            make.top.equalTo(self.wrapPanelView)
+            make.width.equalTo(UX.PanelWidth)
+            make.height.equalTo(UX.PanelHeight)
+            make.right.equalTo(self.wrapPanelView).offset(-UX.PanelRightOffset)
+        }
         friendsHeader.snp_remakeConstraints { (make) -> Void in
             make.width.equalTo(view)
             make.height.equalTo(UX.HeaderHeight)
@@ -122,7 +184,6 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
             friendsController!.view.snp_remakeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(view)
                 make.top.equalTo(friendsHeader.snp_bottom).offset(UX.HeaderInternalOffsetShrink)
-//                make.bottom.equalTo(onewayHeader.snp_top).offset(-UX.HeaderInternalOffset)
                 make.height.equalTo(0)
             })
             onewayController?.view.snp_remakeConstraints(closure: { (make) -> Void in
@@ -133,7 +194,6 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
             blackListController?.view.snp_remakeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(view)
                 make.top.equalTo(blacklistHeader.snp_bottom).offset(UX.HeaderInternalOffsetShrink)
-                //                make.bottom.equalTo(self.snp_bottomLayoutGuideTop).offset(-UX.HeaderInternalOffset)
                 make.height.equalTo(0)
             })
             break
@@ -151,13 +211,11 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
             friendsController!.view.snp_remakeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(view)
                 make.top.equalTo(friendsHeader.snp_bottom).offset(UX.HeaderInternalOffsetShrink)
-//                make.bottom.equalTo(onewayHeader.snp_top).offset(-UX.HeaderInternalOffset)
                 make.height.equalTo(0)
             })
             onewayController?.view.snp_remakeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(view)
                 make.top.equalTo(onewayHeader.snp_bottom).offset(UX.HeaderInternalOffsetShrink)
-                //                make.bottom.equalTo(blacklistHeader.snp_top).offset(-UX.HeaderInternalOffset)
                 make.height.equalTo(0)
             })
             blackListController?.view.snp_remakeConstraints(closure: { (make) -> Void in
@@ -185,50 +243,16 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
             onewayController?.view.snp_remakeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(view)
                 make.top.equalTo(onewayHeader.snp_bottom).offset(UX.HeaderInternalOffsetShrink)
-//                make.bottom.equalTo(blacklistHeader.snp_top).offset(-UX.HeaderInternalOffset)
                 make.height.equalTo(0)
             })
             blackListController?.view.snp_remakeConstraints(closure: { (make) -> Void in
                 make.width.equalTo(view)
                 make.top.equalTo(blacklistHeader.snp_bottom).offset(UX.HeaderInternalOffsetShrink)
-//                make.bottom.equalTo(self.snp_bottomLayoutGuideTop).offset(-UX.HeaderInternalOffset)
                 make.height.equalTo(0)
             })
             break
         }
     }
-    
-    func setupLayout() {
-        //我的联系人这个标题栏时固定的
-        friendsHeader.frame = CGRectMake(0, UX.TopOffset, width, UX.HeaderHeight)
-        switch state {
-        case .Oneway:
-            friendsController!.view.frame = zeroChildControllerViewRect(friendsHeader)
-            onewayHeader.frame = friendsHeader.frame.rectByOffsetting(dx: 0, dy: UX.HeaderHeight + UX.HeaderInternalOffsetShrink)
-            onewayController!.view.frame = CGRectMake(0, onewayHeader.frame.origin.y + UX.HeaderHeight + UX.HeaderInternalOffsetShrink, width, tableHeight - UX.HeaderInternalOffset)
-            blacklistHeader.frame = CGRectMake(0, onewayHeader.frame.origin.y + UX.HeaderHeight + tableHeight, width, UX.HeaderHeight)
-            blackListController!.view.frame = zeroChildControllerViewRect(blacklistHeader)
-        case .Blacklist:
-            friendsController!.view.frame = zeroChildControllerViewRect(friendsHeader)
-            onewayHeader.frame = friendsHeader.frame.rectByOffsetting(dx: 0, dy: UX.HeaderHeight + UX.HeaderInternalOffsetShrink)
-            onewayController!.view.frame = zeroChildControllerViewRect(onewayHeader)
-            blacklistHeader.frame = onewayHeader.frame.rectByOffsetting(dx: 0, dy: UX.HeaderHeight + UX.HeaderInternalOffsetShrink)
-            blackListController!.view.frame = CGRectMake(0, blacklistHeader.frame.origin.y + UX.HeaderHeight + UX.HeaderInternalOffsetShrink, width, tableHeight)
-            break
-        default:
-            friendsController!.view.frame = CGRectMake(0, friendsHeader.frame.origin.y + UX.HeaderHeight + UX.HeaderInternalOffsetShrink, width, tableHeight - UX.HeaderInternalOffset)
-            onewayHeader.frame = friendsHeader.frame.rectByOffsetting(dx: 0, dy: UX.HeaderHeight + tableHeight)
-            onewayController!.view.frame = zeroChildControllerViewRect(onewayHeader)
-            blacklistHeader.frame = onewayHeader.frame.rectByOffsetting(dx: 0, dy: UX.HeaderHeight + UX.HeaderInternalOffsetShrink)
-            blackListController!.view.frame = zeroChildControllerViewRect(blacklistHeader)
-            break
-        }
-    }
-    
-    func zeroChildControllerViewRect(header: ContactsHeaderView) -> CGRect {
-        return CGRectMake(0, header.frame.origin.y + UX.HeaderHeight + UX.HeaderInternalOffsetShrink, width, 0)
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

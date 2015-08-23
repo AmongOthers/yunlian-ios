@@ -11,7 +11,7 @@ import SnapKit
 
 struct TextFieldLeftViewUX {
     static let LineWidth = 1
-    static let LineHeight = 30
+    static let LineHeight = 24
     static let LineHorizontalOffset = 4
 }
 
@@ -42,7 +42,7 @@ class TextFieldLeftView: UIView {
         imageView.image = image
         lineView = UIView()
         addSubview(lineView)
-        lineView.backgroundColor = UIConstants.FirstGray.colorWithAlphaComponent(0.5)
+        lineView.backgroundColor = UIConstants.FirstGray.colorWithAlphaComponent(0.2)
         setupConstraints()
     }
     
