@@ -45,6 +45,8 @@ class ContactsHeaderView: UIView {
     
     convenience init(title: String, isOpen: Bool, state: ContactsViewControllerState) {
         self.init(frame: CGRectZero)
+        self.userInteractionEnabled = true
+        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "tapped"))
         self.isOpen = isOpen
         self.state = state
         titleLabel = UILabel()
@@ -56,8 +58,6 @@ class ContactsHeaderView: UIView {
         addSubview(arrowTouchView)
         arrowImageView = UIImageView()
         arrowTouchView.addSubview(arrowImageView)
-        arrowTouchView.userInteractionEnabled = true
-        arrowTouchView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "arrowTapped"))
         arrowImageView.image = UIImage(named: "up")
         if(!isOpen) {
             arrowImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
@@ -65,7 +65,7 @@ class ContactsHeaderView: UIView {
         setupConstraints()
     }
     
-    func arrowTapped() {
+    func tapped() {
         delegate?.headerTapped(self)
 //        if(!isOpen) {
 //            UIView.animateWithDuration(0.5, animations: { () -> Void in
