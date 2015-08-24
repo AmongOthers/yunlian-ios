@@ -45,9 +45,7 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
         view.backgroundColor = UX.BackGroundColor
         
         let searchItem = UIBarButtonItem(image: UIImage(named: "searchItem"), style: UIBarButtonItemStyle.Plain, target: self, action: "searchTapped")
-        searchItem.tintColor = UIColor.whiteColor()
         let addItem = UIBarButtonItem(image: UIImage(named: "addItem"), style: UIBarButtonItemStyle.Plain, target: self, action: "addTapped")
-        addItem.tintColor = UIColor.whiteColor()
         self.navigationItem.rightBarButtonItems = [addItem, searchItem]
         
         friendsHeader = ContactsHeaderView(title: "我的联系人", isOpen: true, state: .Friends)
@@ -104,9 +102,11 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
         let image = UIImage(UIView: navigationController?.parentViewController?.view, andRect: CGRectMake(0, 64, view.frame.width, view.frame.height))
         let searchController = SearchContactsViewController()
         searchController.backgroundImage = image
-        let controller = UINavigationController(rootViewController: searchController)
-        presentViewController(controller, animated: false) { () -> Void in
-        }
+        searchController.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(searchController, animated: false)
+//        let controller = UINavigationController(rootViewController: searchController)
+//        presentViewController(controller, animated: false) { () -> Void in
+//        }
     }
     
     func addTapped() {

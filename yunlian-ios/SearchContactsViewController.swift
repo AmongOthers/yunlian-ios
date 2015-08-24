@@ -33,7 +33,7 @@ class SearchContactsViewController: UIViewController, TitleSearchViewDelegate, U
                 make.edges.equalTo(view)
             }
         }
-        
+        navigationItem.hidesBackButton = true
         titleView = TitleSearchView()
         titleView.frame = CGRectMake(0, 0, view.frame.size.width, UX.TitleSearchViewHeight)
         titleView.delegate = self
@@ -58,8 +58,9 @@ class SearchContactsViewController: UIViewController, TitleSearchViewDelegate, U
     }
     
     func cancelTapped() {
-        navigationController?.dismissViewControllerAnimated(false, completion: { () -> Void in
-        })
+        navigationController?.popViewControllerAnimated(false)
+//        navigationController?.dismissViewControllerAnimated(false, completion: { () -> Void in
+//        })
     }
     
     func setupViews() {

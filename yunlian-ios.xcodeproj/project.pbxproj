@@ -40,6 +40,7 @@
 		D124F09F1B896AB000F86780 /* TitleSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F09E1B896AB000F86780 /* TitleSearchView.swift */; };
 		D1A8DF711B89D24200217467 /* SearchContactsResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF701B89D24200217467 /* SearchContactsResultController.swift */; };
 		D1A8DF731B89D3F100217467 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF721B89D3F100217467 /* SearchResultCell.swift */; };
+		D1A8DF751B89DA6B00217467 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF741B89DA6B00217467 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		D124F09E1B896AB000F86780 /* TitleSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleSearchView.swift; path = Widgets/TitleSearchView.swift; sourceTree = "<group>"; };
 		D1A8DF701B89D24200217467 /* SearchContactsResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactsResultController.swift; sourceTree = "<group>"; };
 		D1A8DF721B89D3F100217467 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		D1A8DF741B89DA6B00217467 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 				D124F0791B82C22600F86780 /* ContactsControllers */,
 				D124F0801B84161400F86780 /* Util.swift */,
 				D124F09A1B88AE3900F86780 /* TestViewController.swift */,
+				D1A8DF741B89DA6B00217467 /* ProfileViewController.swift */,
 			);
 			path = "yunlian-ios";
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				D10E8B071B7F2C6500C8658D /* UIConstants.swift in Sources */,
 				D124F09B1B88AE3900F86780 /* TestViewController.swift in Sources */,
 				D10E8B0F1B7F38D200C8658D /* CalendarViewController.swift in Sources */,
+				D1A8DF751B89DA6B00217467 /* ProfileViewController.swift in Sources */,
 				D124F0811B84161400F86780 /* Util.swift in Sources */,
 				D1A8DF731B89D3F100217467 /* SearchResultCell.swift in Sources */,
 				D124F0721B80A4DD00F86780 /* ContactsHeaderView.swift in Sources */,

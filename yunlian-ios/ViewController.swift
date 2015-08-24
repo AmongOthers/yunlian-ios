@@ -17,7 +17,6 @@ class ViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         tabBar.tintColor = UIConstants.TintColor
         contactsController = ContactsViewController()
         contactsController.title = "名片夹"
