@@ -17,7 +17,7 @@ enum ContactsViewControllerState {
 class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
     private struct UX {
         static let HeaderHeight:CGFloat = 37.5
-        static let BackGroundColor = UIColor(rgb: 0xebedf0)
+
         static let TopOffset:CGFloat = 8
         static let HeaderInternalOffset:CGFloat = 16
         static let HeaderInternalOffsetShrink:CGFloat = 2
@@ -42,7 +42,7 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UX.BackGroundColor
+        view.backgroundColor = UIConstants.BackgroundGray
         
         let searchItem = UIBarButtonItem(image: UIImage(named: "searchItem"), style: UIBarButtonItemStyle.Plain, target: self, action: "searchTapped")
         let addItem = UIBarButtonItem(image: UIImage(named: "addItem"), style: UIBarButtonItemStyle.Plain, target: self, action: "addTapped")

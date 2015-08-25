@@ -34,4 +34,6 @@ struct UIConstants {
     static let DefaultButtonCornerRadius:CGFloat = 4
     static let DefaultButtonFont = UIFont.systemFontOfSize(16)
     static let DefaultAnimationDuration:NSTimeInterval = 0.2
+    static let FloatPanelWidthFactor = 0.85
+    static let FloatPanelHeightFactor = 0.75
 }

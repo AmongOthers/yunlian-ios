@@ -41,6 +41,7 @@
 		D1A8DF711B89D24200217467 /* SearchContactsResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF701B89D24200217467 /* SearchContactsResultController.swift */; };
 		D1A8DF731B89D3F100217467 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF721B89D3F100217467 /* SearchResultCell.swift */; };
 		D1A8DF751B89DA6B00217467 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF741B89DA6B00217467 /* ProfileViewController.swift */; };
+		D1A8DF781B8AA7A600217467 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF771B8AA7A600217467 /* ProfileHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		D1A8DF701B89D24200217467 /* SearchContactsResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactsResultController.swift; sourceTree = "<group>"; };
 		D1A8DF721B89D3F100217467 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		D1A8DF741B89DA6B00217467 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D1A8DF771B8AA7A600217467 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		D10E8AD01B7EE1C100C8658D /* yunlian-ios */ = {
 			isa = PBXGroup;
 			children = (
+				D1A8DF761B8AA77000217467 /* ProfileControllers */,
 				D124F0821B84A3FC00F86780 /* Models */,
 				D10E8B051B7F2C2E00C8658D /* Extensions */,
 				D10E8AD31B7EE1C100C8658D /* AppDelegate.swift */,
@@ -156,7 +159,6 @@
 				D124F0791B82C22600F86780 /* ContactsControllers */,
 				D124F0801B84161400F86780 /* Util.swift */,
 				D124F09A1B88AE3900F86780 /* TestViewController.swift */,
-				D1A8DF741B89DA6B00217467 /* ProfileViewController.swift */,
 			);
 			path = "yunlian-ios";
 			sourceTree = "<group>";
@@ -230,6 +232,15 @@
 				D124F0831B84A42E00F86780 /* Person.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		D1A8DF761B8AA77000217467 /* ProfileControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D1A8DF741B89DA6B00217467 /* ProfileViewController.swift */,
+				D1A8DF771B8AA7A600217467 /* ProfileHeaderView.swift */,
+			);
+			name = ProfileControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,6 +369,7 @@
 				D124F08A1B8554B600F86780 /* BlackListContactsViewController.swift in Sources */,
 				D10E8AD41B7EE1C100C8658D /* AppDelegate.swift in Sources */,
 				D124F07B1B82C50B00F86780 /* FriendsContactCell.swift in Sources */,
+				D1A8DF781B8AA7A600217467 /* ProfileHeaderView.swift in Sources */,
 				D10E8B0B1B7F376B00C8658D /* LoginViewController.swift in Sources */,
 				D124F0991B88AC6100F86780 /* UIImage+Helper.h in Sources */,
 				D124F0901B88946900F86780 /* ContactsPanelView.swift in Sources */,

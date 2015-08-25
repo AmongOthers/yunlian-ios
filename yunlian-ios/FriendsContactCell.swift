@@ -20,7 +20,6 @@ class FriendsContactCell: UITableViewCell {
         static let SeperatorColor = UIColor(rgb: 0xd9dde0)
     }
    
-    var isConstraintInstalled = false
     var seperatorView: UIView!
     var nameLabel: UILabel!
     var titleLabel: UILabel!

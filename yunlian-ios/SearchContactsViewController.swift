@@ -17,16 +17,11 @@ class SearchContactsViewController: UIViewController, TitleSearchViewDelegate, U
     
     var titleView: TitleSearchView!
     var backgroundImage: UIImage?
-    var backgroundImageView: UIView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         if backgroundImage != nil {
-            backgroundImageView = UIImageView(image: backgroundImage)
-            view.addSubview(backgroundImageView!)
-            backgroundImageView?.snp_remakeConstraints(closure: { (make) -> Void in
-                make.edges.equalTo(self.view)
-            })
+            view.backgroundColor = UIColor(patternImage: backgroundImage!)
             let blur = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffectStyle.Light))
             view.addSubview(blur)
             blur.snp_makeConstraints { (make) -> Void in
