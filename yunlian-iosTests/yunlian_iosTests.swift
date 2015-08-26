@@ -33,4 +33,8 @@ class yunlian_iosTests: XCTestCase {
         }
     }
     
+    func testDate() {
+        
+    }
+    
 }

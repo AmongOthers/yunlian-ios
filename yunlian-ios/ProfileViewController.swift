@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UITableViewController, ProfileHeaderViewDelegate {
+class ProfileViewController: UIViewController, ProfileHeaderViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     struct UX {
         static let HeaderHeight:CGFloat = 85
@@ -17,10 +17,17 @@ class ProfileViewController: UITableViewController, ProfileHeaderViewDelegate {
         static let QrCodeMinSize:CGFloat = 10
         static let QrCodePanelRightOffset:CGFloat = 30
         static let QrCodePanelTopOffset:CGFloat = 10
+        static let HeightForHeader:CGFloat = 43.5
+        static let HeightForRow:CGFloat = 34
     }
     
+    let CellIdentifier = "CellIdentifier"
+    let HeaderIdentifier = "HeaderIdentifier"
+    
     var toolbar: UIToolbar!
+    var tableView: UITableView!
     var headerView: ProfileHeaderView!
+    var panelMask: UIView!
     var qrCodePanel: UIView!
     var qrCodeImageView: UIImageView!
 
@@ -48,15 +55,27 @@ class ProfileViewController: UITableViewController, ProfileHeaderViewDelegate {
         toolbar.items = [audioItem, flex, pictureItem, flex, videoItem, flex, moreItem]
         toolbar.tintColor = UIConstants.TintColor
         
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         headerView = ProfileHeaderView()
         headerView.delegate = self
-        tableView.tableHeaderView = headerView
-        tableView.tableFooterView = UIView()
-        tableView.bounces = false
+        headerView.frame = CGRectMake(0, 0, view.frame.size.width, UX.HeaderHeight)
+        view.addSubview(headerView)
         
-        qrCodePanel = UIView()
-        view.addSubview(qrCodePanel)
+        tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Grouped)
+        tableView.sectionHeaderHeight = 0
+        tableView.sectionFooterHeight = 0
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        tableView.registerClass(ProfileCell.self, forCellReuseIdentifier: CellIdentifier)
+        tableView.registerClass(ProfileSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: HeaderIdentifier)
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        tableView.bounces = false
+        tableView.backgroundColor = UIConstants.BackgroundGray
+        
+        let tuple = Helper.panelView(view, target: self, action: "maskTapped")
+        panelMask = tuple.mask
+        qrCodePanel = tuple.panel
         qrCodePanel.backgroundColor = UIColor.whiteColor()
         qrCodePanel.layer.cornerRadius = UIConstants.DefaultButtonCornerRadius
         qrCodePanel.layer.shadowColor = UIConstants.FirstGray.CGColor
@@ -65,6 +84,7 @@ class ProfileViewController: UITableViewController, ProfileHeaderViewDelegate {
         qrCodePanel.addSubview(qrCodeImageView)
         qrCodeImageView.image = UIImage(named: "qrdemo")
         qrCodeImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        panelMask.hidden = true
         qrCodePanel.hidden = true
     }
     
@@ -83,8 +103,26 @@ class ProfileViewController: UITableViewController, ProfileHeaderViewDelegate {
         
     }
     
+    func maskTapped() {
+        qrCodePanel.snp_remakeConstraints { (make) -> Void in
+            make.width.height.equalTo(UX.QrCodeMinSize)
+            make.right.equalTo(self.headerView).offset(-UX.QrCodePanelRightOffset)
+            make.top.equalTo(self.headerView.snp_bottom).offset(-UX.QrCodePanelTopOffset)
+        }
+        UIView.animateWithDuration(UIConstants.DefaultAnimationDuration, animations: { () -> Void in
+            self.qrCodePanel.layoutIfNeeded()
+            }, completion: { (finished) -> Void in
+                if finished {
+                    self.qrCodePanel.hidden = true
+                    self.panelMask.hidden = true
+                }
+        })
+    }
+    
     func qrCodeTapped() {
         if qrCodePanel.hidden {
+            view.bringSubviewToFront(panelMask)
+            panelMask.hidden = false
             qrCodePanel.hidden = false
             qrCodePanel.snp_remakeConstraints { (make) -> Void in
                 make.width.height.equalTo(UX.PanelSize)
@@ -120,13 +158,13 @@ class ProfileViewController: UITableViewController, ProfileHeaderViewDelegate {
             make.width.equalTo(self.view)
             make.bottom.equalTo(self.snp_bottomLayoutGuideBottom)
         }
-        headerView.snp_remakeConstraints { (make) -> Void in
-            make.top.equalTo(self.snp_topLayoutGuideBottom)
-            make.left.equalTo(self.view)
-            make.right.equalTo(self.view)
-            make.width.equalTo(self.view)
-            make.height.equalTo(UX.HeaderHeight)
-        }
+//        headerView.snp_remakeConstraints { (make) -> Void in
+//            make.top.equalTo(self.snp_topLayoutGuideBottom)
+//            make.left.equalTo(self.view)
+//            make.right.equalTo(self.view)
+//            make.width.equalTo(self.view)
+//            make.height.equalTo(UX.HeaderHeight)
+//        }
         qrCodePanel.snp_remakeConstraints { (make) -> Void in
             make.width.height.equalTo(UX.QrCodeMinSize)
             make.right.equalTo(self.headerView).offset(-UX.QrCodePanelRightOffset)
@@ -136,5 +174,40 @@ class ProfileViewController: UITableViewController, ProfileHeaderViewDelegate {
             make.centerX.centerY.equalTo(self.qrCodePanel)
             make.width.height.equalTo(self.qrCodePanel).multipliedBy(0.7)
         }
+        tableView.snp_remakeConstraints { (make) -> Void in
+            make.left.right.equalTo(self.view)
+            make.top.equalTo(self.headerView.snp_bottom)
+            make.bottom.equalTo(self.toolbar.snp_top)
+        }
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 10
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! ProfileCell
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderIdentifier) as? ProfileSectionHeaderView
+        header?.titleLabel.text = "个性签名"
+        return header
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UX.HeightForHeader
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UX.HeightForRow
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     }
 }

@@ -129,6 +129,13 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
         }
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        if !wrapPanelView.hidden {
+            self.panel.alpha = 0
+            wrapPanelView.hidden = true
+        }
+    }
+    
     func headerTapped(header: ContactsHeaderView) {
         let tappedState = header.state
         if state != tappedState {

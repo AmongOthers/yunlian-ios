@@ -26,7 +26,7 @@
 		D124F0781B82BE9C00F86780 /* FriendsContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0771B82BE9C00F86780 /* FriendsContactsViewController.swift */; };
 		D124F07B1B82C50B00F86780 /* FriendsContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F07A1B82C50B00F86780 /* FriendsContactCell.swift */; };
 		D124F07D1B82C55800F86780 /* FriendsContactHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F07C1B82C55800F86780 /* FriendsContactHeader.swift */; };
-		D124F0811B84161400F86780 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0801B84161400F86780 /* Util.swift */; };
+		D124F0811B84161400F86780 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0801B84161400F86780 /* Helper.swift */; };
 		D124F0841B84A42E00F86780 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0831B84A42E00F86780 /* Person.swift */; };
 		D124F0861B84C4B000F86780 /* OnewayContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0851B84C4B000F86780 /* OnewayContactCell.swift */; };
 		D124F0881B8551F200F86780 /* OnewayContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F0871B8551F200F86780 /* OnewayContactsViewController.swift */; };
@@ -42,6 +42,9 @@
 		D1A8DF731B89D3F100217467 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF721B89D3F100217467 /* SearchResultCell.swift */; };
 		D1A8DF751B89DA6B00217467 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF741B89DA6B00217467 /* ProfileViewController.swift */; };
 		D1A8DF781B8AA7A600217467 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF771B8AA7A600217467 /* ProfileHeaderView.swift */; };
+		D1A8DF7A1B8CA03500217467 /* ProfileSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF791B8CA03500217467 /* ProfileSectionHeaderView.swift */; };
+		D1A8DF7C1B8CA05100217467 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF7B1B8CA05100217467 /* ProfileCell.swift */; };
+		D1A8DF7E1B8D42BE00217467 /* SignatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF7D1B8D42BE00217467 /* SignatureCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +81,7 @@
 		D124F0771B82BE9C00F86780 /* FriendsContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsContactsViewController.swift; sourceTree = "<group>"; };
 		D124F07A1B82C50B00F86780 /* FriendsContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsContactCell.swift; sourceTree = "<group>"; };
 		D124F07C1B82C55800F86780 /* FriendsContactHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsContactHeader.swift; sourceTree = "<group>"; };
-		D124F0801B84161400F86780 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		D124F0801B84161400F86780 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		D124F0831B84A42E00F86780 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		D124F0851B84C4B000F86780 /* OnewayContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnewayContactCell.swift; sourceTree = "<group>"; };
 		D124F0871B8551F200F86780 /* OnewayContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnewayContactsViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +98,9 @@
 		D1A8DF721B89D3F100217467 /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		D1A8DF741B89DA6B00217467 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D1A8DF771B8AA7A600217467 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		D1A8DF791B8CA03500217467 /* ProfileSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSectionHeaderView.swift; sourceTree = "<group>"; };
+		D1A8DF7B1B8CA05100217467 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		D1A8DF7D1B8D42BE00217467 /* SignatureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +147,8 @@
 		D10E8AD01B7EE1C100C8658D /* yunlian-ios */ = {
 			isa = PBXGroup;
 			children = (
-				D1A8DF761B8AA77000217467 /* ProfileControllers */,
+				D1A8DF821B8D44A500217467 /* ThirdPart */,
+				D1A8DF761B8AA77000217467 /* Profile */,
 				D124F0821B84A3FC00F86780 /* Models */,
 				D10E8B051B7F2C2E00C8658D /* Extensions */,
 				D10E8AD31B7EE1C100C8658D /* AppDelegate.swift */,
@@ -156,8 +163,8 @@
 				D10E8B101B7F38ED00C8658D /* NewsViewController.swift */,
 				D10E8B121B7F39C300C8658D /* SettingsViewController.swift */,
 				D11D21141B7F818500309569 /* Widgets */,
-				D124F0791B82C22600F86780 /* ContactsControllers */,
-				D124F0801B84161400F86780 /* Util.swift */,
+				D124F0791B82C22600F86780 /* Contacts */,
+				D124F0801B84161400F86780 /* Helper.swift */,
 				D124F09A1B88AE3900F86780 /* TestViewController.swift */,
 			);
 			path = "yunlian-ios";
@@ -209,7 +216,7 @@
 			name = Widgets;
 			sourceTree = "<group>";
 		};
-		D124F0791B82C22600F86780 /* ContactsControllers */ = {
+		D124F0791B82C22600F86780 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
 				D124F09C1B8968BA00F86780 /* SearchContactsViewController.swift */,
@@ -223,7 +230,7 @@
 				D1A8DF701B89D24200217467 /* SearchContactsResultController.swift */,
 				D1A8DF721B89D3F100217467 /* SearchResultCell.swift */,
 			);
-			name = ContactsControllers;
+			name = Contacts;
 			sourceTree = "<group>";
 		};
 		D124F0821B84A3FC00F86780 /* Models */ = {
@@ -234,13 +241,23 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		D1A8DF761B8AA77000217467 /* ProfileControllers */ = {
+		D1A8DF761B8AA77000217467 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				D1A8DF741B89DA6B00217467 /* ProfileViewController.swift */,
 				D1A8DF771B8AA7A600217467 /* ProfileHeaderView.swift */,
+				D1A8DF791B8CA03500217467 /* ProfileSectionHeaderView.swift */,
+				D1A8DF7B1B8CA05100217467 /* ProfileCell.swift */,
+				D1A8DF7D1B8D42BE00217467 /* SignatureCell.swift */,
 			);
-			name = ProfileControllers;
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		D1A8DF821B8D44A500217467 /* ThirdPart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ThirdPart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,10 +381,12 @@
 			files = (
 				D10E8B041B7F2C2A00C8658D /* UIColorExtensions.swift in Sources */,
 				D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */,
+				D1A8DF7A1B8CA03500217467 /* ProfileSectionHeaderView.swift in Sources */,
 				D124F08C1B85554200F86780 /* BlackListContactCell.swift in Sources */,
 				D124F09D1B8968BA00F86780 /* SearchContactsViewController.swift in Sources */,
 				D124F08A1B8554B600F86780 /* BlackListContactsViewController.swift in Sources */,
 				D10E8AD41B7EE1C100C8658D /* AppDelegate.swift in Sources */,
+				D1A8DF7E1B8D42BE00217467 /* SignatureCell.swift in Sources */,
 				D124F07B1B82C50B00F86780 /* FriendsContactCell.swift in Sources */,
 				D1A8DF781B8AA7A600217467 /* ProfileHeaderView.swift in Sources */,
 				D10E8B0B1B7F376B00C8658D /* LoginViewController.swift in Sources */,
@@ -377,7 +396,7 @@
 				D124F09B1B88AE3900F86780 /* TestViewController.swift in Sources */,
 				D10E8B0F1B7F38D200C8658D /* CalendarViewController.swift in Sources */,
 				D1A8DF751B89DA6B00217467 /* ProfileViewController.swift in Sources */,
-				D124F0811B84161400F86780 /* Util.swift in Sources */,
+				D124F0811B84161400F86780 /* Helper.swift in Sources */,
 				D1A8DF731B89D3F100217467 /* SearchResultCell.swift in Sources */,
 				D124F0721B80A4DD00F86780 /* ContactsHeaderView.swift in Sources */,
 				D10E8B0D1B7F38A700C8658D /* ContactsViewController.swift in Sources */,
@@ -390,6 +409,7 @@
 				D124F07D1B82C55800F86780 /* FriendsContactHeader.swift in Sources */,
 				D10E8B131B7F39C300C8658D /* SettingsViewController.swift in Sources */,
 				D124F0841B84A42E00F86780 /* Person.swift in Sources */,
+				D1A8DF7C1B8CA05100217467 /* ProfileCell.swift in Sources */,
 				D1A8DF711B89D24200217467 /* SearchContactsResultController.swift in Sources */,
 				D124F0781B82BE9C00F86780 /* FriendsContactsViewController.swift in Sources */,
 			);

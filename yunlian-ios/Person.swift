@@ -12,6 +12,9 @@ class Person {
     var name: String
     var title: String
     var avatar: String
+//    var signature: String
+//    var telephone: String
+//    var mail: String
     
     init(name: String, title: String, avatar: String) {
         self.name = name

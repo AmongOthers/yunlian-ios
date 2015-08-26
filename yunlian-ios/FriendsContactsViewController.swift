@@ -88,7 +88,7 @@ class FriendsContactsViewController: UIViewController, UITableViewDelegate, UITa
         controller.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(controller, animated: true)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -97,5 +97,4 @@ class FriendsContactsViewController: UIViewController, UITableViewDelegate, UITa
     func reloadData() {
         
     }
-
 }
