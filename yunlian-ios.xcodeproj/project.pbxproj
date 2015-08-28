@@ -18,7 +18,6 @@
 		D10E8B091B7F312700C8658D /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10E8B081B7F312700C8658D /* SnapKit.framework */; };
 		D10E8B0B1B7F376B00C8658D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8B0A1B7F376B00C8658D /* LoginViewController.swift */; };
 		D10E8B0D1B7F38A700C8658D /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8B0C1B7F38A700C8658D /* ContactsViewController.swift */; };
-		D10E8B0F1B7F38D200C8658D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8B0E1B7F38D200C8658D /* CalendarViewController.swift */; };
 		D10E8B111B7F38ED00C8658D /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8B101B7F38ED00C8658D /* NewsViewController.swift */; };
 		D10E8B131B7F39C300C8658D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8B121B7F39C300C8658D /* SettingsViewController.swift */; };
 		D11D21131B7F818000309569 /* TextFieldLeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11D21121B7F818000309569 /* TextFieldLeftView.swift */; };
@@ -45,6 +44,11 @@
 		D1A8DF7A1B8CA03500217467 /* ProfileSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF791B8CA03500217467 /* ProfileSectionHeaderView.swift */; };
 		D1A8DF7C1B8CA05100217467 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF7B1B8CA05100217467 /* ProfileCell.swift */; };
 		D1A8DF7E1B8D42BE00217467 /* SignatureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF7D1B8D42BE00217467 /* SignatureCell.swift */; };
+		D1A8DF871B8DFF6C00217467 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF861B8DFF6C00217467 /* CalendarViewController.swift */; };
+		D1A8DF891B8E001900217467 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF881B8E001900217467 /* CalendarCell.swift */; };
+		D1A8DF981B8FEE8900217467 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF971B8FEE8900217467 /* CalendarHeaderView.swift */; };
+		D1C6AAA71B909FCF000AF565 /* CalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAA61B909FCF000AF565 /* CalendarDate.swift */; };
+		D1C6AAA91B90A0C2000AF565 /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAA81B90A0C2000AF565 /* SwiftDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +77,6 @@
 		D10E8B081B7F312700C8658D /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
 		D10E8B0A1B7F376B00C8658D /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		D10E8B0C1B7F38A700C8658D /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
-		D10E8B0E1B7F38D200C8658D /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		D10E8B101B7F38ED00C8658D /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		D10E8B121B7F39C300C8658D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D11D21121B7F818000309569 /* TextFieldLeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TextFieldLeftView.swift; path = Widgets/TextFieldLeftView.swift; sourceTree = "<group>"; };
@@ -101,6 +104,11 @@
 		D1A8DF791B8CA03500217467 /* ProfileSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSectionHeaderView.swift; sourceTree = "<group>"; };
 		D1A8DF7B1B8CA05100217467 /* ProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		D1A8DF7D1B8D42BE00217467 /* SignatureCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignatureCell.swift; sourceTree = "<group>"; };
+		D1A8DF861B8DFF6C00217467 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		D1A8DF881B8E001900217467 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		D1A8DF971B8FEE8900217467 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
+		D1C6AAA61B909FCF000AF565 /* CalendarDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDate.swift; sourceTree = "<group>"; };
+		D1C6AAA81B90A0C2000AF565 /* SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftDate.swift; path = ../../SwiftDate/SwiftDate/SwiftDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +155,7 @@
 		D10E8AD01B7EE1C100C8658D /* yunlian-ios */ = {
 			isa = PBXGroup;
 			children = (
+				D1A8DF831B8DFEDE00217467 /* Calendar */,
 				D1A8DF821B8D44A500217467 /* ThirdPart */,
 				D1A8DF761B8AA77000217467 /* Profile */,
 				D124F0821B84A3FC00F86780 /* Models */,
@@ -159,8 +168,8 @@
 				D10E8B061B7F2C6500C8658D /* UIConstants.swift */,
 				D10E8B0A1B7F376B00C8658D /* LoginViewController.swift */,
 				D10E8B0C1B7F38A700C8658D /* ContactsViewController.swift */,
-				D10E8B0E1B7F38D200C8658D /* CalendarViewController.swift */,
 				D10E8B101B7F38ED00C8658D /* NewsViewController.swift */,
+				D1A8DF861B8DFF6C00217467 /* CalendarViewController.swift */,
 				D10E8B121B7F39C300C8658D /* SettingsViewController.swift */,
 				D11D21141B7F818500309569 /* Widgets */,
 				D124F0791B82C22600F86780 /* Contacts */,
@@ -256,8 +265,19 @@
 		D1A8DF821B8D44A500217467 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				D1C6AAA81B90A0C2000AF565 /* SwiftDate.swift */,
 			);
 			name = ThirdPart;
+			sourceTree = "<group>";
+		};
+		D1A8DF831B8DFEDE00217467 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				D1A8DF881B8E001900217467 /* CalendarCell.swift */,
+				D1A8DF971B8FEE8900217467 /* CalendarHeaderView.swift */,
+				D1C6AAA61B909FCF000AF565 /* CalendarDate.swift */,
+			);
+			name = Calendar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,6 +402,7 @@
 				D10E8B041B7F2C2A00C8658D /* UIColorExtensions.swift in Sources */,
 				D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */,
 				D1A8DF7A1B8CA03500217467 /* ProfileSectionHeaderView.swift in Sources */,
+				D1A8DF871B8DFF6C00217467 /* CalendarViewController.swift in Sources */,
 				D124F08C1B85554200F86780 /* BlackListContactCell.swift in Sources */,
 				D124F09D1B8968BA00F86780 /* SearchContactsViewController.swift in Sources */,
 				D124F08A1B8554B600F86780 /* BlackListContactsViewController.swift in Sources */,
@@ -394,7 +415,6 @@
 				D124F0901B88946900F86780 /* ContactsPanelView.swift in Sources */,
 				D10E8B071B7F2C6500C8658D /* UIConstants.swift in Sources */,
 				D124F09B1B88AE3900F86780 /* TestViewController.swift in Sources */,
-				D10E8B0F1B7F38D200C8658D /* CalendarViewController.swift in Sources */,
 				D1A8DF751B89DA6B00217467 /* ProfileViewController.swift in Sources */,
 				D124F0811B84161400F86780 /* Helper.swift in Sources */,
 				D1A8DF731B89D3F100217467 /* SearchResultCell.swift in Sources */,
@@ -402,7 +422,10 @@
 				D10E8B0D1B7F38A700C8658D /* ContactsViewController.swift in Sources */,
 				D124F0881B8551F200F86780 /* OnewayContactsViewController.swift in Sources */,
 				D11D21131B7F818000309569 /* TextFieldLeftView.swift in Sources */,
+				D1C6AAA91B90A0C2000AF565 /* SwiftDate.swift in Sources */,
+				D1A8DF981B8FEE8900217467 /* CalendarHeaderView.swift in Sources */,
 				D10E8B111B7F38ED00C8658D /* NewsViewController.swift in Sources */,
+				D1C6AAA71B909FCF000AF565 /* CalendarDate.swift in Sources */,
 				D124F09F1B896AB000F86780 /* TitleSearchView.swift in Sources */,
 				D124F0861B84C4B000F86780 /* OnewayContactCell.swift in Sources */,
 				D124F0971B88AC4600F86780 /* UIImage+Helper.m in Sources */,
@@ -410,6 +433,7 @@
 				D10E8B131B7F39C300C8658D /* SettingsViewController.swift in Sources */,
 				D124F0841B84A42E00F86780 /* Person.swift in Sources */,
 				D1A8DF7C1B8CA05100217467 /* ProfileCell.swift in Sources */,
+				D1A8DF891B8E001900217467 /* CalendarCell.swift in Sources */,
 				D1A8DF711B89D24200217467 /* SearchContactsResultController.swift in Sources */,
 				D124F0781B82BE9C00F86780 /* FriendsContactsViewController.swift in Sources */,
 			);

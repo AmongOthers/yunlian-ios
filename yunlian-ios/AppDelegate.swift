@@ -25,7 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = attrs
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
-        window?.rootViewController = ViewController()
+//        window?.rootViewController = ViewController()
+        window?.rootViewController = CalendarViewController()
 //        let controller = ContactsViewController()
 //        controller.title = "我的联系人"
 //        window?.rootViewController = UINavigationController(rootViewController: controller)
