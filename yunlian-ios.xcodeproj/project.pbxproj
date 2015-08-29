@@ -49,6 +49,7 @@
 		D1A8DF981B8FEE8900217467 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF971B8FEE8900217467 /* CalendarHeaderView.swift */; };
 		D1C6AAA71B909FCF000AF565 /* CalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAA61B909FCF000AF565 /* CalendarDate.swift */; };
 		D1C6AAA91B90A0C2000AF565 /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAA81B90A0C2000AF565 /* SwiftDate.swift */; };
+		D1C6AAAF1B913CD5000AF565 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAAE1B913CD5000AF565 /* CalendarTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		D1A8DF971B8FEE8900217467 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		D1C6AAA61B909FCF000AF565 /* CalendarDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDate.swift; sourceTree = "<group>"; };
 		D1C6AAA81B90A0C2000AF565 /* SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftDate.swift; path = ../../SwiftDate/SwiftDate/SwiftDate.swift; sourceTree = "<group>"; };
+		D1C6AAAE1B913CD5000AF565 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 				D1A8DF881B8E001900217467 /* CalendarCell.swift */,
 				D1A8DF971B8FEE8900217467 /* CalendarHeaderView.swift */,
 				D1C6AAA61B909FCF000AF565 /* CalendarDate.swift */,
+				D1C6AAAE1B913CD5000AF565 /* CalendarTableViewCell.swift */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				D10E8B0D1B7F38A700C8658D /* ContactsViewController.swift in Sources */,
 				D124F0881B8551F200F86780 /* OnewayContactsViewController.swift in Sources */,
 				D11D21131B7F818000309569 /* TextFieldLeftView.swift in Sources */,
+				D1C6AAAF1B913CD5000AF565 /* CalendarTableViewCell.swift in Sources */,
 				D1C6AAA91B90A0C2000AF565 /* SwiftDate.swift in Sources */,
 				D1A8DF981B8FEE8900217467 /* CalendarHeaderView.swift in Sources */,
 				D10E8B111B7F38ED00C8658D /* NewsViewController.swift in Sources */,

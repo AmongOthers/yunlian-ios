@@ -12,7 +12,6 @@ import SnapKit
 class CalendarCell: UICollectionViewCell {
     struct UX {
         static let NumberFontSize:CGFloat = 13
-        static let NumberTextColor = UIColor(rgb: 0x474747)
         static let SelectionViewColor = UIConstants.BackgroundColor.colorWithAlphaComponent(0.5)
         static let SelectionViewSize:CGFloat = 39
     }
@@ -58,7 +57,7 @@ class CalendarCell: UICollectionViewCell {
         numberLabel = UILabel()
         selectionView.addSubview(numberLabel)
         numberLabel.font = UIFont.systemFontOfSize(UX.NumberFontSize)
-        numberLabel.textColor = UX.NumberTextColor
+        numberLabel.textColor = UIConstants.FontColorGray
     }
     
     func setupConstraints() {

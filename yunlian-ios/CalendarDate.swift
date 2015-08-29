@@ -28,6 +28,11 @@ class CalendarDate {
             return NSDate.today(tz: zone.abbreviation)
         }
     }
+    var rows:Int {
+        get {
+            return Int(ceil(Float(startIndex + monthDays) / 7))
+        }
+    }
     
     init() {
         let zone = NSTimeZone.localTimeZone()

@@ -41,7 +41,6 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = UIConstants.BackgroundGray
         
         let searchItem = UIBarButtonItem(image: UIImage(named: "searchItem"), style: UIBarButtonItemStyle.Plain, target: self, action: "searchTapped")
