@@ -37,7 +37,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     var choosedIndexPath: NSIndexPath?
     var choosedDate: NSDate {
         get {
-            return calendarDate.currentDate.beginningOfMonth + choosedIndexPath!.row.days
+            return calendarDate.currentDate.beginningOfMonth + (choosedIndexPath!.row - calendarDate.startIndex).days
         }
     }
     var datePicker: UIDatePicker!
@@ -59,6 +59,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         view.addSubview(collectionView)
         collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.bounces = false
+        CalendarCell.SelectionViewSize = view.frame.width / 7
         collectionView.registerClass(CalendarCell.self, forCellWithReuseIdentifier: CellIdentifier)
         collectionView.registerClass(CalendarHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: HeaderIdentifier)
         collectionView.delegate = self
@@ -115,7 +116,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         view.addSubview(datePickerMask)
         datePickerMask.backgroundColor = UIConstants.MaskColor
         datePickerMask.userInteractionEnabled = true
-        datePickerMask.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "maskTapped"))
+        datePickerMask.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "maskTapped:"))
         datePickerMask.snp_remakeConstraints { (make) -> Void in
             make.edges.equalTo(self.view)
         }
@@ -139,12 +140,27 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         datePickerMask.hidden = true
     }
     
+    func searchTapped() {
+        let cell = collectionView.cellForItemAtIndexPath(choosedIndexPath!) as! CalendarCell
+        cell.bubbleNumber = 0
+    }
+    
+    func addTapped() {
+        let cell = collectionView.cellForItemAtIndexPath(choosedIndexPath!) as! CalendarCell
+        cell.bubbleNumber = cell.bubbleNumber + 1
+    }
+    
     func monthLabelTapped() {
         datePickerMask.hidden = !datePickerMask.hidden
     }
     
-    func maskTapped() {
-        datePickerMask.hidden = true
+    func maskTapped(recognizer: UITapGestureRecognizer) {
+        let point = recognizer.locationInView(datePickerOKButton)
+        if abs(point.x - UX.DatePickerButtonSize) <= 120 && abs(point.y - UX.DatePickerButtonSize) <= 80 {
+            okTapped()
+        } else {
+            datePickerMask.hidden = true
+        }
     }
     
     func okTapped() {
@@ -248,6 +264,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
         } else {
             if cell.isToday {
+                cell.isChoosed = true
                 choosedIndexPath = indexPath
             }
         }
