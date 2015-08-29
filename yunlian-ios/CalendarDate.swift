@@ -33,6 +33,11 @@ class CalendarDate {
             return Int(ceil(Float(startIndex + monthDays) / 7))
         }
     }
+    var dateText:String {
+        get {
+            return "\(currentDate.year)年\(currentDate.month)月"
+        }
+    }
     
     init() {
         let zone = NSTimeZone.localTimeZone()
@@ -45,6 +50,10 @@ class CalendarDate {
     }
     
     func previousMonth() {
-        currentDate = currentDate.beginningOfMonth - 1.day
+        currentDate = (currentDate.beginningOfMonth - 1.day).beginningOfMonth
+    }
+    
+    func setDate(date: NSDate) {
+        currentDate = date
     }
 }

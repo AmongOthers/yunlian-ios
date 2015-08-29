@@ -7,7 +7,7 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>4BBA8AE2-7D28-4143-8404-3594210914D8</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>yunlian-ios</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3843F8C42CD077733A6D794C7EB41BF48DD284B6</key>
@@ -16,7 +16,7 @@
 		<string>https://github.com/malcommac/SwiftDate.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>yunlian-ios.xcodeproj/project.xcworkspace</string>
+	<string>yunlian-ios.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3843F8C42CD077733A6D794C7EB41BF48DD284B6</key>

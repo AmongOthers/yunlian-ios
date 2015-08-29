@@ -39,6 +39,10 @@ class CalendarCell: UICollectionViewCell {
             }
         }
     }
+    
+    func clearState() {
+        selectionView.backgroundColor = UIColor.clearColor()
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)

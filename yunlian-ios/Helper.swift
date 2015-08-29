@@ -25,6 +25,7 @@ class Helper {
         }
         let panel = UIView()
         mask.addSubview(panel)
+        parentView.bringSubviewToFront(mask)
         return (mask, panel)
         
 //        let window = UIWindow(frame: UIScreen.mainScreen().bounds)

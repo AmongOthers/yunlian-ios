@@ -17,6 +17,11 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         static let RowHeight:CGFloat = 45
         static let HeaderHieght:CGFloat = 37
         static let TabelRowHeight:CGFloat = 80
+        static let TodayButtonWidth:CGFloat = 72
+        static let TodayButtonHeight:CGFloat = 25
+        static let DatePickerButtonBarHeight:CGFloat = 40
+        static let DatePickerButtonSize:CGFloat = 40
+        static let DatePickerButtonBottomOffset:CGFloat = 64
     }
     
     let CellIdentifier = "CellIdentifier"
@@ -28,10 +33,21 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     var buttonPre: UIButton!
     var buttonNext: UIButton!
     var calendarDate: CalendarDate!
+    var todayButton: UIButton!
+    var choosedIndexPath: NSIndexPath?
+    var choosedDate: NSDate {
+        get {
+            return calendarDate.currentDate.beginningOfMonth + choosedIndexPath!.row.days
+        }
+    }
+    var datePicker: UIDatePicker!
+    var datePickerMask: UIView!
+    var datePickerOKButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIConstants.BackgroundGray
+        automaticallyAdjustsScrollViewInsets = false
         
         let layout = UICollectionViewFlowLayout()
         let width = (view.frame.width - UX.CalendarOffset) / 7
@@ -42,6 +58,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
         view.addSubview(collectionView)
         collectionView.backgroundColor = UIColor.whiteColor()
+        collectionView.bounces = false
         collectionView.registerClass(CalendarCell.self, forCellWithReuseIdentifier: CellIdentifier)
         collectionView.registerClass(CalendarHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: HeaderIdentifier)
         collectionView.delegate = self
@@ -74,24 +91,120 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
             make.top.equalTo(self.collectionView.snp_bottom).offset(-UX.RowHeight * CGFloat(6 - rows))
             make.bottom.equalTo(self.snp_bottomLayoutGuideTop)
         }
+        
+        let item = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: self, action: "monthLabelTapped")
+        item.title = calendarDate.dateText
+        item.tintColor = UIConstants.TintColor
+        navigationItem.leftBarButtonItem = item
+        
+        let searchItem = UIBarButtonItem(image: UIImage(named: "searchItem"), style: UIBarButtonItemStyle.Plain, target: self, action: "searchTapped")
+        let addItem = UIBarButtonItem(image: UIImage(named: "addItem"), style: UIBarButtonItemStyle.Plain, target: self, action: "addTapped")
+        navigationItem.rightBarButtonItems = [addItem, searchItem]
+        
+        todayButton = UIButton()
+        todayButton.frame = CGRectMake((view.frame.width - UX.TodayButtonWidth) / 2, (44 - UX.TodayButtonHeight) / 2, UX.TodayButtonWidth, UX.TodayButtonHeight)
+        todayButton.setTitle("今天", forState: UIControlState.Normal)
+        todayButton.addTarget(self, action: "todayTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        todayButton.setTitleColor(UIConstants.FontColorGray , forState: UIControlState.Normal)
+        todayButton.backgroundColor = UIColor.whiteColor()
+        todayButton.titleLabel?.font = UIConstants.DefaultMediumFont
+        todayButton.layer.cornerRadius = UIConstants.DefaultButtonCornerRadius
+        navigationItem.titleView = todayButton
+        
+        datePickerMask = UIView()
+        view.addSubview(datePickerMask)
+        datePickerMask.backgroundColor = UIConstants.MaskColor
+        datePickerMask.userInteractionEnabled = true
+        datePickerMask.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "maskTapped"))
+        datePickerMask.snp_remakeConstraints { (make) -> Void in
+            make.edges.equalTo(self.view)
+        }
+        datePicker = UIDatePicker()
+        datePicker.datePickerMode = UIDatePickerMode.Date
+        datePickerMask.addSubview(datePicker)
+        datePicker.backgroundColor = UIColor.whiteColor()
+        datePicker.snp_remakeConstraints(closure: { (make) -> Void in
+            make.centerX.equalTo(self.datePickerMask)
+            make.centerY.equalTo(self.datePickerMask)
+        })
+        datePickerOKButton = UIButton()
+        datePickerMask.addSubview(datePickerOKButton)
+        datePickerOKButton.setBackgroundImage(UIImage(named: "okmark"), forState: UIControlState.Normal)
+        datePickerOKButton.snp_remakeConstraints { (make) -> Void in
+            make.width.height.equalTo(UX.DatePickerButtonSize)
+            make.centerX.equalTo(datePickerMask)
+            make.bottom.equalTo(datePickerMask).offset(-UX.DatePickerButtonBottomOffset)
+        }
+        datePickerOKButton.addTarget(self, action: "okTapped", forControlEvents: UIControlEvents.TouchUpInside)
+        datePickerMask.hidden = true
+    }
+    
+    func monthLabelTapped() {
+        datePickerMask.hidden = !datePickerMask.hidden
+    }
+    
+    func maskTapped() {
+        datePickerMask.hidden = true
+    }
+    
+    func okTapped() {
+        datePickerMask.hidden = true
+        let date = datePicker.date
+        if date.isSameMonthOf(choosedDate) {
+            if !date.isEqualToDate(choosedDate, ignoreTime: true) {
+                changeDayInCurrentMonth(date)
+            }
+        } else {
+            calendarDate.setDate(date)
+            updateCalendarState()
+        }
     }
     
     func swiped(recognizer: UISwipeGestureRecognizer) {
-        let originRows = calendarDate.rows
         if recognizer.direction == UISwipeGestureRecognizerDirection.Up {
             calendarDate.nextMonth()
         } else {
             calendarDate.previousMonth()
         }
-        let rows = calendarDate.rows
-        collectionView.reloadData()
-        if originRows != rows {
-            tableView.snp_remakeConstraints { (make) -> Void in
-                make.left.right.equalTo(self.view)
-                make.top.equalTo(self.collectionView.snp_bottom).offset(-UX.RowHeight * CGFloat(6 - rows))
-                make.bottom.equalTo(self.snp_bottomLayoutGuideTop)
+        updateCalendarState()
+    }
+    
+    func changeDayInCurrentMonth(date: NSDate) {
+        let originChoosedCell = collectionView.cellForItemAtIndexPath(choosedIndexPath!) as! CalendarCell
+        originChoosedCell.isChoosed = false
+        let indexPath = NSIndexPath(forRow: date.day - 1 + calendarDate.startIndex, inSection: 0)
+        choosedIndexPath = indexPath
+        let choosedCell = collectionView.cellForItemAtIndexPath(choosedIndexPath!) as! CalendarCell
+        choosedCell.isChoosed = true
+        tableView.reloadData()
+    }
+    
+    func todayTapped() {
+        let today = calendarDate.today
+        if !choosedDate.isEqualToDate(today, ignoreTime: true) {
+            if !choosedDate.isSameMonthOf(today) {
+                calendarDate.setDate(today)
+                updateCalendarState()
+            } else {
+                changeDayInCurrentMonth(today)
             }
         }
+    }
+    
+    func updateCalendarState() {
+        let indexPath = NSIndexPath(forRow: calendarDate.currentDate.day - 1 + calendarDate.startIndex, inSection: 0)
+        let originChoosedCell = collectionView.cellForItemAtIndexPath(choosedIndexPath!) as! CalendarCell
+        originChoosedCell.isChoosed = false
+        choosedIndexPath = indexPath
+        collectionView.reloadData()
+        tableView.reloadData()
+        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+        tableView.snp_remakeConstraints { (make) -> Void in
+                make.left.right.equalTo(self.view)
+                make.top.equalTo(self.collectionView.snp_bottom).offset(-UX.RowHeight * CGFloat(6 - calendarDate.rows))
+                make.bottom.equalTo(self.snp_bottomLayoutGuideTop)
+            }
+        navigationItem.leftBarButtonItem?.title = calendarDate.dateText
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -113,6 +226,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CellIdentifier, forIndexPath: indexPath) as! CalendarCell
+        cell.clearState()
         if indexPath.row < calendarDate.startIndex {
             cell.numberLabel.text = ""
         } else if indexPath.row < calendarDate.startIndex + calendarDate.monthDays {
@@ -127,6 +241,15 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
             }
         } else {
             cell.isToday = false
+        }
+        if let i = choosedIndexPath {
+            if i == indexPath {
+                cell.isChoosed = true
+            }
+        } else {
+            if cell.isToday {
+                choosedIndexPath = indexPath
+            }
         }
         return cell
     }
@@ -148,12 +271,15 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let originChoosedCell = collectionView.cellForItemAtIndexPath(choosedIndexPath!) as! CalendarCell
+        originChoosedCell.isChoosed = false
+        choosedIndexPath = indexPath
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CalendarCell
         cell.isChoosed = true
     }
     
-    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CalendarCell
-        cell.isChoosed = false
-    }
+//    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+//        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CalendarCell
+//        cell.isChoosed = false
+//    }
 }
