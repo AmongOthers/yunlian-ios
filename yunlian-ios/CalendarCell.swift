@@ -83,6 +83,7 @@ class CalendarCell: UICollectionViewCell {
     
     func clearState() {
         selectionView.backgroundColor = UIColor.clearColor()
+        bubbleNumber = 0
     }
 
     override init(frame: CGRect) {

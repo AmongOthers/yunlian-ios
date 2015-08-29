@@ -59,7 +59,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         view.addSubview(collectionView)
         collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.bounces = false
-        CalendarCell.SelectionViewSize = view.frame.width / 7
+        CalendarCell.SelectionViewSize = width - 1
         collectionView.registerClass(CalendarCell.self, forCellWithReuseIdentifier: CellIdentifier)
         collectionView.registerClass(CalendarHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: HeaderIdentifier)
         collectionView.delegate = self
