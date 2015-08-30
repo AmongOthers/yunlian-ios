@@ -21,11 +21,13 @@ class CalendarTableViewCell: UITableViewCell {
         static let TimeSquareSize:CGFloat = 52
         static let TitleOffset:CGFloat = 11
         static let TimeLabelOffset:CGFloat = 6
-        static let AvatarSize:CGFloat = 42.5
         static let PeopleBarHeight:CGFloat = 73
         static let ArrowRightOffset = 8
         static let ArrowSize = 18
         static let ArrowTouchSize = 40
+        static let PersonCellWidth:CGFloat = 50
+        static let CollectionViewVerticalInsets:CGFloat = 6
+        static let CollectionViewHorizontalInsets:CGFloat = 4
     }
     
     var activity: CalendarActivity! {
@@ -38,6 +40,8 @@ class CalendarTableViewCell: UITableViewCell {
     }
     
     var headerBarView: UIView!
+    // 加一个遮罩在推出头像的时候可以避免头像区域出现在上部区域
+    var frontView: UIView!
     var timeSquareView: UIView!
     var startTimeLabel: UILabel!
     var endTimeLabel: UILabel!
@@ -46,6 +50,9 @@ class CalendarTableViewCell: UITableViewCell {
     var peopleBar: UIView!
     var toggleView: UIView!
     var arrowImageView: UIView!
+    var personCollectionView: UICollectionView!
+    
+    let PersonCellIdentifier = "PersonCellIdentifier"
     
     weak var delegate: CalendarTableViewCellDelegate?
     
@@ -61,40 +68,61 @@ class CalendarTableViewCell: UITableViewCell {
     
     func setupViews() {
         contentView.backgroundColor = UIColor.whiteColor()
-        headerBarView = UIView()
-        contentView.addSubview(headerBarView)
-        headerBarView.backgroundColor = UIConstants.BackgroundGray
-        timeSquareView = UIView()
-        contentView.addSubview(timeSquareView)
-        timeSquareView.backgroundColor = UIConstants.BackgroundGray
-        startTimeLabel = UILabel()
-        contentView.addSubview(startTimeLabel)
-        startTimeLabel.font = UIConstants.DefaultMediumFont
-        startTimeLabel.textColor = UIConstants.TintColorGreen
-        endTimeLabel = UILabel()
-        contentView.addSubview(endTimeLabel)
-        endTimeLabel.font = UIConstants.DefaultMediumFont
-        endTimeLabel.textColor = UIConstants.TintColor
-        titleLabel = UILabel()
-        contentView.addSubview(titleLabel)
-        titleLabel.font = UIConstants.DefaultMediumFont
-        titleLabel.textColor = UIConstants.FontColorGray
-        locationLabel = UILabel()
-        contentView.addSubview(locationLabel)
-        locationLabel.font = UIConstants.DefaultSmallFont
-        locationLabel.textColor = UIConstants.FontColorSecondGray
+        
         peopleBar = UIView()
         contentView.addSubview(peopleBar)
         peopleBar.backgroundColor = UIConstants.BackgroundGray.colorWithAlphaComponent(0.5)
         peopleBar.hidden = true
+        
+        frontView = UIView()
+        contentView.addSubview(frontView)
+        frontView.backgroundColor = UIColor.whiteColor()
+        
+        timeSquareView = UIView()
+        frontView.addSubview(timeSquareView)
+        timeSquareView.backgroundColor = UIConstants.BackgroundGray
+        startTimeLabel = UILabel()
+        frontView.addSubview(startTimeLabel)
+        startTimeLabel.font = UIConstants.DefaultMediumFont
+        startTimeLabel.textColor = UIConstants.TintColorGreen
+        endTimeLabel = UILabel()
+        frontView.addSubview(endTimeLabel)
+        endTimeLabel.font = UIConstants.DefaultMediumFont
+        endTimeLabel.textColor = UIConstants.TintColor
+        titleLabel = UILabel()
+        frontView.addSubview(titleLabel)
+        titleLabel.font = UIConstants.DefaultMediumFont
+        titleLabel.textColor = UIConstants.FontColorGray
+        locationLabel = UILabel()
+        frontView.addSubview(locationLabel)
+        locationLabel.font = UIConstants.DefaultSmallFont
+        locationLabel.textColor = UIConstants.FontColorSecondGray
+
         toggleView = UIView()
-        contentView.addSubview(toggleView)
+        frontView.addSubview(toggleView)
         toggleView.backgroundColor = UIColor.clearColor()
         toggleView.userInteractionEnabled = true
         toggleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "toggleTapped"))
         arrowImageView = UIImageView(image: UIImage(named: "up"))
         toggleView.addSubview(arrowImageView)
         arrowImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSizeMake(UX.PersonCellWidth, UX.PeopleBarHeight - UX.CollectionViewVerticalInsets * 2)
+        layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
+        layout.sectionInset = UIEdgeInsetsMake(UX.CollectionViewHorizontalInsets, UX.CollectionViewVerticalInsets, UX.CollectionViewHorizontalInsets, UX.CollectionViewVerticalInsets)
+        personCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
+        peopleBar.addSubview(personCollectionView)
+        personCollectionView.backgroundColor = UIColor.whiteColor()
+        personCollectionView.delegate = self
+        personCollectionView.dataSource = self
+        personCollectionView.bounces = false
+        personCollectionView.registerClass(PersonCell.self, forCellWithReuseIdentifier: PersonCellIdentifier)
+        
+        headerBarView = UIView()
+        contentView.addSubview(headerBarView)
+        headerBarView.backgroundColor = UIConstants.BackgroundGray
+        
     }
     
     func toggleTapped() {
@@ -116,6 +144,13 @@ class CalendarTableViewCell: UITableViewCell {
             make.width.equalTo(self.contentView)
             make.height.equalTo(UX.HeaderBarHeight)
             make.top.equalTo(self.contentView)
+            make.left.equalTo(self.contentView)
+        }
+        frontView.snp_remakeConstraints { (make) -> Void in
+            make.width.equalTo(self.contentView)
+            make.height.equalTo(CalendarViewController.UX.TabelRowHeight - UX.HeaderBarHeight)
+            make.top.equalTo(self.headerBarView.snp_bottom)
+            make.left.equalTo(self.contentView)
         }
         timeSquareView.snp_remakeConstraints { (make) -> Void in
             make.width.height.equalTo(UX.TimeSquareSize)
@@ -154,11 +189,13 @@ class CalendarTableViewCell: UITableViewCell {
             make.centerY.equalTo(self.toggleView)
             make.width.height.equalTo(UX.ArrowSize)
         }
+        personCollectionView.snp_remakeConstraints { (make) -> Void in
+            make.edges.equalTo(self.peopleBar)
+        }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        println("layoutSubViews:\(contentView.frame.width):\(contentView.frame.height)")
         if contentView.frame.height > CalendarViewController.UX.TabelRowHeight {
             open()
         } else {
@@ -166,8 +203,21 @@ class CalendarTableViewCell: UITableViewCell {
         }
     }
     
-    override func layoutMarginsDidChange() {
-        println("marginDidChaged")
-    }
-
 }
+
+extension CalendarTableViewCell: UICollectionViewDelegate {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PersonCellIdentifier, forIndexPath: indexPath) as! PersonCell
+        let person = activity.persons[indexPath.row]
+        cell.titleLabel.text = person.name
+        cell.avatarView.image = UIImage(named: person.avatar)
+        return cell
+    }
+}
+
+extension CalendarTableViewCell: UICollectionViewDataSource {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return activity.persons.count
+    }
+}
+

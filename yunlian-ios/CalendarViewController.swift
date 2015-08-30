@@ -260,6 +260,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         activities.removeAll()
         for i in 0...5 {
             let activity = CalendarActivity(title: "日程标题", location: "亚马逊会议室", startTime: NSDate(), endTime: NSDate())
+            for i in 0...8 {
+                activity.persons.append(Person(name: "郑文伟先生", title: "软件工程师", avatar: "2"))
+            }
             activities.append(activity)
         }
     }

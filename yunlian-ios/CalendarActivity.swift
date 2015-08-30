@@ -16,6 +16,7 @@ class CalendarActivity {
     var startTime: NSDate
     var endTime: NSDate
     var isPeopleShowed = false
+    var persons = [Person]()
     
     init(title: String, location: String, startTime: NSDate, endTime: NSDate) {
         self.title = title

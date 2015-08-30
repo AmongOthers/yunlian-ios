@@ -52,6 +52,7 @@
 		D1C6AAAF1B913CD5000AF565 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAAE1B913CD5000AF565 /* CalendarTableViewCell.swift */; };
 		D1C6AAB11B92B19A000AF565 /* CalendarActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAB01B92B19A000AF565 /* CalendarActivity.swift */; };
 		D1C6AAB31B92B3B4000AF565 /* MySwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAB21B92B3B4000AF565 /* MySwiftDate.swift */; };
+		D1C6AAB51B92F1DA000AF565 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAB41B92F1DA000AF565 /* PersonCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		D1C6AAAE1B913CD5000AF565 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		D1C6AAB01B92B19A000AF565 /* CalendarActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarActivity.swift; sourceTree = "<group>"; };
 		D1C6AAB21B92B3B4000AF565 /* MySwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySwiftDate.swift; sourceTree = "<group>"; };
+		D1C6AAB41B92F1DA000AF565 /* PersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,6 +287,7 @@
 				D1A8DF971B8FEE8900217467 /* CalendarHeaderView.swift */,
 				D1C6AAA61B909FCF000AF565 /* CalendarDate.swift */,
 				D1C6AAAE1B913CD5000AF565 /* CalendarTableViewCell.swift */,
+				D1C6AAB41B92F1DA000AF565 /* PersonCell.swift */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				D10E8B071B7F2C6500C8658D /* UIConstants.swift in Sources */,
 				D124F09B1B88AE3900F86780 /* TestViewController.swift in Sources */,
 				D1A8DF751B89DA6B00217467 /* ProfileViewController.swift in Sources */,
+				D1C6AAB51B92F1DA000AF565 /* PersonCell.swift in Sources */,
 				D124F0811B84161400F86780 /* Helper.swift in Sources */,
 				D1A8DF731B89D3F100217467 /* SearchResultCell.swift in Sources */,
 				D124F0721B80A4DD00F86780 /* ContactsHeaderView.swift in Sources */,
