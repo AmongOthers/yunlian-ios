@@ -295,6 +295,14 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         activity.isPeopleShowed = !activity.isPeopleShowed
         tableView.beginUpdates()
         tableView.endUpdates()
+        var i = 0
+        for (index, a) in enumerate(activities) {
+            if a === activity {
+                i = index
+                break
+            }
+        }
+        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: i, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: false)
     }
     
 //    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
