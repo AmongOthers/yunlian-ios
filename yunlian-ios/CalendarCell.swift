@@ -49,14 +49,16 @@ class CalendarCell: UICollectionViewCell {
                     make.centerY.equalTo(contentView.snp_top).offset(UX.BubbleSize)
                     make.width.height.equalTo(UX.BubbleSize)
                 }
-                UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.bubbleLabel.layoutIfNeeded()
-                    }, completion: { (finished) -> Void in
-                        if finished {
-                            self.bubbleLabel.hidden = true
-                            self.bubbleLabel.text = ""
-                        }
-                })
+                self.bubbleLabel.hidden = true
+                self.bubbleLabel.text = ""
+//                UIView.animateWithDuration(0.5, animations: { () -> Void in
+//                    self.bubbleLabel.layoutIfNeeded()
+//                    }, completion: { (finished) -> Void in
+//                        if finished {
+//                            self.bubbleLabel.hidden = true
+//                            self.bubbleLabel.text = ""
+//                        }
+//                })
             }
         }
     }

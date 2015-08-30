@@ -8,6 +8,11 @@
 
 import UIKit
 
+@objc
+protocol CalendarTableViewCellDelegate {
+    func toggleTapped(activity: CalendarActivity)
+}
+
 class CalendarTableViewCell: UITableViewCell {
     
     struct UX {
@@ -16,6 +21,20 @@ class CalendarTableViewCell: UITableViewCell {
         static let TimeSquareSize:CGFloat = 52
         static let TitleOffset:CGFloat = 11
         static let TimeLabelOffset:CGFloat = 6
+        static let AvatarSize:CGFloat = 42.5
+        static let PeopleBarHeight:CGFloat = 73
+        static let ArrowRightOffset = 8
+        static let ArrowSize = 18
+        static let ArrowTouchSize = 40
+    }
+    
+    var activity: CalendarActivity! {
+        didSet {
+            titleLabel.text = activity.title
+            locationLabel.text = activity.location
+            startTimeLabel.text = "\(activity.startTime.hour):\(activity.startTime.minute)"
+            endTimeLabel.text = "\(activity.endTime.hour):\(activity.endTime.minute)"
+        }
     }
     
     var headerBarView: UIView!
@@ -24,6 +43,11 @@ class CalendarTableViewCell: UITableViewCell {
     var endTimeLabel: UILabel!
     var titleLabel: UILabel!
     var locationLabel: UILabel!
+    var peopleBar: UIView!
+    var toggleView: UIView!
+    var arrowImageView: UIView!
+    
+    weak var delegate: CalendarTableViewCellDelegate?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: reuseIdentifier)
@@ -59,6 +83,32 @@ class CalendarTableViewCell: UITableViewCell {
         contentView.addSubview(locationLabel)
         locationLabel.font = UIConstants.DefaultSmallFont
         locationLabel.textColor = UIConstants.FontColorSecondGray
+        peopleBar = UIView()
+        contentView.addSubview(peopleBar)
+        peopleBar.backgroundColor = UIConstants.BackgroundGray.colorWithAlphaComponent(0.5)
+        peopleBar.hidden = true
+        toggleView = UIView()
+        contentView.addSubview(toggleView)
+        toggleView.backgroundColor = UIColor.clearColor()
+        toggleView.userInteractionEnabled = true
+        toggleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "toggleTapped"))
+        arrowImageView = UIImageView(image: UIImage(named: "up"))
+        toggleView.addSubview(arrowImageView)
+        arrowImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
+    }
+    
+    func toggleTapped() {
+        delegate?.toggleTapped(activity!)
+    }
+    
+    func open() {
+        peopleBar.hidden = false
+        self.arrowImageView.transform = CGAffineTransformIdentity
+    }
+    
+    func close() {
+        peopleBar.hidden = true
+        self.arrowImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI))
     }
     
     func setupConstraints() {
@@ -88,6 +138,36 @@ class CalendarTableViewCell: UITableViewCell {
             make.left.equalTo(self.titleLabel)
             make.top.equalTo(self.titleLabel.snp_bottom).offset(UX.ContentOffset)
         }
+        peopleBar.snp_remakeConstraints { (make) -> Void in
+            make.width.equalTo(self.contentView)
+            make.height.equalTo(UX.PeopleBarHeight)
+            make.left.equalTo(self.contentView)
+            make.bottom.equalTo(self.contentView)
+        }
+        toggleView.snp_remakeConstraints { (make) -> Void in
+            make.right.top.equalTo(self.contentView)
+            make.width.equalTo(UX.ArrowTouchSize)
+            make.height.equalTo(CalendarViewController.UX.TabelRowHeight)
+        }
+        arrowImageView.snp_remakeConstraints { (make) -> Void in
+            make.right.equalTo(self.toggleView).offset(-UX.ArrowRightOffset)
+            make.centerY.equalTo(self.toggleView)
+            make.width.height.equalTo(UX.ArrowSize)
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        println("layoutSubViews:\(contentView.frame.width):\(contentView.frame.height)")
+        if contentView.frame.height > CalendarViewController.UX.TabelRowHeight {
+            open()
+        } else {
+            close()
+        }
+    }
+    
+    override func layoutMarginsDidChange() {
+        println("marginDidChaged")
     }
 
 }

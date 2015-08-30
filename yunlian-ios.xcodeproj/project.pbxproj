@@ -50,6 +50,8 @@
 		D1C6AAA71B909FCF000AF565 /* CalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAA61B909FCF000AF565 /* CalendarDate.swift */; };
 		D1C6AAA91B90A0C2000AF565 /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAA81B90A0C2000AF565 /* SwiftDate.swift */; };
 		D1C6AAAF1B913CD5000AF565 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAAE1B913CD5000AF565 /* CalendarTableViewCell.swift */; };
+		D1C6AAB11B92B19A000AF565 /* CalendarActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAB01B92B19A000AF565 /* CalendarActivity.swift */; };
+		D1C6AAB31B92B3B4000AF565 /* MySwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAB21B92B3B4000AF565 /* MySwiftDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		D1C6AAA61B909FCF000AF565 /* CalendarDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDate.swift; sourceTree = "<group>"; };
 		D1C6AAA81B90A0C2000AF565 /* SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftDate.swift; path = ../../SwiftDate/SwiftDate/SwiftDate.swift; sourceTree = "<group>"; };
 		D1C6AAAE1B913CD5000AF565 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
+		D1C6AAB01B92B19A000AF565 /* CalendarActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarActivity.swift; sourceTree = "<group>"; };
+		D1C6AAB21B92B3B4000AF565 /* MySwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySwiftDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,7 @@
 				D10E8B031B7F2C2A00C8658D /* UIColorExtensions.swift */,
 				D124F0961B88AC4600F86780 /* UIImage+Helper.m */,
 				D124F0981B88AC6100F86780 /* UIImage+Helper.h */,
+				D1C6AAB21B92B3B4000AF565 /* MySwiftDate.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -248,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				D124F0831B84A42E00F86780 /* Person.swift */,
+				D1C6AAB01B92B19A000AF565 /* CalendarActivity.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -406,6 +412,7 @@
 				D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */,
 				D1A8DF7A1B8CA03500217467 /* ProfileSectionHeaderView.swift in Sources */,
 				D1A8DF871B8DFF6C00217467 /* CalendarViewController.swift in Sources */,
+				D1C6AAB11B92B19A000AF565 /* CalendarActivity.swift in Sources */,
 				D124F08C1B85554200F86780 /* BlackListContactCell.swift in Sources */,
 				D124F09D1B8968BA00F86780 /* SearchContactsViewController.swift in Sources */,
 				D124F08A1B8554B600F86780 /* BlackListContactsViewController.swift in Sources */,
@@ -414,6 +421,7 @@
 				D124F07B1B82C50B00F86780 /* FriendsContactCell.swift in Sources */,
 				D1A8DF781B8AA7A600217467 /* ProfileHeaderView.swift in Sources */,
 				D10E8B0B1B7F376B00C8658D /* LoginViewController.swift in Sources */,
+				D1C6AAB31B92B3B4000AF565 /* MySwiftDate.swift in Sources */,
 				D124F0991B88AC6100F86780 /* UIImage+Helper.h in Sources */,
 				D124F0901B88946900F86780 /* ContactsPanelView.swift in Sources */,
 				D10E8B071B7F2C6500C8658D /* UIConstants.swift in Sources */,

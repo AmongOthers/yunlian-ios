@@ -24,8 +24,7 @@ class CalendarDate {
     }
     var today:NSDate {
         get {
-            let zone = NSTimeZone.localTimeZone()
-            return NSDate.today(tz: zone.abbreviation)
+            return NSDate.localToday()
         }
     }
     var rows:Int {

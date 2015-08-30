@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
+class CalendarViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource, CalendarTableViewCellDelegate {
     
     struct UX {
         static let HeightForRow:CGFloat = 20
@@ -44,6 +44,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     var datePickerMask: UIView!
     var datePickerOKButton: UIButton!
     
+    var activities = [CalendarActivity]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIConstants.BackgroundGray
@@ -59,7 +61,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         view.addSubview(collectionView)
         collectionView.backgroundColor = UIColor.whiteColor()
         collectionView.bounces = false
-        CalendarCell.SelectionViewSize = width - 1
+        CalendarCell.SelectionViewSize = UX.RowHeight
         collectionView.registerClass(CalendarCell.self, forCellWithReuseIdentifier: CellIdentifier)
         collectionView.registerClass(CalendarHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: HeaderIdentifier)
         collectionView.delegate = self
@@ -78,6 +80,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.addGestureRecognizer(swipeDown)
         calendarDate = CalendarDate()
         
+        reloadActivities()
         tableView = UITableView()
         view.addSubview(tableView)
         tableView.delegate = self
@@ -220,6 +223,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         choosedIndexPath = indexPath
         let choosedCell = collectionView.cellForItemAtIndexPath(choosedIndexPath!) as! CalendarCell
         choosedCell.isChoosed = true
+        reloadActivities()
         tableView.reloadData()
     }
     
@@ -241,6 +245,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         originChoosedCell.isChoosed = false
         choosedIndexPath = indexPath
         collectionView.reloadData()
+        reloadActivities()
         tableView.reloadData()
         tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
         tableView.snp_remakeConstraints { (make) -> Void in
@@ -251,22 +256,59 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         navigationItem.leftBarButtonItem?.title = calendarDate.dateText
     }
     
+    func reloadActivities() {
+        activities.removeAll()
+        for i in 0...5 {
+            let activity = CalendarActivity(title: "日程标题", location: "亚马逊会议室", startTime: NSDate(), endTime: NSDate())
+            activities.append(activity)
+        }
+    }
+    
+    // MARK:- tableView
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return activities.count
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UX.TabelRowHeight
+        let activity = activities[indexPath.row]
+        if activity.isPeopleShowed {
+            return UX.TabelRowHeight + CalendarTableViewCell.UX.PeopleBarHeight
+        } else {
+            return UX.TabelRowHeight
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(TableCellIdentifier, forIndexPath: indexPath) as! CalendarTableViewCell
-        cell.titleLabel.text = "日程标题"
-        cell.locationLabel.text = "亚马孙会议室"
-        cell.startTimeLabel.text = "10:00"
-        cell.endTimeLabel.text = "12:00"
+        let activity = activities[indexPath.row]
+        cell.activity = activity
+        cell.delegate = self
         return cell
     }
+    
+    // MARK:- CalendarTableViewCellDelegate
+    func toggleTapped(activity: CalendarActivity) {
+        activity.isPeopleShowed = !activity.isPeopleShowed
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
+    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let cell = tableView.cellForRowAtIndexPath(indexPath) as! CalendarTableViewCell
+//        cell.isPeopleShowed = true
+//        tableView.beginUpdates()
+//        tableView.endUpdates()
+//    }
+//    
+//    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+//        let cell = tableView.cellForRowAtIndexPath(indexPath) as! CalendarTableViewCell
+//        cell.isPeopleShowed = false
+//        tableView.beginUpdates()
+//        tableView.endUpdates()
+//    }
+    
+    // MARK:- collectionView
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(CellIdentifier, forIndexPath: indexPath) as! CalendarCell
@@ -322,9 +364,4 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CalendarCell
         cell.isChoosed = true
     }
-    
-//    func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
-//        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! CalendarCell
-//        cell.isChoosed = false
-//    }
 }
