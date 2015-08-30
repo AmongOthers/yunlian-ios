@@ -132,9 +132,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         datePickerMask.addSubview(datePickerOKButton)
         datePickerOKButton.setBackgroundImage(UIImage(named: "okmark"), forState: UIControlState.Normal)
         datePickerOKButton.snp_remakeConstraints { (make) -> Void in
-            make.width.height.equalTo(UX.DatePickerButtonSize)
+            make.width.height.equalTo(2)
             make.centerX.equalTo(datePickerMask)
-            make.bottom.equalTo(datePickerMask).offset(-UX.DatePickerButtonBottomOffset)
+            make.centerY.equalTo(datePickerMask.snp_bottom).offset(-UX.DatePickerButtonBottomOffset - UX.DatePickerButtonSize / 2)
         }
         datePickerOKButton.addTarget(self, action: "okTapped", forControlEvents: UIControlEvents.TouchUpInside)
         datePickerMask.hidden = true
@@ -151,20 +151,48 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func monthLabelTapped() {
-        datePickerMask.hidden = !datePickerMask.hidden
+        toggleMask()
     }
     
     func maskTapped(recognizer: UITapGestureRecognizer) {
         let point = recognizer.locationInView(datePickerOKButton)
-        if abs(point.x - UX.DatePickerButtonSize) <= 120 && abs(point.y - UX.DatePickerButtonSize) <= 80 {
+        if abs(point.x - UX.DatePickerButtonSize) <= 80 && abs(point.y - UX.DatePickerButtonSize) <= 40 {
             okTapped()
+        }
+        toggleMask()
+    }
+    
+    func toggleMask() {
+        if datePickerMask.hidden {
+            datePickerMask.hidden = false
+            datePickerOKButton.snp_remakeConstraints { (make) -> Void in
+                make.width.height.equalTo(UX.DatePickerButtonSize)
+                make.centerX.equalTo(datePickerMask)
+                make.centerY.equalTo(datePickerMask.snp_bottom).offset(-UX.DatePickerButtonBottomOffset - UX.DatePickerButtonSize / 2)
+            }
+            UIView.animateWithDuration(UIConstants.DefaultAnimationDuration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                self.datePickerOKButton.layoutIfNeeded()
+                }, completion: { _ -> Void in
+                    
+            })
         } else {
-            datePickerMask.hidden = true
+            datePickerOKButton.snp_remakeConstraints { (make) -> Void in
+                make.width.height.equalTo(2)
+                make.centerX.equalTo(datePickerMask)
+                make.centerY.equalTo(datePickerMask.snp_bottom).offset(-UX.DatePickerButtonBottomOffset - UX.DatePickerButtonSize / 2)
+            }
+            UIView.animateWithDuration(UIConstants.DefaultAnimationDuration, animations: { () -> Void in
+                self.datePickerOKButton.layoutIfNeeded()
+                }, completion: { (finished) -> Void in
+                    if finished {
+                        self.datePickerMask.hidden = true
+                    }
+            })
         }
     }
     
     func okTapped() {
-        datePickerMask.hidden = true
+        toggleMask()
         let date = datePicker.date
         if date.isSameMonthOf(choosedDate) {
             if !date.isEqualToDate(choosedDate, ignoreTime: true) {

@@ -14,7 +14,8 @@ class CalendarCell: UICollectionViewCell {
         static let NumberFontSize:CGFloat = 13
         static let TodayTextColor = UIColor(rgb: 0xd54a59)
         static let SelectionViewColor = UIConstants.BackgroundColor.colorWithAlphaComponent(0.5)
-        static let BubbleCornerRadius:CGFloat = 10
+//        static let BubbleCornerRadius:CGFloat = 10
+        static let BubbleSize:CGFloat = 21
         static let BubbleFont = UIFont.systemFontOfSize(13)
     }
     
@@ -29,15 +30,13 @@ class CalendarCell: UICollectionViewCell {
                 if bubbleLabel.hidden {
                     bubbleLabel.hidden = false
                     bubbleLabel.text = bubbleNumber > 99 ? "99+" : "\(bubbleNumber)"
-                    bubbleLabel.snp_removeConstraints()
                     bubbleLabel.snp_remakeConstraints { (make) -> Void in
-                        make.bottom.equalTo(contentView.snp_top).offset(UX.BubbleCornerRadius * 2)
-                        make.left.equalTo(contentView.snp_right).offset(-UX.BubbleCornerRadius * 2)
-                        make.width.greaterThanOrEqualTo(UX.BubbleCornerRadius * 2)
-                        make.height.equalTo(UX.BubbleCornerRadius * 2)
+                        make.centerX.equalTo(contentView.snp_right).offset(-UX.BubbleSize / 2)
+                        make.centerY.equalTo(contentView.snp_top).offset(UX.BubbleSize / 2)
+                        make.width.height.equalTo(UX.BubbleSize)
                     }
-                    UIView.animateWithDuration(UIConstants.DefaultAnimationDuration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-                        self.layoutIfNeeded()
+                    UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+                        self.bubbleLabel.layoutIfNeeded()
                         }, completion: { _ -> Void in
                             
                     })
@@ -46,11 +45,11 @@ class CalendarCell: UICollectionViewCell {
                 }
             } else {
                 bubbleLabel.snp_remakeConstraints { (make) -> Void in
-                    make.top.equalTo(contentView)
-                    make.right.equalTo(contentView)
-                    make.width.height.equalTo(2)
+                    make.centerX.equalTo(contentView.snp_right).offset(-UX.BubbleSize / 2)
+                    make.centerY.equalTo(contentView.snp_top).offset(UX.BubbleSize)
+                    make.width.height.equalTo(UX.BubbleSize)
                 }
-                UIView.animateWithDuration(UIConstants.DefaultAnimationDuration, animations: { () -> Void in
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.bubbleLabel.layoutIfNeeded()
                     }, completion: { (finished) -> Void in
                         if finished {
@@ -106,11 +105,9 @@ class CalendarCell: UICollectionViewCell {
         numberLabel.textColor = UIConstants.FontColorGray
         bubbleLabel = UILabel()
         contentView.addSubview(bubbleLabel)
-        bubbleLabel.backgroundColor = UIConstants.TintColorGreen
         bubbleLabel.textColor = UIColor.whiteColor()
         bubbleLabel.font = UX.BubbleFont
-        bubbleLabel.layer.cornerRadius = UX.BubbleCornerRadius
-        bubbleLabel.clipsToBounds = true
+        bubbleLabel.backgroundColor = UIColor(patternImage: UIImage(named: "bubble")!)
         bubbleLabel.hidden = true
         bubbleLabel.textAlignment = NSTextAlignment.Center
     }
@@ -124,9 +121,9 @@ class CalendarCell: UICollectionViewCell {
             make.centerX.centerY.equalTo(self.contentView)
         }
         bubbleLabel.snp_remakeConstraints { (make) -> Void in
-            make.bottom.equalTo(contentView.snp_top).offset(UX.BubbleCornerRadius * 2)
-            make.left.equalTo(contentView.snp_right).offset(-UX.BubbleCornerRadius * 2)
-            make.width.height.equalTo(20)
+            make.centerX.equalTo(contentView.snp_right).offset(-UX.BubbleSize / 2)
+            make.centerY.equalTo(contentView.snp_top).offset(UX.BubbleSize)
+            make.width.height.equalTo(UX.BubbleSize)
         }
     }
 }
