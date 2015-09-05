@@ -11,6 +11,6 @@ import Foundation
 extension NSDate {
     class func localToday() -> NSDate! {
         let zone = NSTimeZone.localTimeZone()
-        return today(tz: zone.abbreviation)
+        return today(zone.abbreviation)
     }
 }

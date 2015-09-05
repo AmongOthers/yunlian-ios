@@ -1,2 +1,1 @@
-github "wesj/Deferred" "master"   # Making Deferred extensible
-github "SnapKit/SnapKit" >= 0.12.0
+github "rasmusth/SnapKit" "swift-2.0"

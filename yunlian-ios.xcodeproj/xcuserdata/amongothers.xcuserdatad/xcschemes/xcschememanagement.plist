@@ -4,6 +4,36 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Share.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Shared.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Storage.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>SwiftData.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Third-Part Source.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>XCGLogger.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>yunlian-ios.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -18,6 +48,86 @@
 			<true/>
 		</dict>
 		<key>D10E8AE21B7EE1C200C8658D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D14F47811B94977600D2205E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D14F478B1B94977600D2205E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D14F47A71B94985000D2205E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D14F47B11B94985000D2205E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1C6AACB1B948FEC000AF565</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1C6AAD51B948FED000AF565</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1C6AAF01B949036000AF565</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1C6AAFA1B949036000AF565</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1C6ABAD1B949382000AF565</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1C6ABB71B949382000AF565</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1C6ABD11B94944E000AF565</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1C6ABDB1B94944E000AF565</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1C6AC351B949506000AF565</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1C6AC3F1B949506000AF565</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1C6AC591B949530000AF565</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D1C6AC631B949530000AF565</key>
 		<dict>
 			<key>primary</key>
 			<true/>

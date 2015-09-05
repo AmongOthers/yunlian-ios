@@ -3,3 +3,4 @@
 //
 
 #import "UIImage+Helper.h"
+#import "sqlite3.h"

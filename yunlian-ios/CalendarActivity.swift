@@ -8,8 +8,9 @@
 
 import Foundation
 
+
 @objc
-class CalendarActivity {
+class CalendarActivity: NSObject {
     
     var title: String
     var location: String

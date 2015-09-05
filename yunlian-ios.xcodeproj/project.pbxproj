@@ -12,7 +12,6 @@
 		D10E8ADB1B7EE1C200C8658D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D10E8ADA1B7EE1C200C8658D /* Images.xcassets */; };
 		D10E8ADE1B7EE1C200C8658D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D10E8ADC1B7EE1C200C8658D /* LaunchScreen.xib */; };
 		D10E8AEA1B7EE1C200C8658D /* yunlian_iosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8AE91B7EE1C200C8658D /* yunlian_iosTests.swift */; };
-		D10E8AF41B7EEC0A00C8658D /* Deferred.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10E8AF31B7EEC0A00C8658D /* Deferred.framework */; };
 		D10E8B041B7F2C2A00C8658D /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8B031B7F2C2A00C8658D /* UIColorExtensions.swift */; };
 		D10E8B071B7F2C6500C8658D /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8B061B7F2C6500C8658D /* UIConstants.swift */; };
 		D10E8B091B7F312700C8658D /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D10E8B081B7F312700C8658D /* SnapKit.framework */; };
@@ -48,11 +47,12 @@
 		D1A8DF891B8E001900217467 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF881B8E001900217467 /* CalendarCell.swift */; };
 		D1A8DF981B8FEE8900217467 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF971B8FEE8900217467 /* CalendarHeaderView.swift */; };
 		D1C6AAA71B909FCF000AF565 /* CalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAA61B909FCF000AF565 /* CalendarDate.swift */; };
-		D1C6AAA91B90A0C2000AF565 /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAA81B90A0C2000AF565 /* SwiftDate.swift */; };
 		D1C6AAAF1B913CD5000AF565 /* CalendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAAE1B913CD5000AF565 /* CalendarTableViewCell.swift */; };
 		D1C6AAB11B92B19A000AF565 /* CalendarActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAB01B92B19A000AF565 /* CalendarActivity.swift */; };
 		D1C6AAB31B92B3B4000AF565 /* MySwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAB21B92B3B4000AF565 /* MySwiftDate.swift */; };
 		D1C6AAB51B92F1DA000AF565 /* PersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAB41B92F1DA000AF565 /* PersonCell.swift */; };
+		D1C6AAB71B930FE9000AF565 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AAB61B930FE9000AF565 /* ActivityViewController.swift */; };
+		D1C6AABB1B948583000AF565 /* SwiftDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C6AABA1B948583000AF565 /* SwiftDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +64,19 @@
 			remoteInfo = "yunlian-ios";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D1C6AAE81B948FED000AF565 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D10E8ACE1B7EE1C100C8658D /* yunlian-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "yunlian-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,11 +125,13 @@
 		D1A8DF881B8E001900217467 /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		D1A8DF971B8FEE8900217467 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		D1C6AAA61B909FCF000AF565 /* CalendarDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDate.swift; sourceTree = "<group>"; };
-		D1C6AAA81B90A0C2000AF565 /* SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftDate.swift; path = ../../SwiftDate/SwiftDate/SwiftDate.swift; sourceTree = "<group>"; };
 		D1C6AAAE1B913CD5000AF565 /* CalendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarTableViewCell.swift; sourceTree = "<group>"; };
 		D1C6AAB01B92B19A000AF565 /* CalendarActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarActivity.swift; sourceTree = "<group>"; };
 		D1C6AAB21B92B3B4000AF565 /* MySwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySwiftDate.swift; sourceTree = "<group>"; };
 		D1C6AAB41B92F1DA000AF565 /* PersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
+		D1C6AAB61B930FE9000AF565 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		D1C6AAB81B9482D9000AF565 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		D1C6AABA1B948583000AF565 /* SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftDate.swift; path = ThirdPart/SwiftDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +139,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D10E8AF41B7EEC0A00C8658D /* Deferred.framework in Frameworks */,
 				D10E8B091B7F312700C8658D /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +156,7 @@
 		D10E8AC51B7EE1C100C8658D = {
 			isa = PBXGroup;
 			children = (
+				D1C6AAB81B9482D9000AF565 /* libsqlite3.dylib */,
 				D10E8B081B7F312700C8658D /* SnapKit.framework */,
 				D10E8AF31B7EEC0A00C8658D /* Deferred.framework */,
 				D10E8AD01B7EE1C100C8658D /* yunlian-ios */,
@@ -275,7 +290,7 @@
 		D1A8DF821B8D44A500217467 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
-				D1C6AAA81B90A0C2000AF565 /* SwiftDate.swift */,
+				D1C6AABA1B948583000AF565 /* SwiftDate.swift */,
 			);
 			name = ThirdPart;
 			sourceTree = "<group>";
@@ -288,6 +303,7 @@
 				D1C6AAA61B909FCF000AF565 /* CalendarDate.swift */,
 				D1C6AAAE1B913CD5000AF565 /* CalendarTableViewCell.swift */,
 				D1C6AAB41B92F1DA000AF565 /* PersonCell.swift */,
+				D1C6AAB61B930FE9000AF565 /* ActivityViewController.swift */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -303,6 +319,7 @@
 				D10E8ACB1B7EE1C100C8658D /* Frameworks */,
 				D10E8ACC1B7EE1C100C8658D /* Resources */,
 				D10E8AF51B7EEC6800C8658D /* ShellScript */,
+				D1C6AAE81B948FED000AF565 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -337,12 +354,14 @@
 		D10E8AC61B7EE1C100C8658D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = yunlian;
 				TargetAttributes = {
 					D10E8ACD1B7EE1C100C8658D = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 6HZ65ZDT2V;
+						DevelopmentTeam = 53FQVECWN3;
 					};
 					D10E8AE21B7EE1C200C8658D = {
 						CreatedOnToolsVersion = 6.4;
@@ -434,11 +453,12 @@
 				D124F0811B84161400F86780 /* Helper.swift in Sources */,
 				D1A8DF731B89D3F100217467 /* SearchResultCell.swift in Sources */,
 				D124F0721B80A4DD00F86780 /* ContactsHeaderView.swift in Sources */,
+				D1C6AABB1B948583000AF565 /* SwiftDate.swift in Sources */,
 				D10E8B0D1B7F38A700C8658D /* ContactsViewController.swift in Sources */,
 				D124F0881B8551F200F86780 /* OnewayContactsViewController.swift in Sources */,
+				D1C6AAB71B930FE9000AF565 /* ActivityViewController.swift in Sources */,
 				D11D21131B7F818000309569 /* TextFieldLeftView.swift in Sources */,
 				D1C6AAAF1B913CD5000AF565 /* CalendarTableViewCell.swift in Sources */,
-				D1C6AAA91B90A0C2000AF565 /* SwiftDate.swift in Sources */,
 				D1A8DF981B8FEE8900217467 /* CalendarHeaderView.swift in Sources */,
 				D10E8B111B7F38ED00C8658D /* NewsViewController.swift in Sources */,
 				D1C6AAA71B909FCF000AF565 /* CalendarDate.swift in Sources */,
@@ -506,6 +526,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -581,8 +602,9 @@
 				);
 				INFOPLIST_FILE = "yunlian-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yunlian.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1e0c1b6f-9639-4989-abbc-50e52a13559c";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "yunlian-ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -601,8 +623,9 @@
 				);
 				INFOPLIST_FILE = "yunlian-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yunlian.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1e0c1b6f-9639-4989-abbc-50e52a13559c";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "yunlian-ios-Bridging-Header.h";
 			};
 			name = Release;
@@ -621,6 +644,7 @@
 				);
 				INFOPLIST_FILE = "yunlian-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yunlian.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/yunlian-ios.app/yunlian-ios";
 			};
@@ -636,6 +660,7 @@
 				);
 				INFOPLIST_FILE = "yunlian-iosTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yunlian.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/yunlian-ios.app/yunlian-ios";
 			};

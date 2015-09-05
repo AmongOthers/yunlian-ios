@@ -30,12 +30,12 @@ class CalendarTableViewCell: UITableViewCell {
         static let CollectionViewHorizontalInsets:CGFloat = 4
     }
     
-    var activity: CalendarActivity! {
+    var activity: CalendarActivity? {
         didSet {
-            titleLabel.text = activity.title
-            locationLabel.text = activity.location
-            startTimeLabel.text = "\(activity.startTime.hour):\(activity.startTime.minute)"
-            endTimeLabel.text = "\(activity.endTime.hour):\(activity.endTime.minute)"
+            titleLabel.text = activity?.title
+            locationLabel.text = activity?.location
+            startTimeLabel.text = activity?.startTime.toString(format: DateFormat.Custom("HH:mm"))
+            endTimeLabel.text = activity?.endTime.toString(format: DateFormat.Custom("HH:mm"))
         }
     }
     
@@ -62,7 +62,7 @@ class CalendarTableViewCell: UITableViewCell {
         setupConstraints()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("NotImplemented")
     }
     
@@ -208,16 +208,17 @@ class CalendarTableViewCell: UITableViewCell {
 extension CalendarTableViewCell: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(PersonCellIdentifier, forIndexPath: indexPath) as! PersonCell
-        let person = activity.persons[indexPath.row]
-        cell.titleLabel.text = person.name
-        cell.avatarView.image = UIImage(named: person.avatar)
+        if let person = activity?.persons[indexPath.row] {
+            cell.titleLabel.text = person.name
+            cell.avatarView.image = UIImage(named: person.avatar)
+        }
         return cell
     }
 }
 
 extension CalendarTableViewCell: UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return activity.persons.count
+        return activity?.persons.count ?? 0
     }
 }
 

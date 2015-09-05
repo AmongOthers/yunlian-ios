@@ -40,7 +40,7 @@ class CalendarDate {
     
     init() {
         let zone = NSTimeZone.localTimeZone()
-        initDate = NSDate.today(tz: zone.abbreviation)
+        initDate = NSDate.today(zone.abbreviation)
         currentDate = initDate
     }
     

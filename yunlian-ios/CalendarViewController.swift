@@ -247,7 +247,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         collectionView.reloadData()
         reloadActivities()
         tableView.reloadData()
-        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
+        //tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: UITableViewScrollPosition.Top, animated: false)
         tableView.snp_remakeConstraints { (make) -> Void in
                 make.left.right.equalTo(self.view)
                 make.top.equalTo(self.collectionView.snp_bottom).offset(-UX.RowHeight * CGFloat(6 - calendarDate.rows))
@@ -258,9 +258,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func reloadActivities() {
         activities.removeAll()
-        for i in 0...5 {
+        for _ in 0...5 {
             let activity = CalendarActivity(title: "日程标题", location: "亚马逊会议室", startTime: NSDate(), endTime: NSDate())
-            for i in 0...8 {
+            for _ in 0...8 {
                 activity.persons.append(Person(name: "郑文伟先生", title: "软件工程师", avatar: "2"))
             }
             activities.append(activity)
@@ -287,7 +287,16 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         let activity = activities[indexPath.row]
         cell.activity = activity
         cell.delegate = self
+        cell.personCollectionView.reloadData()
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.setSelected(false, animated: true)
+        let controller = ActivityViewController()
+        controller.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     // MARK:- CalendarTableViewCellDelegate
@@ -296,7 +305,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         tableView.beginUpdates()
         tableView.endUpdates()
         var i = 0
-        for (index, a) in enumerate(activities) {
+        for (index, a) in activities.enumerate() {
             if a === activity {
                 i = index
                 break

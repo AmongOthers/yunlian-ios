@@ -28,7 +28,7 @@ class CalendarHeaderView: UICollectionReusableView {
         setupConstraints()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("NotImplemented")
     }
     

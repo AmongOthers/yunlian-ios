@@ -22,15 +22,11 @@ class ProfileSectionHeaderView: UITableViewHeaderFooterView {
 
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
         setupViews()
         setupConstraints()
     }
-    
-    required init(coder aDecoder: NSCoder) {
+  
+    required init?(coder aDecoder: NSCoder) {
         fatalError("NotImplemented")
     }
     

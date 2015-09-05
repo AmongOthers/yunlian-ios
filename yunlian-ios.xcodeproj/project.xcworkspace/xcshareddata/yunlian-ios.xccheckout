@@ -7,22 +7,18 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>4BBA8AE2-7D28-4143-8404-3594210914D8</string>
 	<key>IDESourceControlProjectName</key>
-	<string>yunlian-ios</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3843F8C42CD077733A6D794C7EB41BF48DD284B6</key>
 		<string>https://github.com/AmongOthers/yunlian-ios.git</string>
-		<key>CA2BA3249902D4403F64BB65F77ADB2633962400</key>
-		<string>https://github.com/malcommac/SwiftDate.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>yunlian-ios.xcodeproj</string>
+	<string>yunlian-ios.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3843F8C42CD077733A6D794C7EB41BF48DD284B6</key>
 		<string>../..</string>
-		<key>CA2BA3249902D4403F64BB65F77ADB2633962400</key>
-		<string>../../../SwiftDate</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/AmongOthers/yunlian-ios.git</string>
@@ -32,14 +28,6 @@
 	<string>3843F8C42CD077733A6D794C7EB41BF48DD284B6</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>CA2BA3249902D4403F64BB65F77ADB2633962400</string>
-			<key>IDESourceControlWCCName</key>
-			<string>SwiftDate</string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

@@ -268,34 +268,26 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
     func changeContactsController(oldState: ContactsViewControllerState, newState: ContactsViewControllerState) {
         var openingHeader: ContactsHeaderView!
         var closingHeader: ContactsHeaderView!
-        var openingController: UIViewController!
-        var closingController: UIViewController!
         switch oldState {
         case .Oneway:
             closingHeader = onewayHeader
-            closingController = onewayController
             break
         case .Blacklist:
             closingHeader = blacklistHeader
-            closingController = blackListController
             break
         default:
             closingHeader = friendsHeader
-            closingController = friendsController
             break
         }
         switch newState {
         case .Oneway:
             openingHeader = onewayHeader
-            openingController = onewayController
             break
         case .Blacklist:
             openingHeader = blacklistHeader
-            openingController = blackListController
             break
         default:
             openingHeader = friendsHeader
-            openingController = friendsController
             break
         }
         openingHeader.open()

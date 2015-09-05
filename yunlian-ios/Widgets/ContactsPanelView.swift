@@ -22,12 +22,12 @@ class ContactsPanelView: UIView {
         setupConstraints()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("NotImplemented")
     }
     
     func setupViews() {
-        sweepButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        sweepButton = UIButton(type: UIButtonType.Custom)
         addSubview(sweepButton)
         sweepButton.setImage(UIImage(named: "sweep"), forState: UIControlState.Normal)
         sweepButton.setTitle("扫一扫", forState: UIControlState.Normal)
@@ -37,7 +37,7 @@ class ContactsPanelView: UIView {
         sweepButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 11)
         sweepButton.titleLabel?.font = UIConstants.DefaultMediumFont
         
-        addFriendButtton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        addFriendButtton = UIButton(type: UIButtonType.Custom)
         addSubview(addFriendButtton)
         addFriendButtton.setImage(UIImage(named: "addFriend"), forState: UIControlState.Normal)
         addFriendButtton.setTitle("添加朋友", forState: UIControlState.Normal)
