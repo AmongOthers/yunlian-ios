@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
         window?.rootViewController = ViewController()
-//        window?.rootViewController = NewsViewController()
+//        window?.rootViewController = UINavigationController(rootViewController: NewFriendViewController())
         window?.makeKeyAndVisible()
         return true
     }

@@ -87,6 +87,7 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
         
         panel = ContactsPanelView()
         wrapPanelView.addSubview(panel)
+        panel.delegate = self
         panel.alpha = 0
         
         setupConstraints()
@@ -98,7 +99,7 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
     
     func searchTapped() {
 //        let screenshot = UIScreen.mainScreen().snapshotViewAfterScreenUpdates(true)
-        let image = UIImage(UIView: navigationController?.parentViewController?.view, andRect: CGRectMake(0, 64, view.frame.width, view.frame.height))
+        let image = UIImage(UIView: UIApplication.sharedApplication().keyWindow?.rootViewController?.view, andRect: CGRectMake(0, 64, view.frame.width, view.frame.height))
         let searchController = SearchContactsViewController()
         searchController.backgroundImage = image
         searchController.hidesBottomBarWhenPushed = true
@@ -295,5 +296,13 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
         preState = oldState
         state = newState
         view.setNeedsUpdateConstraints()
+    }
+}
+
+extension ContactsViewController: ContactsPanelDelegate {
+    func addFriendTapped() {
+        let controller = NewFriendViewController()
+        controller.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(controller, animated: false)
     }
 }

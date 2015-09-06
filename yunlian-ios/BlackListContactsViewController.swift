@@ -16,12 +16,11 @@ class BlackListContactsViewController: UIViewController, UITableViewDataSource, 
     let CellIdentifier = "CellIdentifier"
     
     var tableView: UITableView!
-    var data:[Person]!
+    var data:[Person] = [Person]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        data = [Person]()
         data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "1"))
         data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "2"))
         data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "3"))

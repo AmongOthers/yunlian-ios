@@ -12,6 +12,8 @@
 		D106DCBD1B9C09EA00C5D6F3 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBC1B9C09EA00C5D6F3 /* News.swift */; settings = {ASSET_TAGS = (); }; };
 		D106DCBF1B9C19C600C5D6F3 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */; settings = {ASSET_TAGS = (); }; };
 		D106DCC11B9C19D900C5D6F3 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCC01B9C19D900C5D6F3 /* NewsCell.swift */; settings = {ASSET_TAGS = (); }; };
+		D106DCC51B9C72A000C5D6F3 /* NewFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCC41B9C72A000C5D6F3 /* NewFriendViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D106DCC71B9C87BE00C5D6F3 /* NewFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCC61B9C87BE00C5D6F3 /* NewFriendCell.swift */; settings = {ASSET_TAGS = (); }; };
 		D10E8AD41B7EE1C100C8658D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8AD31B7EE1C100C8658D /* AppDelegate.swift */; };
 		D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8AD51B7EE1C100C8658D /* ViewController.swift */; };
 		D10E8ADB1B7EE1C200C8658D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D10E8ADA1B7EE1C200C8658D /* Images.xcassets */; };
@@ -89,6 +91,8 @@
 		D106DCBC1B9C09EA00C5D6F3 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
 		D106DCC01B9C19D900C5D6F3 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		D106DCC41B9C72A000C5D6F3 /* NewFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFriendViewController.swift; sourceTree = "<group>"; };
+		D106DCC61B9C87BE00C5D6F3 /* NewFriendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFriendCell.swift; sourceTree = "<group>"; };
 		D10E8ACE1B7EE1C100C8658D /* yunlian-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "yunlian-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10E8AD21B7EE1C100C8658D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D10E8AD31B7EE1C100C8658D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 				D124F08B1B85554200F86780 /* BlackListContactCell.swift */,
 				D1A8DF701B89D24200217467 /* SearchContactsResultController.swift */,
 				D1A8DF721B89D3F100217467 /* SearchResultCell.swift */,
+				D106DCC41B9C72A000C5D6F3 /* NewFriendViewController.swift */,
+				D106DCC61B9C87BE00C5D6F3 /* NewFriendCell.swift */,
 			);
 			name = Contacts;
 			sourceTree = "<group>";
@@ -453,6 +459,7 @@
 				D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */,
 				D1A8DF7A1B8CA03500217467 /* ProfileSectionHeaderView.swift in Sources */,
 				D106DCB91B9B1C6900C5D6F3 /* SwiftData.swift in Sources */,
+				D106DCC51B9C72A000C5D6F3 /* NewFriendViewController.swift in Sources */,
 				D106DCC11B9C19D900C5D6F3 /* NewsCell.swift in Sources */,
 				D1A8DF871B8DFF6C00217467 /* CalendarViewController.swift in Sources */,
 				D1C6AAB11B92B19A000AF565 /* CalendarActivity.swift in Sources */,
@@ -464,6 +471,7 @@
 				D1A8DF7E1B8D42BE00217467 /* SignatureCell.swift in Sources */,
 				D124F07B1B82C50B00F86780 /* FriendsContactCell.swift in Sources */,
 				D1A8DF781B8AA7A600217467 /* ProfileHeaderView.swift in Sources */,
+				D106DCC71B9C87BE00C5D6F3 /* NewFriendCell.swift in Sources */,
 				D10E8B0B1B7F376B00C8658D /* LoginViewController.swift in Sources */,
 				D1C6AAB31B92B3B4000AF565 /* MySwiftDate.swift in Sources */,
 				D124F0991B88AC6100F86780 /* UIImage+Helper.h in Sources */,

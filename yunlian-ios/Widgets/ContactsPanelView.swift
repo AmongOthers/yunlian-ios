@@ -9,12 +9,18 @@
 import UIKit
 import SnapKit
 
+@objc
+protocol ContactsPanelDelegate {
+    func addFriendTapped()
+}
+
 class ContactsPanelView: UIView {
     struct UX {
     }
     
     var sweepButton: UIButton!
     var addFriendButtton: UIButton!
+    weak var delegate: ContactsPanelDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,6 +52,7 @@ class ContactsPanelView: UIView {
         addFriendButtton.setBackgroundImage(UIImage(fillColor: UIConstants.SelectedBackgroundColor), forState: UIControlState.Selected)
         addFriendButtton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 11)
         addFriendButtton.titleLabel?.font = UIConstants.DefaultMediumFont
+        addFriendButtton.addTarget(self, action: "addTapped", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     func setupConstraints() {
@@ -58,5 +65,8 @@ class ContactsPanelView: UIView {
             make.height.equalTo(self).multipliedBy(0.5)
         }
     }
-
+    
+    func addTapped() {
+        delegate?.addFriendTapped()
+    }
 }
