@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D106DCB91B9B1C6900C5D6F3 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */; settings = {ASSET_TAGS = (); }; };
+		D106DCBB1B9B1C8F00C5D6F3 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D106DCBA1B9B1C8F00C5D6F3 /* libsqlite3.0.tbd */; };
+		D106DCBD1B9C09EA00C5D6F3 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBC1B9C09EA00C5D6F3 /* News.swift */; settings = {ASSET_TAGS = (); }; };
+		D106DCBF1B9C19C600C5D6F3 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */; settings = {ASSET_TAGS = (); }; };
+		D106DCC11B9C19D900C5D6F3 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCC01B9C19D900C5D6F3 /* NewsCell.swift */; settings = {ASSET_TAGS = (); }; };
 		D10E8AD41B7EE1C100C8658D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8AD31B7EE1C100C8658D /* AppDelegate.swift */; };
 		D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8AD51B7EE1C100C8658D /* ViewController.swift */; };
 		D10E8ADB1B7EE1C200C8658D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D10E8ADA1B7EE1C200C8658D /* Images.xcassets */; };
@@ -79,6 +84,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftData.swift; path = ThirdPart/SwiftData.swift; sourceTree = "<group>"; };
+		D106DCBA1B9B1C8F00C5D6F3 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		D106DCBC1B9C09EA00C5D6F3 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
+		D106DCC01B9C19D900C5D6F3 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		D10E8ACE1B7EE1C100C8658D /* yunlian-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "yunlian-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10E8AD21B7EE1C100C8658D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D10E8AD31B7EE1C100C8658D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,7 +98,6 @@
 		D10E8AE31B7EE1C200C8658D /* yunlian-iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "yunlian-iosTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10E8AE81B7EE1C200C8658D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D10E8AE91B7EE1C200C8658D /* yunlian_iosTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = yunlian_iosTests.swift; sourceTree = "<group>"; };
-		D10E8AF31B7EEC0A00C8658D /* Deferred.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Deferred.framework; path = Carthage/Build/iOS/Deferred.framework; sourceTree = "<group>"; };
 		D10E8B031B7F2C2A00C8658D /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = Extensions/UIColorExtensions.swift; sourceTree = "<group>"; };
 		D10E8B061B7F2C6500C8658D /* UIConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		D10E8B081B7F312700C8658D /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
@@ -130,7 +139,6 @@
 		D1C6AAB21B92B3B4000AF565 /* MySwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySwiftDate.swift; sourceTree = "<group>"; };
 		D1C6AAB41B92F1DA000AF565 /* PersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		D1C6AAB61B930FE9000AF565 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
-		D1C6AAB81B9482D9000AF565 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		D1C6AABA1B948583000AF565 /* SwiftDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftDate.swift; path = ThirdPart/SwiftDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D106DCBB1B9B1C8F00C5D6F3 /* libsqlite3.0.tbd in Frameworks */,
 				D10E8B091B7F312700C8658D /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,12 +162,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D106DCB51B9B1AA000C5D6F3 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */,
+				D106DCC01B9C19D900C5D6F3 /* NewsCell.swift */,
+			);
+			name = News;
+			sourceTree = "<group>";
+		};
 		D10E8AC51B7EE1C100C8658D = {
 			isa = PBXGroup;
 			children = (
-				D1C6AAB81B9482D9000AF565 /* libsqlite3.dylib */,
+				D106DCBA1B9B1C8F00C5D6F3 /* libsqlite3.0.tbd */,
 				D10E8B081B7F312700C8658D /* SnapKit.framework */,
-				D10E8AF31B7EEC0A00C8658D /* Deferred.framework */,
 				D10E8AD01B7EE1C100C8658D /* yunlian-ios */,
 				D10E8AE61B7EE1C200C8658D /* yunlian-iosTests */,
 				D10E8ACF1B7EE1C100C8658D /* Products */,
@@ -178,6 +195,7 @@
 		D10E8AD01B7EE1C100C8658D /* yunlian-ios */ = {
 			isa = PBXGroup;
 			children = (
+				D106DCB51B9B1AA000C5D6F3 /* News */,
 				D1A8DF831B8DFEDE00217467 /* Calendar */,
 				D1A8DF821B8D44A500217467 /* ThirdPart */,
 				D1A8DF761B8AA77000217467 /* Profile */,
@@ -271,6 +289,7 @@
 			children = (
 				D124F0831B84A42E00F86780 /* Person.swift */,
 				D1C6AAB01B92B19A000AF565 /* CalendarActivity.swift */,
+				D106DCBC1B9C09EA00C5D6F3 /* News.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -290,6 +309,7 @@
 		D1A8DF821B8D44A500217467 /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
+				D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */,
 				D1C6AABA1B948583000AF565 /* SwiftDate.swift */,
 			);
 			name = ThirdPart;
@@ -414,7 +434,6 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Deferred.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 			);
 			outputPaths = (
@@ -433,8 +452,11 @@
 				D10E8B041B7F2C2A00C8658D /* UIColorExtensions.swift in Sources */,
 				D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */,
 				D1A8DF7A1B8CA03500217467 /* ProfileSectionHeaderView.swift in Sources */,
+				D106DCB91B9B1C6900C5D6F3 /* SwiftData.swift in Sources */,
+				D106DCC11B9C19D900C5D6F3 /* NewsCell.swift in Sources */,
 				D1A8DF871B8DFF6C00217467 /* CalendarViewController.swift in Sources */,
 				D1C6AAB11B92B19A000AF565 /* CalendarActivity.swift in Sources */,
+				D106DCBD1B9C09EA00C5D6F3 /* News.swift in Sources */,
 				D124F08C1B85554200F86780 /* BlackListContactCell.swift in Sources */,
 				D124F09D1B8968BA00F86780 /* SearchContactsViewController.swift in Sources */,
 				D124F08A1B8554B600F86780 /* BlackListContactsViewController.swift in Sources */,
@@ -466,6 +488,7 @@
 				D124F0861B84C4B000F86780 /* OnewayContactCell.swift in Sources */,
 				D124F0971B88AC4600F86780 /* UIImage+Helper.m in Sources */,
 				D124F07D1B82C55800F86780 /* FriendsContactHeader.swift in Sources */,
+				D106DCBF1B9C19C600C5D6F3 /* NewsHeader.swift in Sources */,
 				D10E8B131B7F39C300C8658D /* SettingsViewController.swift in Sources */,
 				D124F0841B84A42E00F86780 /* Person.swift in Sources */,
 				D1A8DF7C1B8CA05100217467 /* ProfileCell.swift in Sources */,

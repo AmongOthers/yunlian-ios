@@ -17,7 +17,7 @@ struct UIConstants {
     static let StatusBarHeight = 20
     static let BackgroundGray = UIColor(rgb: 0xebedf0)
     static let FirstGray = UIColor(rgb: 0xbcbabb)
-    static let DefaultMediumFontSize: CGFloat = 15
+    static let DefaultMediumFontSize: CGFloat = 14
     static let DefaultMediumFont = UIFont.systemFontOfSize(DefaultMediumFontSize, weight: UIFontWeightRegular)
     static let DefaultMediumBoldFont = UIFont.boldSystemFontOfSize(DefaultMediumFontSize)
     static let DefaultSmallFontSize: CGFloat = 12

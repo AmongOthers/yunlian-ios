@@ -12,7 +12,7 @@ import SnapKit
 class FriendsContactCell: UITableViewCell {
     struct UX {
         static let AvatarSize:CGFloat = 42.5
-        static let ImageOffset = 15
+        static let ImageOffset = 16
         static let SeperatorOffset = 8
         static let TextOffset = 10
         static let NameTopOffset = 10

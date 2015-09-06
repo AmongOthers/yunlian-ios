@@ -26,13 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
         window?.rootViewController = ViewController()
-//        let controller = ContactsViewController()
-//        controller.title = "我的联系人"
-//        window?.rootViewController = UINavigationController(rootViewController: controller)
-//        let controller = LoginViewController()
-//        controller.title = "登录"
-//        window?.rootViewController = UINavigationController(rootViewController: controller)
-//        window?.rootViewController = UINavigationController(rootViewController: TestViewController())
+//        window?.rootViewController = NewsViewController()
         window?.makeKeyAndVisible()
         return true
     }
