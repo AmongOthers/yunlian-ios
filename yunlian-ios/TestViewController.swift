@@ -10,42 +10,30 @@ import UIKit
 import SnapKit
 
 class TestViewController: UIViewController {
-    var testView: UIView!
-    var titleView: UIView!
+    
+    var photoScrollView: PhotoScrollView!
+    var images = [UIImage]()
+    var offsetUnit: CGFloat!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleView = TitleSearchView()
-        titleView.frame = CGRectMake(0, 0, view.frame.size.width, 36)
-        self.navigationItem.titleView = titleView
-//        titleView.snp_remakeConstraints { (make) -> Void in
-//            make.width.equalTo(view)
-//            make.height.equalTo(44)
-//        }
-//        testView = ContactsPanelView()
-//        view.addSubview(testView)
-//        testView.snp_remakeConstraints { (make) -> Void in
-//            make.width.equalTo(105)
-//            make.height.equalTo(60)
-//            make.center.equalTo(view)
-//        }
-
-        // Do any additional setup after loading the view.
+        
+        navigationController?.navigationBarHidden = true
+        automaticallyAdjustsScrollViewInsets = false
+        
+        let fileManager = NSFileManager()
+        let path = ((NSURL(string: NSHomeDirectory())?.URLByAppendingPathComponent("Documents"))?.path)!
+        fileManager.enumeratorAtPath(path)?.forEach({ (fileName) -> () in
+            let imagePath = (NSURL(string: path)?.URLByAppendingPathComponent(fileName as! String).path)!
+            let image = UIImage(data: fileManager.contentsAtPath(imagePath)!)!
+            self.images.append(image)
+        })
+        let hackFrame = CGRectMake(0, 0, view.frame.width + PhotoScrollView.UX.PhotoGap, view.frame.height)
+        photoScrollView = PhotoScrollView(frame: hackFrame, imageArray: images, currentPageNumber: 2)
+        view.addSubview(photoScrollView)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

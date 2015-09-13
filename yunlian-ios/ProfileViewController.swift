@@ -19,10 +19,17 @@ class ProfileViewController: UIViewController, ProfileHeaderViewDelegate, UITabl
         static let QrCodePanelTopOffset:CGFloat = 10
         static let HeightForHeader:CGFloat = 43.5
         static let HeightForRow:CGFloat = 34
+        static let VInsetForImageCell: CGFloat = 14.5
+        static let HeightForSignatureRow: CGFloat = 68
+        static let HeaderTitles = ["个性签名", "联系信息", "其他信息", "备注", "文字备忘", "图片备忘", "录像备忘", "语音备忘"]
+        static var ImageCellSize: CGSize?
     }
     
     let CellIdentifier = "CellIdentifier"
     let HeaderIdentifier = "HeaderIdentifier"
+    let RemarkHeaderIdentifier = "RemarkHeaderIdentifier"
+    let SignatureCellIdentifier = "SignatureCellIdentifier"
+    let ImageRemarkCellIdentifier = "ImageRemarkCellIdentifier"
     
     var toolbar: UIToolbar!
     var tableView: UITableView!
@@ -30,11 +37,15 @@ class ProfileViewController: UIViewController, ProfileHeaderViewDelegate, UITabl
     var panelMask: UIView!
     var qrCodePanel: UIView!
     var qrCodeImageView: UIImageView!
+    
+    var profile: Profile!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "详细信息"
         self.view.backgroundColor = UIConstants.BackgroundGray
+        profile = Profile()
+        UX.ImageCellSize = calculateImageCellItemSize()
         setupViews()
         setupConstraints()
     }
@@ -69,6 +80,9 @@ class ProfileViewController: UIViewController, ProfileHeaderViewDelegate, UITabl
         tableView.tableFooterView = UIView()
         tableView.registerClass(ProfileCell.self, forCellReuseIdentifier: CellIdentifier)
         tableView.registerClass(ProfileSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: HeaderIdentifier)
+        tableView.registerClass(ProfileRemarkSectionHeaderView.self, forHeaderFooterViewReuseIdentifier: RemarkHeaderIdentifier)
+        tableView.registerClass(SignatureCell.self, forCellReuseIdentifier: SignatureCellIdentifier)
+        tableView.registerClass(ImageRemarkCell.self, forCellReuseIdentifier: ImageRemarkCellIdentifier)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.bounces = false
         tableView.backgroundColor = UIConstants.BackgroundGray
@@ -182,22 +196,42 @@ class ProfileViewController: UIViewController, ProfileHeaderViewDelegate, UITabl
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 10
+        return UX.HeaderTitles.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section {
+        case 3:
+            return 0
+        default:
+            return 1
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! ProfileCell
-        return cell
+        switch indexPath.section {
+        case 0:
+            return tableView.dequeueReusableCellWithIdentifier(SignatureCellIdentifier) as! SignatureCell
+        case 5:
+            let cell = tableView.dequeueReusableCellWithIdentifier(ImageRemarkCellIdentifier) as! ImageRemarkCell
+            cell.delegate = self
+            return cell
+        default:
+            return tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! ProfileCell
+        }
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderIdentifier) as? ProfileSectionHeaderView
-        header?.titleLabel.text = "个性签名"
-        return header
+        switch section {
+            case let i where i > 3:
+                let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(RemarkHeaderIdentifier) as? ProfileRemarkSectionHeaderView
+                header?.titleLabel.text = UX.HeaderTitles[section]
+                return header
+        default:
+                let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderIdentifier) as? ProfileSectionHeaderView
+                header?.titleLabel.text = UX.HeaderTitles[section]
+                return header
+        }
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -205,9 +239,45 @@ class ProfileViewController: UIViewController, ProfileHeaderViewDelegate, UITabl
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UX.HeightForRow
+        switch indexPath.section {
+        case 0:
+            return UX.HeightForSignatureRow
+        case 5:
+            return calculateImageRemarkRowHeight()
+        default:
+            return UX.HeightForRow
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    
+    func calculateImageRemarkRowHeight() -> CGFloat {
+        let n = numberOfCells()
+        let size = (UX.ImageCellSize)!
+        return  (n >= 4 ? 3 : 2) * UX.VInsetForImageCell + (n >= 4 ? 2 : 1) * size.height
+    }
+    
+    func calculateImageCellItemSize() -> CGSize {
+        let frameWidth = view.frame.width
+        let size = CGSizeMake(frameWidth / 320 * 56.5, frameWidth / 320 * 50)
+        return size
+    }
+}
+
+extension ProfileViewController: ImageRemarkCellDelegate {
+    func numberOfCells() -> Int {
+        return profile.images.count
+    }
+    
+    func images() -> [UIImage] {
+        return profile.images
+    }
+    
+    func addImageTapped(sender: ImageRemarkCell) {
+        profile.addImage()
+        sender.imageCollectionView.reloadData()
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
 }
