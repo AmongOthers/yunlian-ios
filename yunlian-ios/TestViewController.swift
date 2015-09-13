@@ -14,11 +14,11 @@ class TestViewController: UIViewController {
     var photoScrollView: PhotoScrollView!
     var images = [UIImage]()
     var offsetUnit: CGFloat!
+    var isBarHidden = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.navigationBarHidden = true
+        view.backgroundColor = UIColor.blackColor()
         automaticallyAdjustsScrollViewInsets = false
         
         let fileManager = NSFileManager()
@@ -28,12 +28,28 @@ class TestViewController: UIViewController {
             let image = UIImage(data: fileManager.contentsAtPath(imagePath)!)!
             self.images.append(image)
         })
-        let hackFrame = CGRectMake(0, 0, view.frame.width + PhotoScrollView.UX.PhotoGap, view.frame.height)
-        photoScrollView = PhotoScrollView(frame: hackFrame, imageArray: images, currentPageNumber: 2)
+        photoScrollView = PhotoScrollView(frame: view.frame, imageArray: images, currentPageNumber: 0)
         view.addSubview(photoScrollView)
+        photoScrollView.photoDelegate = self
+        title = "\(1)/\(images.count)"
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+}
+
+extension TestViewController: PhotoDelegate {
+    func tapped() {
+        if isBarHidden {
+            isBarHidden = false
+            navigationController?.setNavigationBarHidden(false, animated: true)
+            UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Slide)
+            
+        } else {
+            isBarHidden = true
+            navigationController?.setNavigationBarHidden(true, animated: true)
+            UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
+        }
     }
 }

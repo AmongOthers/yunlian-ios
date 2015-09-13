@@ -18,15 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: false)
-        UINavigationBar.appearance().translucent = false
+//        UINavigationBar.appearance().translucent = false
         UINavigationBar.appearance().barTintColor = UIConstants.BackgroundColor
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         let attrs = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UINavigationBar.appearance().titleTextAttributes = attrs
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
-        window?.rootViewController = ViewController()
-//        window?.rootViewController = UINavigationController(rootViewController: TestViewController())
+//        window?.rootViewController = ViewController()
+        window?.rootViewController = UINavigationController(rootViewController: TestViewController())
         window?.makeKeyAndVisible()
         return true
     }

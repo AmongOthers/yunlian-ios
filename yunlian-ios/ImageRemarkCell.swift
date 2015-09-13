@@ -12,6 +12,7 @@ import UIKit
     func numberOfCells() -> Int
     func images() -> [UIImage]
     func addImageTapped(sender: ImageRemarkCell)
+    func imageTapped(sender: ImageRemarkCell, index: Int)
 }
 
 class ImageRemarkCell: ProfileCell {
@@ -79,6 +80,8 @@ extension ImageRemarkCell: UICollectionViewDelegate {
         let cell = imageCollectionView.cellForItemAtIndexPath(indexPath)
         if cell is ImageStubCell {
             delegate?.addImageTapped(self)
+        } else {
+            delegate?.imageTapped(self, index: indexPath.row)
         }
     }
     

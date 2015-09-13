@@ -280,4 +280,11 @@ extension ProfileViewController: ImageRemarkCellDelegate {
         tableView.beginUpdates()
         tableView.endUpdates()
     }
+    
+    func imageTapped(sender: ImageRemarkCell, index: Int) {
+        let controller = ImageBrowserController()
+        controller.imageIndex = index
+        controller.images = profile.images
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }

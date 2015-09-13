@@ -16,20 +16,23 @@ class PhotoScrollView: UIScrollView {
     var imageArray: [UIImage]?
     var zoomablePhotoViews: [ZoomablePhotoView]?
     var currentPageNumber: Int!
+    weak var photoDelegate: PhotoDelegate?
     let offsetUnit: CGFloat
     
     init(frame: CGRect, imageArray: [UIImage], currentPageNumber: Int = 0) {
         self.imageArray = imageArray
         zoomablePhotoViews = [ZoomablePhotoView]()
         self.currentPageNumber = currentPageNumber
-        offsetUnit = frame.width
-        super.init(frame: frame)
+        let biggerFrame = CGRect(origin: frame.origin, size: CGSizeMake(frame.width + UX.PhotoGap, frame.height))
+        offsetUnit = biggerFrame.width
+        super.init(frame: biggerFrame)
         var i: CGFloat = 0
         for image in imageArray {
-            let origin = CGPointMake(i * (frame.width - UX.PhotoGap + UX.PhotoGap), 0)
-            let size = CGSizeMake(frame.width - UX.PhotoGap, frame.height)
+            let origin = CGPointMake(i * (biggerFrame.width - UX.PhotoGap + UX.PhotoGap), 0)
+            let size = CGSizeMake(biggerFrame.width - UX.PhotoGap, biggerFrame.height)
             let zoomablePhotoView = ZoomablePhotoView(picture: image, frame: CGRect(origin: origin, size: size))
             addSubview(zoomablePhotoView)
+            zoomablePhotoView.photoDelegate = self
             zoomablePhotoViews?.append(zoomablePhotoView)
             i++
         }
@@ -37,7 +40,7 @@ class PhotoScrollView: UIScrollView {
         showsHorizontalScrollIndicator = false
         showsVerticalScrollIndicator = false
         pagingEnabled = true
-        contentSize = CGSizeMake(CGFloat(imageArray.count) * frame.width + CGFloat(imageArray.count - 1) * UX.PhotoGap , frame.height)
+        contentSize = CGSizeMake(CGFloat(imageArray.count) * biggerFrame.width + CGFloat(imageArray.count - 1) * UX.PhotoGap , biggerFrame.height)
         delegate = self
         
         contentOffset = CGPointMake(offsetUnit * CGFloat(currentPageNumber), 0)
@@ -61,5 +64,11 @@ extension PhotoScrollView: UIScrollViewDelegate {
             currentZoomablePhotoView()?.clearZoom()
             currentPageNumber = number
         }
+    }
+}
+
+extension PhotoScrollView: PhotoDelegate {
+    func tapped() {
+        photoDelegate?.tapped()
     }
 }

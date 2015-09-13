@@ -8,12 +8,17 @@
 
 import UIKit
 
+@objc protocol PhotoDelegate {
+    func tapped()
+}
+
 class ZoomablePhotoView: UIScrollView, UIScrollViewDelegate {
     
     var imageView: UIImageView!
     var image: UIImage!
     var isZoomed = false
     var pageNumber: Int = 0
+    weak var photoDelegate: PhotoDelegate?
     
     init(picture assignedImage: UIImage, frame assignedFrame: CGRect) {
         image = assignedImage
@@ -29,8 +34,12 @@ class ZoomablePhotoView: UIScrollView, UIScrollViewDelegate {
         minimumZoomScale = 1.0
         maximumZoomScale = calculateMaximunScale()
         imageView?.userInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: "tapZoom:")
-        tap.numberOfTapsRequired = 2
+        let doubleTap = UITapGestureRecognizer(target: self, action: "tapZoom:")
+        doubleTap.numberOfTapsRequired = 2
+        imageView.addGestureRecognizer(doubleTap)
+        let tap = UITapGestureRecognizer(target: self, action: "tap:")
+        tap.numberOfTapsRequired = 1
+        tap.requireGestureRecognizerToFail(doubleTap)
         imageView.addGestureRecognizer(tap)
     }
     
@@ -54,6 +63,10 @@ class ZoomablePhotoView: UIScrollView, UIScrollViewDelegate {
             //setZoomScale(maximumZoomScale, animated: true)
             isZoomed = true
         }
+    }
+    
+    func tap(recognizer: UITapGestureRecognizer) {
+        photoDelegate?.tapped()
     }
     
     func clearZoom() {

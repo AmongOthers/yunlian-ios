@@ -19,6 +19,7 @@
 		D10D75371BA3DD9300B62261 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75361BA3DD9300B62261 /* ImageCell.swift */; settings = {ASSET_TAGS = (); }; };
 		D10D75391BA55D2D00B62261 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75381BA55D2D00B62261 /* Profile.swift */; settings = {ASSET_TAGS = (); }; };
 		D10D75711BA56DB600B62261 /* ImageStubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75701BA56DB600B62261 /* ImageStubCell.swift */; settings = {ASSET_TAGS = (); }; };
+		D10D75731BA5742B00B62261 /* ImageBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75721BA5742B00B62261 /* ImageBrowserController.swift */; settings = {ASSET_TAGS = (); }; };
 		D10E8AD41B7EE1C100C8658D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8AD31B7EE1C100C8658D /* AppDelegate.swift */; };
 		D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8AD51B7EE1C100C8658D /* ViewController.swift */; };
 		D10E8ADB1B7EE1C200C8658D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D10E8ADA1B7EE1C200C8658D /* Images.xcassets */; };
@@ -105,6 +106,7 @@
 		D10D75361BA3DD9300B62261 /* ImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
 		D10D75381BA55D2D00B62261 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D10D75701BA56DB600B62261 /* ImageStubCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStubCell.swift; sourceTree = "<group>"; };
+		D10D75721BA5742B00B62261 /* ImageBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageBrowserController.swift; sourceTree = "<group>"; };
 		D10E8ACE1B7EE1C100C8658D /* yunlian-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "yunlian-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D10E8AD21B7EE1C100C8658D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D10E8AD31B7EE1C100C8658D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 				D10D75341BA3DCD300B62261 /* ImageRemarkCell.swift */,
 				D10D75361BA3DD9300B62261 /* ImageCell.swift */,
 				D10D75701BA56DB600B62261 /* ImageStubCell.swift */,
+				D10D75721BA5742B00B62261 /* ImageBrowserController.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				D124F07D1B82C55800F86780 /* FriendsContactHeader.swift in Sources */,
 				D106DCBF1B9C19C600C5D6F3 /* NewsHeader.swift in Sources */,
 				D10E8B131B7F39C300C8658D /* SettingsViewController.swift in Sources */,
+				D10D75731BA5742B00B62261 /* ImageBrowserController.swift in Sources */,
 				D124F0841B84A42E00F86780 /* Person.swift in Sources */,
 				D1A8DF7C1B8CA05100217467 /* ProfileCell.swift in Sources */,
 				D1A8DF891B8E001900217467 /* CalendarCell.swift in Sources */,
