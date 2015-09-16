@@ -32,14 +32,22 @@ class TestViewController: UIViewController {
         view.addSubview(photoScrollView)
         photoScrollView.photoDelegate = self
         title = "\(1)/\(images.count)"
+    
+        let deleteItem = UIBarButtonItem(image: UIImage(named: "delete"), style: UIBarButtonItemStyle.Plain, target: self, action: "deleteTapped")
+        navigationItem.rightBarButtonItem = deleteItem
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func deleteTapped() {
+        //let isLast = photoScrollView.currentPageNumber == images.count - 1
+        photoScrollView.deleteCurrentPage()
+    }
 }
 
-extension TestViewController: PhotoDelegate {
+extension TestViewController: PhotoScrollViewDelegate {
     func tapped() {
         if isBarHidden {
             isBarHidden = false
@@ -51,5 +59,9 @@ extension TestViewController: PhotoDelegate {
             navigationController?.setNavigationBarHidden(true, animated: true)
             UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Slide)
         }
+    }
+    
+    func pageChanged(current: Int, total: Int) {
+        title = "\(current + 1)/\(total)"
     }
 }
