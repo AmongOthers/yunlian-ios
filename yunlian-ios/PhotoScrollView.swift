@@ -50,6 +50,22 @@ class PhotoScrollView: UIScrollView {
         delegate = self
         
         contentOffset = CGPointMake(offsetUnit * CGFloat(currentPageNumber), 0)
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: "tapZoom:")
+        doubleTap.numberOfTapsRequired = 2
+        addGestureRecognizer(doubleTap)
+        let tap = UITapGestureRecognizer(target: self, action: "tap:")
+        tap.numberOfTapsRequired = 1
+        tap.requireGestureRecognizerToFail(doubleTap)
+        addGestureRecognizer(tap)
+    }
+    
+    func tap(recognizer: UITapGestureRecognizer) {
+        photoDelegate?.tapped()
+    }
+    
+    func tapZoom(recognizer: UITapGestureRecognizer) {
+        currentZoomablePhotoView()?.tapZoom(recognizer)
     }
     
     required init?(coder aDecoder: NSCoder) {

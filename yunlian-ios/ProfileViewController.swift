@@ -44,6 +44,7 @@ class ProfileViewController: UIViewController, ProfileHeaderViewDelegate, UITabl
         super.viewDidLoad()
         self.title = "详细信息"
         self.view.backgroundColor = UIConstants.BackgroundGray
+        automaticallyAdjustsScrollViewInsets = false
         profile = Profile()
         UX.ImageCellSize = calculateImageCellItemSize()
         setupViews()
@@ -68,7 +69,7 @@ class ProfileViewController: UIViewController, ProfileHeaderViewDelegate, UITabl
         
         headerView = ProfileHeaderView()
         headerView.delegate = self
-        headerView.frame = CGRectMake(0, 0, view.frame.size.width, UX.HeaderHeight)
+//        headerView.frame = CGRectMake(0, 0, view.frame.size.width, UX.HeaderHeight)
         view.addSubview(headerView)
         
         tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Grouped)
@@ -172,13 +173,13 @@ class ProfileViewController: UIViewController, ProfileHeaderViewDelegate, UITabl
             make.width.equalTo(self.view)
             make.bottom.equalTo(self.snp_bottomLayoutGuideBottom)
         }
-//        headerView.snp_remakeConstraints { (make) -> Void in
-//            make.top.equalTo(self.snp_topLayoutGuideBottom)
-//            make.left.equalTo(self.view)
-//            make.right.equalTo(self.view)
-//            make.width.equalTo(self.view)
-//            make.height.equalTo(UX.HeaderHeight)
-//        }
+        headerView.snp_remakeConstraints { (make) -> Void in
+            make.top.equalTo(self.snp_topLayoutGuideBottom)
+            make.left.equalTo(self.view)
+            make.right.equalTo(self.view)
+            make.width.equalTo(self.view)
+            make.height.equalTo(UX.HeaderHeight)
+        }
         qrCodePanel.snp_remakeConstraints { (make) -> Void in
             make.width.height.equalTo(UX.QrCodeMinSize)
             make.right.equalTo(self.headerView).offset(-UX.QrCodePanelRightOffset)
