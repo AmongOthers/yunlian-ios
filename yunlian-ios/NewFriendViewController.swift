@@ -44,8 +44,8 @@ class NewFriendViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = "添加朋友"
+        automaticallyAdjustsScrollViewInsets = false
         // Do any additional setup after loading the view.
         data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "1"))
         data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "2"))
@@ -119,7 +119,7 @@ class NewFriendViewController: UIViewController {
 
     func setupConstraints() {
         searchTextField.snp_remakeConstraints { (make) -> Void in
-            make.top.equalTo(view).offset(UX.Offset)
+            make.top.equalTo(self.snp_topLayoutGuideBottom).offset(UX.Offset)
             make.left.equalTo(view).offset(UX.Offset)
             make.right.equalTo(view).offset(-UX.Offset)
             make.height.equalTo(UX.TitleSearchViewHeight)
@@ -203,7 +203,8 @@ class NewFriendViewController: UIViewController {
 
 extension NewFriendViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        let image = UIImage(UIView: UIApplication.sharedApplication().keyWindow?.rootViewController?.view, andRect: CGRectMake(0, 64, view.frame.width, view.frame.height))
+//        let image = UIImage(UIView: UIApplication.sharedApplication().keyWindow?.rootViewController?.view, andRect: CGRectMake(0, 64, view.frame.width, view.frame.height))
+        let image = UIImage(UIView: UIApplication.sharedApplication().keyWindow?.rootViewController?.view)
         let searchController = SearchContactsViewController()
         searchController.backgroundImage = image
         searchController.hidesBottomBarWhenPushed = true

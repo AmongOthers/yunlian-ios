@@ -23,6 +23,8 @@ class NewsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        automaticallyAdjustsScrollViewInsets = false
+        
         data[NSDate.date(fromString: "2015/09/05", format: .Custom("yyyy/MM/dd"))!]  = [News(person: Person(name: "郑文伟", title: "高级软件工程师", avatar: "2")), News(person: Person(name: "郑文伟", title: "高级软件工程师", avatar: "3"))]
         data[NSDate.date(fromString: "2015/09/04", format: .Custom("yyyy/MM/dd"))!]  = [News(person: Person(name: "郑文伟", title: "高级软件工程师", avatar: "3")), News(person: Person(name: "郑文伟", title: "高级软件工程师", avatar: "1"))]
         data[NSDate.date(fromString: "2015/09/03", format: .Custom("yyyy/MM/dd"))!]  = [News(person: Person(name: "郑文伟", title: "高级软件工程师", avatar: "3")), News(person: Person(name: "郑文伟", title: "高级软件工程师", avatar: "1"))]

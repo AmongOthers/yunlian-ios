@@ -44,6 +44,8 @@ class ProfileHeaderView: UIView {
     }
     
     func setupViews() {
+        layer.borderColor = UIConstants.BackgroundGray.CGColor
+        layer.borderWidth = 1
         contentView = UIView()
         addSubview(contentView)
         contentView.backgroundColor = UIColor.whiteColor()

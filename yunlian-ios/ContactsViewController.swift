@@ -99,7 +99,8 @@ class ContactsViewController: UIViewController, ContactsHeaderViewDelegate {
     
     func searchTapped() {
 //        let screenshot = UIScreen.mainScreen().snapshotViewAfterScreenUpdates(true)
-        let image = UIImage(UIView: UIApplication.sharedApplication().keyWindow?.rootViewController?.view, andRect: CGRectMake(0, 64, view.frame.width, view.frame.height))
+//        let image = UIImage(UIView: UIApplication.sharedApplication().keyWindow?.rootViewController?.view, andRect: CGRectMake(0, 64, view.frame.width, view.frame.height))
+        let image = UIImage(UIView: UIApplication.sharedApplication().keyWindow?.rootViewController?.view)
         let searchController = SearchContactsViewController()
         searchController.backgroundImage = image
         searchController.hidesBottomBarWhenPushed = true

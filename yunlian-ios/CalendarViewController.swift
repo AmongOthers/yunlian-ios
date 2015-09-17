@@ -83,6 +83,8 @@ class CalendarViewController: UIViewController, UICollectionViewDelegate, UIColl
         reloadActivities()
         tableView = UITableView()
         view.addSubview(tableView)
+        tableView.layer.borderColor = UIConstants.BackgroundGray.CGColor
+        tableView.layer.borderWidth = 1
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerClass(CalendarTableViewCell.self, forCellReuseIdentifier: TableCellIdentifier)
