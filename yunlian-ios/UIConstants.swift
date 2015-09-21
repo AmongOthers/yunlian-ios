@@ -9,6 +9,7 @@
 import UIKit
 
 struct UIConstants {
+    static let AlertCancelButtonHeight:CGFloat = 65
     static let TintColor = UIColor(rgb: 0xff8244)
     static let TintColorGreen = UIColor(rgb: 0x56c119)
     static let BackgroundColor = UIColor(rgb: 0x607d8b)
@@ -26,6 +27,9 @@ struct UIConstants {
     static let DefaultStandardFontSize: CGFloat = 17
     static let DefaultStandardFont = UIFont.systemFontOfSize(DefaultStandardFontSize, weight: UIFontWeightRegular)
     static let DefaultStandardFontBold = UIFont.systemFontOfSize(DefaultStandardFontSize, weight: UIFontWeightBold)
+    static let DefaultBigFontSize: CGFloat = 19
+    static let DefaultBigFont = UIFont.systemFontOfSize(DefaultBigFontSize, weight: UIFontWeightRegular)
+    static let DefaultBigFontBold = UIFont.systemFontOfSize(DefaultBigFontSize, weight: UIFontWeightBold)
     static let FontColorGray = UIColor(rgb: 0x474747)
     static let FontColorSecondGray = UIColor(rgb: 0x8e8e8e)
     static let UserTouchAreaSize = 48

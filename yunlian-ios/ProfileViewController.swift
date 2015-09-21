@@ -115,7 +115,10 @@ class ProfileViewController: UIViewController, ProfileHeaderViewDelegate, UITabl
     }
     
     func moreTapped() {
-        
+        let alert = MoreAlertController(title: "", message: "", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: { _ -> Void in print("cancel") })
+        alert.addAction(cancelAction)
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     func maskTapped() {

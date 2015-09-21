@@ -49,6 +49,8 @@
 		D124F09B1B88AE3900F86780 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F09A1B88AE3900F86780 /* TestViewController.swift */; };
 		D124F09D1B8968BA00F86780 /* SearchContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F09C1B8968BA00F86780 /* SearchContactsViewController.swift */; };
 		D124F09F1B896AB000F86780 /* TitleSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F09E1B896AB000F86780 /* TitleSearchView.swift */; };
+		D15501861BB04A17006713A3 /* MoreAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15501851BB04A17006713A3 /* MoreAlertController.swift */; settings = {ASSET_TAGS = (); }; };
+		D15501881BB04D93006713A3 /* MoreAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15501871BB04D93006713A3 /* MoreAlertCell.swift */; settings = {ASSET_TAGS = (); }; };
 		D182B3EC1BA1AA380045F7E8 /* ZoomablePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D182B3EB1BA1AA380045F7E8 /* ZoomablePhotoView.swift */; settings = {ASSET_TAGS = (); }; };
 		D182B3EE1BA1B1AA0045F7E8 /* PhotoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D182B3ED1BA1B1AA0045F7E8 /* PhotoScrollView.swift */; settings = {ASSET_TAGS = (); }; };
 		D1A8DF711B89D24200217467 /* SearchContactsResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF701B89D24200217467 /* SearchContactsResultController.swift */; };
@@ -141,6 +143,8 @@
 		D124F09A1B88AE3900F86780 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D124F09C1B8968BA00F86780 /* SearchContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactsViewController.swift; sourceTree = "<group>"; };
 		D124F09E1B896AB000F86780 /* TitleSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleSearchView.swift; path = Widgets/TitleSearchView.swift; sourceTree = "<group>"; };
+		D15501851BB04A17006713A3 /* MoreAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreAlertController.swift; sourceTree = "<group>"; };
+		D15501871BB04D93006713A3 /* MoreAlertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreAlertCell.swift; sourceTree = "<group>"; };
 		D182B3EB1BA1AA380045F7E8 /* ZoomablePhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomablePhotoView.swift; sourceTree = "<group>"; };
 		D182B3ED1BA1B1AA0045F7E8 /* PhotoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoScrollView.swift; sourceTree = "<group>"; };
 		D1A8DF701B89D24200217467 /* SearchContactsResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactsResultController.swift; sourceTree = "<group>"; };
@@ -332,6 +336,8 @@
 				D10D75361BA3DD9300B62261 /* ImageCell.swift */,
 				D10D75701BA56DB600B62261 /* ImageStubCell.swift */,
 				D10D75721BA5742B00B62261 /* ImageBrowserController.swift */,
+				D15501851BB04A17006713A3 /* MoreAlertController.swift */,
+				D15501871BB04D93006713A3 /* MoreAlertCell.swift */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -502,6 +508,7 @@
 				D106DCC71B9C87BE00C5D6F3 /* NewFriendCell.swift in Sources */,
 				D10E8B0B1B7F376B00C8658D /* LoginViewController.swift in Sources */,
 				D182B3EC1BA1AA380045F7E8 /* ZoomablePhotoView.swift in Sources */,
+				D15501881BB04D93006713A3 /* MoreAlertCell.swift in Sources */,
 				D1C6AAB31B92B3B4000AF565 /* MySwiftDate.swift in Sources */,
 				D124F0991B88AC6100F86780 /* UIImage+Helper.h in Sources */,
 				D124F0901B88946900F86780 /* ContactsPanelView.swift in Sources */,
@@ -522,6 +529,7 @@
 				D1C6AAAF1B913CD5000AF565 /* CalendarTableViewCell.swift in Sources */,
 				D1A8DF981B8FEE8900217467 /* CalendarHeaderView.swift in Sources */,
 				D10E8B111B7F38ED00C8658D /* NewsViewController.swift in Sources */,
+				D15501861BB04A17006713A3 /* MoreAlertController.swift in Sources */,
 				D1C6AAA71B909FCF000AF565 /* CalendarDate.swift in Sources */,
 				D124F09F1B896AB000F86780 /* TitleSearchView.swift in Sources */,
 				D124F0861B84C4B000F86780 /* OnewayContactCell.swift in Sources */,
