@@ -3,4 +3,5 @@
 //
 
 #import "UIImage+Helper.h"
+#import "NSData+AES256.h"
 #import "sqlite3.h"

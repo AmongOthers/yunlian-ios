@@ -16,7 +16,7 @@ struct LoginViewControllerUX {
     static let LogoBottomOffset = 20
     static let LeftViewWidth:CGFloat = 46
     static let RightViewWidth:CGFloat = 44
-    static let TextFieldHeight:CGFloat = 43.5
+    static let TextFieldHeight:CGFloat = 44
     static let PasswordTextFieldTopOffset = 9
     static let LoginButtonTopOffset = 24
     static let ActionButtonOffset = 20 - 10 //考虑Button的Padding
@@ -38,7 +38,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.userInteractionEnabled = true
-        view.gestureRecognizers = [UITapGestureRecognizer(target: self, action: "backgroundTapped")]
+        view.gestureRecognizers = [UITapGestureRecognizer(target: self, action: "backgroundTapped:")]
         view.backgroundColor = UIConstants.BackgroundGray
         // Do any additional setup after loading the view, typically from a nib.
         top = UIView()
@@ -98,8 +98,22 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         setupConstraints()
     }
     
-    func backgroundTapped() {
+    func backgroundTapped(recognizer: UIGestureRecognizer) {
         view.endEditing(true)
+        let takeBackPasswordButtonPoint = takeBackPasswordButton.center
+        let registerButtonPoint = registerButton.center
+        let touchPoint = recognizer.locationInView(view)
+        let touchPointTuple = (touchPoint.x, touchPoint.y)
+        switch touchPointTuple {
+        case let(x, y) where abs(x - takeBackPasswordButtonPoint.x) <= UIConstants.TouchAreaDistance && abs(y - takeBackPasswordButtonPoint.y) <= UIConstants.TouchAreaDistance:
+            takeBackPasswordTapped()
+            break;
+        case let(x, y) where abs(x - registerButtonPoint.x) <= UIConstants.TouchAreaDistance && abs(y - registerButtonPoint.y) <= UIConstants.TouchAreaDistance:
+            registerTapped()
+            break;
+        default:
+            break;
+        }
     }
     
     func loginTapped() {
@@ -120,7 +134,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func registerTapped() {
-        
+        navigationController?.pushViewController(RegisterPhoneNumberViewController(), animated: false)
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -146,13 +160,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     func setupConstraints() {
         if(!isTextFieldEditing) {
             top.snp_remakeConstraints { (make) -> Void in
-                make.top.equalTo(self.snp_topLayoutGuideTop)
+                make.top.equalTo(self.snp_topLayoutGuideBottom)
                 make.width.height.equalTo(1)
                 make.centerX.equalTo(self.view)
             }
         } else {
             top.snp_remakeConstraints { (make) -> Void in
-                make.top.equalTo(self.snp_topLayoutGuideTop).offset(-LoginViewControllerUX.LogoTopOffset - LoginViewControllerUX.LogoHeight)
+                make.top.equalTo(self.snp_topLayoutGuideBottom).offset(-LoginViewControllerUX.LogoTopOffset - LoginViewControllerUX.LogoHeight)
                 make.width.height.equalTo(1)
                 make.centerX.equalTo(self.view)
             }

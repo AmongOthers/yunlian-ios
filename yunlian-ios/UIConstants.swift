@@ -41,4 +41,5 @@ struct UIConstants {
     static let FloatPanelWidthFactor = 0.85
     static let FloatPanelHeightFactor = 0.75
     static let MaskColor = UIColor(rgb: 0xaaaaaa).colorWithAlphaComponent(0.5)
+    static let TouchAreaDistance: CGFloat = 20
 }

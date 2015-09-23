@@ -34,13 +34,13 @@ class MoreAlertController: UIAlertController {
     func setupViews() {
         view.tintColor = UIConstants.TintColor
         view.snp_remakeConstraints { (make) -> Void in
-            make.height.equalTo(UX.LineHeight * 3 + UIConstants.AlertCancelButtonHeight)
+            make.height.equalTo(UX.LineHeight * 3 + UIConstants.AlertCancelButtonHeight + 2)
         }
         tableView = UITableView()
         view.addSubview(tableView)
         tableView.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(view).offset(1)
-            make.height.equalTo(UX.LineHeight * 3 - 2)
+            make.height.equalTo(UX.LineHeight * 3)
             make.left.equalTo(view).offset(UX.SideOffset)
             make.right.equalTo(view).offset(-UX.SideOffset)
         }
