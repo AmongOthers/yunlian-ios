@@ -7,19 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D106DCB91B9B1C6900C5D6F3 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */; settings = {ASSET_TAGS = (); }; };
-		D106DCBB1B9B1C8F00C5D6F3 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D106DCBA1B9B1C8F00C5D6F3 /* libsqlite3.0.tbd */; };
-		D106DCBD1B9C09EA00C5D6F3 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBC1B9C09EA00C5D6F3 /* News.swift */; settings = {ASSET_TAGS = (); }; };
-		D106DCBF1B9C19C600C5D6F3 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */; settings = {ASSET_TAGS = (); }; };
-		D106DCC11B9C19D900C5D6F3 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCC01B9C19D900C5D6F3 /* NewsCell.swift */; settings = {ASSET_TAGS = (); }; };
-		D106DCC51B9C72A000C5D6F3 /* NewFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCC41B9C72A000C5D6F3 /* NewFriendViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		D106DCC71B9C87BE00C5D6F3 /* NewFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCC61B9C87BE00C5D6F3 /* NewFriendCell.swift */; settings = {ASSET_TAGS = (); }; };
-		D10D75331BA3DA0400B62261 /* ProfileRemarkSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75321BA3DA0400B62261 /* ProfileRemarkSectionHeaderView.swift */; settings = {ASSET_TAGS = (); }; };
-		D10D75351BA3DCD300B62261 /* ImageRemarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75341BA3DCD300B62261 /* ImageRemarkCell.swift */; settings = {ASSET_TAGS = (); }; };
-		D10D75371BA3DD9300B62261 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75361BA3DD9300B62261 /* ImageCell.swift */; settings = {ASSET_TAGS = (); }; };
-		D10D75391BA55D2D00B62261 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75381BA55D2D00B62261 /* Profile.swift */; settings = {ASSET_TAGS = (); }; };
-		D10D75711BA56DB600B62261 /* ImageStubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75701BA56DB600B62261 /* ImageStubCell.swift */; settings = {ASSET_TAGS = (); }; };
-		D10D75731BA5742B00B62261 /* ImageBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75721BA5742B00B62261 /* ImageBrowserController.swift */; settings = {ASSET_TAGS = (); }; };
+		D106DCB91B9B1C6900C5D6F3 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */; };
+		D106DCBD1B9C09EA00C5D6F3 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBC1B9C09EA00C5D6F3 /* News.swift */; };
+		D106DCBF1B9C19C600C5D6F3 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */; };
+		D106DCC11B9C19D900C5D6F3 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCC01B9C19D900C5D6F3 /* NewsCell.swift */; };
+		D106DCC51B9C72A000C5D6F3 /* NewFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCC41B9C72A000C5D6F3 /* NewFriendViewController.swift */; };
+		D106DCC71B9C87BE00C5D6F3 /* NewFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCC61B9C87BE00C5D6F3 /* NewFriendCell.swift */; };
+		D10D75331BA3DA0400B62261 /* ProfileRemarkSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75321BA3DA0400B62261 /* ProfileRemarkSectionHeaderView.swift */; };
+		D10D75351BA3DCD300B62261 /* ImageRemarkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75341BA3DCD300B62261 /* ImageRemarkCell.swift */; };
+		D10D75371BA3DD9300B62261 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75361BA3DD9300B62261 /* ImageCell.swift */; };
+		D10D75391BA55D2D00B62261 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75381BA55D2D00B62261 /* Profile.swift */; };
+		D10D75711BA56DB600B62261 /* ImageStubCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75701BA56DB600B62261 /* ImageStubCell.swift */; };
+		D10D75731BA5742B00B62261 /* ImageBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10D75721BA5742B00B62261 /* ImageBrowserController.swift */; };
 		D10E8AD41B7EE1C100C8658D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8AD31B7EE1C100C8658D /* AppDelegate.swift */; };
 		D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D10E8AD51B7EE1C100C8658D /* ViewController.swift */; };
 		D10E8ADB1B7EE1C200C8658D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D10E8ADA1B7EE1C200C8658D /* Images.xcassets */; };
@@ -49,13 +48,15 @@
 		D124F09B1B88AE3900F86780 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F09A1B88AE3900F86780 /* TestViewController.swift */; };
 		D124F09D1B8968BA00F86780 /* SearchContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F09C1B8968BA00F86780 /* SearchContactsViewController.swift */; };
 		D124F09F1B896AB000F86780 /* TitleSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D124F09E1B896AB000F86780 /* TitleSearchView.swift */; };
-		D15501861BB04A17006713A3 /* MoreAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15501851BB04A17006713A3 /* MoreAlertController.swift */; settings = {ASSET_TAGS = (); }; };
-		D15501881BB04D93006713A3 /* MoreAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15501871BB04D93006713A3 /* MoreAlertCell.swift */; settings = {ASSET_TAGS = (); }; };
-		D155018B1BB19585006713A3 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = D155018A1BB19585006713A3 /* NSData+AES256.m */; settings = {ASSET_TAGS = (); }; };
-		D15501901BB19C17006713A3 /* RegisterPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155018F1BB19C17006713A3 /* RegisterPhoneNumberViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		D15501921BB232EB006713A3 /* UITextFieldWithInset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15501911BB232EB006713A3 /* UITextFieldWithInset.swift */; settings = {ASSET_TAGS = (); }; };
-		D182B3EC1BA1AA380045F7E8 /* ZoomablePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D182B3EB1BA1AA380045F7E8 /* ZoomablePhotoView.swift */; settings = {ASSET_TAGS = (); }; };
-		D182B3EE1BA1B1AA0045F7E8 /* PhotoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D182B3ED1BA1B1AA0045F7E8 /* PhotoScrollView.swift */; settings = {ASSET_TAGS = (); }; };
+		D140BE221BB2F54D001B77C4 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D140BE211BB2F54D001B77C4 /* libsqlite3.0.tbd */; };
+		D15501861BB04A17006713A3 /* MoreAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15501851BB04A17006713A3 /* MoreAlertController.swift */; };
+		D15501881BB04D93006713A3 /* MoreAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15501871BB04D93006713A3 /* MoreAlertCell.swift */; };
+		D155018B1BB19585006713A3 /* NSData+AES256.m in Sources */ = {isa = PBXBuildFile; fileRef = D155018A1BB19585006713A3 /* NSData+AES256.m */; };
+		D15501901BB19C17006713A3 /* RegisterPhoneNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D155018F1BB19C17006713A3 /* RegisterPhoneNumberViewController.swift */; };
+		D15501921BB232EB006713A3 /* UITextFieldWithInset.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15501911BB232EB006713A3 /* UITextFieldWithInset.swift */; };
+		D15501961BB2EBED006713A3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D15501951BB2EBED006713A3 /* Alamofire.framework */; };
+		D182B3EC1BA1AA380045F7E8 /* ZoomablePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D182B3EB1BA1AA380045F7E8 /* ZoomablePhotoView.swift */; };
+		D182B3EE1BA1B1AA0045F7E8 /* PhotoScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D182B3ED1BA1B1AA0045F7E8 /* PhotoScrollView.swift */; };
 		D1A8DF711B89D24200217467 /* SearchContactsResultController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF701B89D24200217467 /* SearchContactsResultController.swift */; };
 		D1A8DF731B89D3F100217467 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF721B89D3F100217467 /* SearchResultCell.swift */; };
 		D1A8DF751B89DA6B00217467 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A8DF741B89DA6B00217467 /* ProfileViewController.swift */; };
@@ -100,7 +101,6 @@
 
 /* Begin PBXFileReference section */
 		D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftData.swift; path = ThirdPart/SwiftData.swift; sourceTree = "<group>"; };
-		D106DCBA1B9B1C8F00C5D6F3 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		D106DCBC1B9C09EA00C5D6F3 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
 		D106DCC01B9C19D900C5D6F3 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
@@ -146,12 +146,14 @@
 		D124F09A1B88AE3900F86780 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		D124F09C1B8968BA00F86780 /* SearchContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactsViewController.swift; sourceTree = "<group>"; };
 		D124F09E1B896AB000F86780 /* TitleSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleSearchView.swift; path = Widgets/TitleSearchView.swift; sourceTree = "<group>"; };
+		D140BE211BB2F54D001B77C4 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		D15501851BB04A17006713A3 /* MoreAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreAlertController.swift; sourceTree = "<group>"; };
 		D15501871BB04D93006713A3 /* MoreAlertCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreAlertCell.swift; sourceTree = "<group>"; };
 		D15501891BB19585006713A3 /* NSData+AES256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+AES256.h"; path = "Extensions/NSData+AES256.h"; sourceTree = "<group>"; };
 		D155018A1BB19585006713A3 /* NSData+AES256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+AES256.m"; path = "Extensions/NSData+AES256.m"; sourceTree = "<group>"; };
 		D155018F1BB19C17006713A3 /* RegisterPhoneNumberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPhoneNumberViewController.swift; sourceTree = "<group>"; };
 		D15501911BB232EB006713A3 /* UITextFieldWithInset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldWithInset.swift; sourceTree = "<group>"; };
+		D15501951BB2EBED006713A3 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		D182B3EB1BA1AA380045F7E8 /* ZoomablePhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomablePhotoView.swift; sourceTree = "<group>"; };
 		D182B3ED1BA1B1AA0045F7E8 /* PhotoScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoScrollView.swift; sourceTree = "<group>"; };
 		D1A8DF701B89D24200217467 /* SearchContactsResultController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContactsResultController.swift; sourceTree = "<group>"; };
@@ -178,8 +180,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D106DCBB1B9B1C8F00C5D6F3 /* libsqlite3.0.tbd in Frameworks */,
+				D140BE221BB2F54D001B77C4 /* libsqlite3.0.tbd in Frameworks */,
 				D10E8B091B7F312700C8658D /* SnapKit.framework in Frameworks */,
+				D15501961BB2EBED006713A3 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +208,8 @@
 		D10E8AC51B7EE1C100C8658D = {
 			isa = PBXGroup;
 			children = (
-				D106DCBA1B9B1C8F00C5D6F3 /* libsqlite3.0.tbd */,
+				D140BE211BB2F54D001B77C4 /* libsqlite3.0.tbd */,
+				D15501951BB2EBED006713A3 /* Alamofire.framework */,
 				D10E8B081B7F312700C8658D /* SnapKit.framework */,
 				D10E8AD01B7EE1C100C8658D /* yunlian-ios */,
 				D10E8AE61B7EE1C200C8658D /* yunlian-iosTests */,
@@ -490,6 +494,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			outputPaths = (
 			);

@@ -117,7 +117,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func loginTapped() {
-        presentViewController(ViewController(), animated: false, completion: nil)
+        let alert = UIAlertController(title: "未连接到互联网", message: "请检查网络配置", preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "好", style: UIAlertActionStyle.Cancel, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     func passwordRightViewTapped() {

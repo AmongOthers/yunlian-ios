@@ -20,28 +20,6 @@ class TestViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.blackColor()
         automaticallyAdjustsScrollViewInsets = false
-        
-        let message = "12345";
-        
-        let str = NSData.AES256EncryptWithPlainText(message);
-        let res = NSData.AES256DecryptWithCiphertext(str);
-        print(str)
-        print(res)
-        
-//        let fileManager = NSFileManager()
-//        let path = ((NSURL(string: NSHomeDirectory())?.URLByAppendingPathComponent("Documents"))?.path)!
-//        fileManager.enumeratorAtPath(path)?.forEach({ (fileName) -> () in
-//            let imagePath = (NSURL(string: path)?.URLByAppendingPathComponent(fileName as! String).path)!
-//            let image = UIImage(data: fileManager.contentsAtPath(imagePath)!)!
-//            self.images.append(image)
-//        })
-//        photoScrollView = PhotoScrollView(frame: view.frame, imageArray: images, currentPageNumber: 0)
-//        view.addSubview(photoScrollView)
-//        photoScrollView.photoDelegate = self
-//        title = "\(1)/\(images.count)"
-//    
-//        let deleteItem = UIBarButtonItem(image: UIImage(named: "delete"), style: UIBarButtonItemStyle.Plain, target: self, action: "deleteTapped")
-//        navigationItem.rightBarButtonItem = deleteItem
     }
     
     override func didReceiveMemoryWarning() {
