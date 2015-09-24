@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CED5A8FC1BB4055F00C288E7 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED5A8FB1BB4055F00C288E7 /* SwiftyJSON.framework */; };
+		CED5A9041BB4337800C288E7 /* YunlianNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9031BB4337800C288E7 /* YunlianNetwork.swift */; settings = {ASSET_TAGS = (); }; };
 		D106DCB91B9B1C6900C5D6F3 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */; };
 		D106DCBD1B9C09EA00C5D6F3 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBC1B9C09EA00C5D6F3 /* News.swift */; };
 		D106DCBF1B9C19C600C5D6F3 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */; };
@@ -100,6 +102,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CE9595791BB400D20020F465 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../../../Volumes/TOSHIBA/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		CED5A8FB1BB4055F00C288E7 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		CED5A9031BB4337800C288E7 /* YunlianNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YunlianNetwork.swift; sourceTree = "<group>"; };
 		D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftData.swift; path = ThirdPart/SwiftData.swift; sourceTree = "<group>"; };
 		D106DCBC1B9C09EA00C5D6F3 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
@@ -182,6 +187,7 @@
 			files = (
 				D140BE221BB2F54D001B77C4 /* libsqlite3.0.tbd in Frameworks */,
 				D10E8B091B7F312700C8658D /* SnapKit.framework in Frameworks */,
+				CED5A8FC1BB4055F00C288E7 /* SwiftyJSON.framework in Frameworks */,
 				D15501961BB2EBED006713A3 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +202,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CED5A9021BB4336B00C288E7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CED5A9031BB4337800C288E7 /* YunlianNetwork.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		D106DCB51B9B1AA000C5D6F3 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,8 +222,10 @@
 		D10E8AC51B7EE1C100C8658D = {
 			isa = PBXGroup;
 			children = (
+				CED5A8FB1BB4055F00C288E7 /* SwiftyJSON.framework */,
 				D140BE211BB2F54D001B77C4 /* libsqlite3.0.tbd */,
 				D15501951BB2EBED006713A3 /* Alamofire.framework */,
+				CE9595791BB400D20020F465 /* SwiftyJSON.framework */,
 				D10E8B081B7F312700C8658D /* SnapKit.framework */,
 				D10E8AD01B7EE1C100C8658D /* yunlian-ios */,
 				D10E8AE61B7EE1C200C8658D /* yunlian-iosTests */,
@@ -230,6 +246,7 @@
 		D10E8AD01B7EE1C100C8658D /* yunlian-ios */ = {
 			isa = PBXGroup;
 			children = (
+				CED5A9021BB4336B00C288E7 /* Network */,
 				D155018C1BB19BB1006713A3 /* Register */,
 				D106DCB51B9B1AA000C5D6F3 /* News */,
 				D1A8DF831B8DFEDE00217467 /* Calendar */,
@@ -397,7 +414,7 @@
 				D10E8ACA1B7EE1C100C8658D /* Sources */,
 				D10E8ACB1B7EE1C100C8658D /* Frameworks */,
 				D10E8ACC1B7EE1C100C8658D /* Resources */,
-				D10E8AF51B7EEC6800C8658D /* ShellScript */,
+				D10E8AF51B7EEC6800C8658D /* Run Script */,
 				D1C6AAE81B948FED000AF565 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -487,7 +504,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D10E8AF51B7EEC6800C8658D /* ShellScript */ = {
+		D10E8AF51B7EEC6800C8658D /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -495,12 +512,15 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SnapKit.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -548,6 +568,7 @@
 				D1C6AABB1B948583000AF565 /* SwiftDate.swift in Sources */,
 				D10E8B0D1B7F38A700C8658D /* ContactsViewController.swift in Sources */,
 				D124F0881B8551F200F86780 /* OnewayContactsViewController.swift in Sources */,
+				CED5A9041BB4337800C288E7 /* YunlianNetwork.swift in Sources */,
 				D10D75371BA3DD9300B62261 /* ImageCell.swift in Sources */,
 				D1C6AAB71B930FE9000AF565 /* ActivityViewController.swift in Sources */,
 				D11D21131B7F818000309569 /* TextFieldLeftView.swift in Sources */,

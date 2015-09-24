@@ -15,11 +15,13 @@ class TestViewController: UIViewController {
     var images = [UIImage]()
     var offsetUnit: CGFloat!
     var isBarHidden = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.blackColor()
         automaticallyAdjustsScrollViewInsets = false
+        
+        login("123", password: "456")
     }
     
     override func didReceiveMemoryWarning() {
@@ -29,6 +31,13 @@ class TestViewController: UIViewController {
     func deleteTapped() {
         //let isLast = photoScrollView.currentPageNumber == images.count - 1
         photoScrollView.deleteCurrentPage()
+    }
+    
+    func login(phoneNumber: String, password: String) {
+        let parameters = ["phoneNumber":phoneNumber, "password":password]
+        YunlianNetwork.yunlianRequest(.Login, parameters: parameters) { result -> Void in
+            print(result)
+        }
     }
 }
 
