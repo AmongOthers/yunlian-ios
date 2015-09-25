@@ -12,13 +12,18 @@ import Alamofire
 
 enum YunlianNetworkResult {
     case Success(JSON)
+    case Not200(Int)
     case NetworkNotConnected
     case Timeout
     case ServerError
 }
 
 enum Api: String {
+    case Register = "register"
     case Login = "login"
+    case AnswerQuestion = "question/sendanswer"
+    case GetQuestion = "question/get"
+    case VerifyCode = "verify"
 }
 
 class YunlianNetwork {
@@ -52,7 +57,11 @@ class YunlianNetwork {
     class func yunlianResponse(request: NSURLRequest?, response: NSHTTPURLResponse?, result: Result<String>) -> YunlianNetworkResult {
         switch result {
         case .Success(let value):
-            return YunlianNetworkResult.Success(decodeResponseString(value))
+            if response?.statusCode == 200 {
+                return YunlianNetworkResult.Success(decodeResponseString(value))
+            } else {
+                return YunlianNetworkResult.Not200(response!.statusCode)
+            }
         case .Failure(_, let error as NSError):
             if error.code == -1009 {
                 return YunlianNetworkResult.NetworkNotConnected

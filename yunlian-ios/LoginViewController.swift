@@ -117,10 +117,34 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func loginTapped() {
-        let alert = UIAlertController(title: "未连接到互联网", message: "请检查网络配置", preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "好", style: UIAlertActionStyle.Cancel, handler: nil)
-        alert.addAction(action)
-        presentViewController(alert, animated: true, completion: nil)
+        let phoneNumber = mobileTextField.text
+        guard phoneNumber != "" else {
+            showSimpleMessage("", message: "请填写电话号码")
+            return
+        }
+        let password = passwordTextField.text
+        guard password != "" else {
+            showSimpleMessage("", message: "请填写密码")
+            return
+        }
+        var parameters = [String: AnyObject]()
+        parameters["phoneNumber"] = phoneNumber
+        parameters["password"] = password
+        let loading = showLoading()
+        YunlianNetwork.yunlianRequest(.Login, parameters: parameters) { (result) -> Void in
+            loading.dismissViewControllerAnimated(true, completion: nil)
+            switch result {
+            case .Success(let json):
+                self.showSimpleMessage("", message: "\(json)")
+                break
+            case .NetworkNotConnected:
+                self.showSimpleMessage("未连接到互联网", message: "请检查网络配置")
+                break
+            default:
+                self.showSimpleMessage("发生错误", message: "请重试")
+                break
+            }
+        }
     }
     
     func passwordRightViewTapped() {

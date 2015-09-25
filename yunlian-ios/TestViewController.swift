@@ -21,7 +21,10 @@ class TestViewController: UIViewController {
         view.backgroundColor = UIColor.blackColor()
         automaticallyAdjustsScrollViewInsets = false
         
-        login("123", password: "456")
+        let result = "{\"isSucessed\":true,\"info\":\"登录成功\",\"result\":{\"userId\":\"1\"}}"
+        print(NSData.AES256EncryptWithPlainText(result))
+        
+        login("15102053276", password: "123456")
     }
     
     override func didReceiveMemoryWarning() {
