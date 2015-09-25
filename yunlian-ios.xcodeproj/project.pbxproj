@@ -11,6 +11,9 @@
 		CED5A9041BB4337800C288E7 /* YunlianNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9031BB4337800C288E7 /* YunlianNetwork.swift */; settings = {ASSET_TAGS = (); }; };
 		CED5A9091BB4E3EE00C288E7 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9081BB4E3EE00C288E7 /* UIViewControllerExtension.swift */; settings = {ASSET_TAGS = (); }; };
 		CED5A90B1BB5133700C288E7 /* LoadingAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A90A1BB5133700C288E7 /* LoadingAlertController.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A90D1BB54CDA00C288E7 /* RegisterPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A90C1BB54CDA00C288E7 /* RegisterPasswordViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A90F1BB5771D00C288E7 /* RegisterQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A90E1BB5771D00C288E7 /* RegisterQuestionViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A9111BB5821800C288E7 /* UILabelWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9101BB5821800C288E7 /* UILabelWithInsets.swift */; settings = {ASSET_TAGS = (); }; };
 		D106DCB91B9B1C6900C5D6F3 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */; };
 		D106DCBD1B9C09EA00C5D6F3 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBC1B9C09EA00C5D6F3 /* News.swift */; };
 		D106DCBF1B9C19C600C5D6F3 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */; };
@@ -104,11 +107,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CE9595791BB400D20020F465 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = ../../../Volumes/TOSHIBA/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		CED5A8FB1BB4055F00C288E7 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		CED5A9031BB4337800C288E7 /* YunlianNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YunlianNetwork.swift; sourceTree = "<group>"; };
 		CED5A9081BB4E3EE00C288E7 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		CED5A90A1BB5133700C288E7 /* LoadingAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingAlertController.swift; sourceTree = "<group>"; };
+		CED5A90C1BB54CDA00C288E7 /* RegisterPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterPasswordViewController.swift; sourceTree = "<group>"; };
+		CED5A90E1BB5771D00C288E7 /* RegisterQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterQuestionViewController.swift; sourceTree = "<group>"; };
+		CED5A9101BB5821800C288E7 /* UILabelWithInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelWithInsets.swift; sourceTree = "<group>"; };
 		D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftData.swift; path = ThirdPart/SwiftData.swift; sourceTree = "<group>"; };
 		D106DCBC1B9C09EA00C5D6F3 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
@@ -229,7 +234,6 @@
 				CED5A8FB1BB4055F00C288E7 /* SwiftyJSON.framework */,
 				D140BE211BB2F54D001B77C4 /* libsqlite3.0.tbd */,
 				D15501951BB2EBED006713A3 /* Alamofire.framework */,
-				CE9595791BB400D20020F465 /* SwiftyJSON.framework */,
 				D10E8B081B7F312700C8658D /* SnapKit.framework */,
 				D10E8AD01B7EE1C100C8658D /* yunlian-ios */,
 				D10E8AE61B7EE1C200C8658D /* yunlian-iosTests */,
@@ -327,6 +331,7 @@
 				D182B3ED1BA1B1AA0045F7E8 /* PhotoScrollView.swift */,
 				D15501911BB232EB006713A3 /* UITextFieldWithInset.swift */,
 				CED5A90A1BB5133700C288E7 /* LoadingAlertController.swift */,
+				CED5A9101BB5821800C288E7 /* UILabelWithInsets.swift */,
 			);
 			name = Widgets;
 			sourceTree = "<group>";
@@ -365,6 +370,8 @@
 			isa = PBXGroup;
 			children = (
 				D155018F1BB19C17006713A3 /* RegisterPhoneNumberViewController.swift */,
+				CED5A90C1BB54CDA00C288E7 /* RegisterPasswordViewController.swift */,
+				CED5A90E1BB5771D00C288E7 /* RegisterQuestionViewController.swift */,
 			);
 			name = Register;
 			sourceTree = "<group>";
@@ -463,7 +470,7 @@
 				TargetAttributes = {
 					D10E8ACD1B7EE1C100C8658D = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 53FQVECWN3;
+						DevelopmentTeam = JG9G4PFMT2;
 					};
 					D10E8AE21B7EE1C200C8658D = {
 						CreatedOnToolsVersion = 6.4;
@@ -551,8 +558,10 @@
 				D124F09D1B8968BA00F86780 /* SearchContactsViewController.swift in Sources */,
 				D124F08A1B8554B600F86780 /* BlackListContactsViewController.swift in Sources */,
 				D10E8AD41B7EE1C100C8658D /* AppDelegate.swift in Sources */,
+				CED5A90D1BB54CDA00C288E7 /* RegisterPasswordViewController.swift in Sources */,
 				D1A8DF7E1B8D42BE00217467 /* SignatureCell.swift in Sources */,
 				CED5A90B1BB5133700C288E7 /* LoadingAlertController.swift in Sources */,
+				CED5A9111BB5821800C288E7 /* UILabelWithInsets.swift in Sources */,
 				D124F07B1B82C50B00F86780 /* FriendsContactCell.swift in Sources */,
 				D1A8DF781B8AA7A600217467 /* ProfileHeaderView.swift in Sources */,
 				D182B3EE1BA1B1AA0045F7E8 /* PhotoScrollView.swift in Sources */,
@@ -595,6 +604,7 @@
 				D124F0841B84A42E00F86780 /* Person.swift in Sources */,
 				D1A8DF7C1B8CA05100217467 /* ProfileCell.swift in Sources */,
 				D1A8DF891B8E001900217467 /* CalendarCell.swift in Sources */,
+				CED5A90F1BB5771D00C288E7 /* RegisterQuestionViewController.swift in Sources */,
 				D155018B1BB19585006713A3 /* NSData+AES256.m in Sources */,
 				D15501901BB19C17006713A3 /* RegisterPhoneNumberViewController.swift in Sources */,
 				D1A8DF711B89D24200217467 /* SearchContactsResultController.swift in Sources */,

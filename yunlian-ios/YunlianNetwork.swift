@@ -15,7 +15,7 @@ enum YunlianNetworkResult {
     case Not200(Int)
     case NetworkNotConnected
     case Timeout
-    case ServerError
+    case ServerError(String)
 }
 
 enum Api: String {
@@ -27,8 +27,8 @@ enum Api: String {
 }
 
 class YunlianNetwork {
-    static let RootPath = "http://127.0.0.1:6600"
-//    static let RootPath = "http://www.baidu.com"
+//    static let RootPath = "http://127.0.0.1:6600"
+    static let RootPath = "http://www.baidu.com"
     
     static let YunlianEncoding = ParameterEncoding.Custom { (URLRequest, parameters) -> (NSMutableURLRequest, NSError?) in
         var mutableURLRequest = URLRequest.URLRequest
@@ -68,9 +68,9 @@ class YunlianNetwork {
             } else if error.code == -1001 {
                 return YunlianNetworkResult.Timeout
             }
-            return YunlianNetworkResult.ServerError
+            return YunlianNetworkResult.ServerError(error.userInfo.description)
         default:
-            return YunlianNetworkResult.ServerError
+            return YunlianNetworkResult.ServerError("连接遇到问题")
         }
     }
     

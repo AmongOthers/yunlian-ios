@@ -130,18 +130,29 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         var parameters = [String: AnyObject]()
         parameters["phoneNumber"] = phoneNumber
         parameters["password"] = password
+        var afterLoading: (() -> Void)? = nil
         let loading = showLoading()
         YunlianNetwork.yunlianRequest(.Login, parameters: parameters) { (result) -> Void in
-            loading.dismissViewControllerAnimated(true, completion: nil)
+            defer {
+                self.dismissViewControllerAnimated(false, completion: afterLoading)
+            }
             switch result {
             case .Success(let json):
-                self.showSimpleMessage("", message: "\(json)")
+                let isSuccessful = json["isSucessed"].boolValue
+                if isSuccessful {
+                    let userId = json["result"]["userId"].stringValue
+                    NSUserDefaults.standardUserDefaults().setObject(userId, forKey: "USER_ID")
+                    self.presentViewController(ViewController(), animated: true, completion: nil)
+                } else {
+                    let info = json["info"].stringValue
+                    afterLoading = { self.showSimpleMessage("登录遇到问题", message: info) }
+                }
                 break
             case .NetworkNotConnected:
-                self.showSimpleMessage("未连接到互联网", message: "请检查网络配置")
+                afterLoading = { self.showSimpleMessage("未连接到互联网", message: "请检查网络配置") }
                 break
             default:
-                self.showSimpleMessage("发生错误", message: "请重试")
+                afterLoading = { self.showSimpleMessage("发生错误", message: "请重试") }
                 break
             }
         }
