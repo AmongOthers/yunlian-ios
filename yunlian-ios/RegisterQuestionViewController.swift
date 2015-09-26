@@ -11,20 +11,26 @@ import UIKit
 class RegisterQuestionViewController: UIViewController {
     
     struct UX {
+        static let LabelWidth: CGFloat = 38
         static let TopOffset: CGFloat = 20
         static let LeftOffset = 8
         static let RightOffset = -8
         static let TipHeight: CGFloat = 50
         static let MiddleSpace: CGFloat = 10
-        static let CornerRadius: CGFloat = 2
+        static let CornerRadius: CGFloat = 3
         static let ActionLabelHeight: CGFloat = 40
+        static let ItemInset: CGFloat = 17.5
+        static let TextField0Offset: CGFloat = TopOffset + TipHeight
+        static let TextField1Offset: CGFloat = TopOffset + TipHeight + ItemInset * 2 + ActionLabelHeight * 2
+        static let TextField2Offset: CGFloat = TextField1Offset + ItemInset * 2 + ActionLabelHeight * 2
     }
     
     var tipLabel: UILabel!
-    var question1Label: UILabel!
-    var question1ActionLabel: UILabel!
-    var answer1Label: UILabel!
-    var answer1TextField: UITextField!
+    var questionLabels: [UILabel]!
+    var questionActionLabels: [UILabel]!
+    var answerLabels: [UILabel]!
+    var answerTextFields: [UITextField]!
+    var viewOriginFrame: CGRect!
     
     var questions = [0: "你的第一个女朋友的名字", 1: "你的第一个上司的名字", 2: "你的第一条狗的名字", 3: "你的第一个老板的名字"]
     
@@ -32,6 +38,9 @@ class RegisterQuestionViewController: UIViewController {
         super.viewDidLoad()
         title = "选择安全问题"
         view.backgroundColor = UIConstants.BackgroundGray
+        view.userInteractionEnabled = true
+        view.gestureRecognizers = [UITapGestureRecognizer(target: self, action: "backgroundTapped:")]
+        viewOriginFrame = view.frame
         setupViews()
         setupConstraints()
     }
@@ -51,19 +60,46 @@ class RegisterQuestionViewController: UIViewController {
         tipLabel.textAlignment = NSTextAlignment.Center
         tipLabel.text = "在下面选择三个安全提示问题。当您忘记密码时，这些问题可以帮助我们确认您的身份。"
         
-        question1ActionLabel = UILabelWithInsets(frame: CGRectZero, insets: UIEdgeInsetsMake(0, 5, 0, 5))
-        view.addSubview(question1ActionLabel)
-        question1ActionLabel.text = "请选择"
-        question1ActionLabel.textColor = UIConstants.TintColor
-        question1ActionLabel.font = UIConstants.DefaultMediumFont
-        question1ActionLabel.backgroundColor = UIColor.whiteColor()
-        question1ActionLabel.layer.cornerRadius = UX.CornerRadius
+        questionLabels = [UILabel]()
+        questionActionLabels = [UILabel]()
+        answerLabels = [UILabel]()
+        answerTextFields = [UITextField]()
+        for i in 0...2 {
+            let questionActionLabel = UILabelWithInsets(frame: CGRectZero, insets: UIEdgeInsetsMake(0, 5, 0, 5))
+            questionActionLabels.append(questionActionLabel)
+            view.addSubview(questionActionLabel)
+            questionActionLabel.text = "请选择"
+            questionActionLabel.textColor = UIConstants.TintColor
+            questionActionLabel.font = UIConstants.DefaultMediumFont
+            questionActionLabel.backgroundColor = UIColor.whiteColor()
+            questionActionLabel.layer.cornerRadius = UX.CornerRadius
+            questionActionLabel.clipsToBounds = true
+            questionActionLabel.userInteractionEnabled = true
+            questionActionLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("chooseQuestion\(i)")))
+            questionActionLabel.tag = -1
         
-        question1Label = UILabel()
-        view.addSubview(question1Label)
-        question1Label.font = UIConstants.DefaultMediumFont
-        question1Label.textColor = UIConstants.FontColorGray
-        question1Label.text = "问题1"
+            let questionLabel = UILabel()
+            view.addSubview(questionLabel)
+            questionLabels.append(questionLabel)
+            questionLabel.font = UIConstants.DefaultMediumFont
+            questionLabel.textColor = UIConstants.FontColorGray
+            questionLabel.text = "问题\(i + 1)"
+            
+            let answerLabel = UILabel()
+            view.addSubview(answerLabel)
+            answerLabels.append(answerLabel)
+            answerLabel.font = UIConstants.DefaultMediumFont
+            answerLabel.textColor = UIConstants.FontColorGray
+            answerLabel.text = "答案"
+            
+            let answerTextField = UITextFieldWithInsets(frame: CGRectZero, insetX: 5, insetY: 0)
+            view.addSubview(answerTextField)
+            answerTextField.delegate = self
+            answerTextFields.append(answerTextField)
+            answerTextField.font = UIConstants.DefaultMediumFont
+            answerTextField.textColor = UIConstants.FontColorGray
+            answerTextField.backgroundColor = UIColor.whiteColor()
+        }
     }
     
     func setupConstraints() {
@@ -73,26 +109,90 @@ class RegisterQuestionViewController: UIViewController {
             make.left.equalTo(view).offset(UX.LeftOffset)
             make.right.equalTo(view).offset(UX.RightOffset)
         }
-        question1ActionLabel.snp_remakeConstraints { (make) -> Void in
-            make.top.equalTo(tipLabel.snp_bottom).offset(UX.MiddleSpace)
-            make.right.equalTo(view).offset(UX.RightOffset)
-            make.left.equalTo(question1Label.snp_right).offset(UX.MiddleSpace)
-            make.height.equalTo(UX.ActionLabelHeight)
+        for i in 0...2 {
+            let questionActionLabel = questionActionLabels[i]
+            let questionLabel = questionLabels[i]
+            let answerTextField = answerTextFields[i]
+            let answerLabel = answerLabels[i]
+            questionActionLabel.snp_remakeConstraints { (make) -> Void in
+                if (i == 0) {
+                    make.top.equalTo(tipLabel.snp_bottom).offset(UX.ItemInset)
+                } else {
+                    make.top.equalTo(answerTextFields[i - 1].snp_bottom).offset(UX.ItemInset)
+                }
+                make.right.equalTo(view).offset(UX.RightOffset)
+                make.left.equalTo(questionLabel.snp_right).offset(UX.MiddleSpace)
+                make.height.equalTo(UX.ActionLabelHeight)
+            }
+            questionLabel.snp_remakeConstraints { (make) -> Void in
+                make.left.equalTo(view).offset(UX.LeftOffset)
+                make.width.equalTo(UX.LabelWidth)
+                make.centerY.equalTo(questionActionLabel)
+            }
+            answerTextField.snp_remakeConstraints { (make) -> Void in
+                make.top.equalTo(questionActionLabel.snp_bottom).offset(UX.ItemInset)
+                make.height.right.equalTo(questionActionLabel)
+                make.left.equalTo(answerLabel.snp_right).offset(UX.MiddleSpace)
+            }
+            answerLabel.snp_remakeConstraints { (make) -> Void in
+                make.left.right.equalTo(questionLabel)
+                make.centerY.equalTo(answerTextField)
+            }    
         }
-        question1Label.snp_remakeConstraints { (make) -> Void in
-            make.left.equalTo(view).offset(UX.LeftOffset)
-            make.centerY.equalTo(question1ActionLabel)
-        }
+        
     }
     
-    func showQuestions() {
+    func backgroundTapped(_: UIGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    func chooseQuestion0() {
+        showQuestions(questionActionLabels[0])
+    }
+    
+    func chooseQuestion1() {
+        showQuestions(questionActionLabels[1])
+    }
+    
+    func chooseQuestion2() {
+        showQuestions(questionActionLabels[2])
+    }
+    
+    func showQuestions(label: UILabel) {
         let alert = UIAlertController(title: "选择问题", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         questions.forEach { (key, value) -> () in
-            let action = UIAlertAction(title: value, style: UIAlertActionStyle.Default, handler: nil)
+            let action = UIAlertAction(title: value, style: UIAlertActionStyle.Default, handler: {
+                _ -> Void in
+                if label.tag >= 0 {
+                    self.questions[label.tag] = label.text
+                }
+                label.tag = key
+                label.text = value
+                self.questions.removeValueForKey(label.tag)
+            })
             alert.addAction(action)
         }
         let cancel = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
         alert.addAction(cancel)
         presentViewController(alert, animated: true, completion: nil)
+    }
+}
+
+extension RegisterQuestionViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField != answerTextFields[0] {
+            view.frame = CGRectOffset(viewOriginFrame, 0, -UX.TextField1Offset)
+        } else {
+            view.frame = CGRectOffset(viewOriginFrame, 0, -UX.TextField0Offset)
+        }
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        view.frame = viewOriginFrame
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
     }
 }
