@@ -142,6 +142,13 @@ class RegisterQuestionViewController: UIViewController {
         
     }
     
+    func previousTapped() {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func nextTapped() {
+    }
+    
     func backgroundTapped(_: UIGestureRecognizer) {
         view.endEditing(true)
     }

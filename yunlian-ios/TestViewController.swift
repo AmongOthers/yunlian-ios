@@ -21,7 +21,7 @@ class TestViewController: UIViewController {
         view.backgroundColor = UIColor.blackColor()
         automaticallyAdjustsScrollViewInsets = false
         
-        let result = "{\"isSucessed\":true,\"info\":\"登录成功\",\"result\":{\"userId\":\"1\"}}"
+        let result = "{\"isSucessed\":true,\"info\":\"获取成功\",\"result\":{\"questions\":[{\"id\":1,\"description\":\"你女朋友的名字？\"},{\"id\":2,\"description\":\"你老婆的名字？\"},{\"id\":3,\"description\":\"你情人的名字？\"},{\"id\":4,\"description\":\"你二奶的名字？\"},{\"id\":5,\"description\":\"你的名字？\"}]}}"
         print(NSData.AES256EncryptWithPlainText(result))
         
         login("15102053276", password: "123456")

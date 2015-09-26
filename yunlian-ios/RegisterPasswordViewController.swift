@@ -20,6 +20,8 @@ class RegisterPasswordViewController: UIViewController {
         static let MiddleSpace: CGFloat = 17
     }
     
+    var previousItem: UIBarButtonItem!
+    var nextItem: UIBarButtonItem!
     var passwordTextField: UITextField!
     var passwordAgainTextField: UITextField!
     
@@ -33,10 +35,11 @@ class RegisterPasswordViewController: UIViewController {
     
     func setupViews() {
         navigationItem.hidesBackButton = true
-        let previousItem = UIBarButtonItem(title: "上一步", style: UIBarButtonItemStyle.Plain, target: self, action: "previousTapped")
+        previousItem = UIBarButtonItem(title: "上一步", style: UIBarButtonItemStyle.Plain, target: self, action: "previousTapped")
         navigationItem.leftBarButtonItem = previousItem
-        let nextItem = UIBarButtonItem(title: "下一步", style: UIBarButtonItemStyle.Plain, target: self, action: "nextTapped")
+        nextItem = UIBarButtonItem(title: "下一步", style: UIBarButtonItemStyle.Plain, target: self, action: "nextTapped")
         navigationItem.rightBarButtonItem = nextItem
+        nextItem.enabled = false
         
         passwordTextField = UITextFieldWithInsets(frame: CGRectZero, insetX: UX.TextFieldInsetX, insetY: 0)
         passwordTextField.delegate = self
@@ -65,7 +68,7 @@ class RegisterPasswordViewController: UIViewController {
         passwordAgainRightView.image = UIImage(named: "passwordHide")
         passwordAgainRightView.contentMode = UIViewContentMode.Center
         passwordAgainRightView.userInteractionEnabled = true
-        passwordAgainRightView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "passwordAgainRightViewTapped"))
+        passwordAgainRightView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: "passwordRightViewTapped"))
         passwordAgainTextField.rightViewMode = UITextFieldViewMode.Always
         passwordAgainTextField.rightView = passwordAgainRightView
         passwordAgainTextField.tintColor = UIConstants.TintColor
@@ -98,9 +101,6 @@ class RegisterPasswordViewController: UIViewController {
         } else {
             (passwordTextField.rightView as! UIImageView).image = UIImage(named: "passwordDisplay")
         }
-    }
-    
-    func passwordAgainRightViewTapped() {
         passwordAgainTextField.secureTextEntry = !passwordAgainTextField.secureTextEntry
         if(passwordAgainTextField.secureTextEntry) {
             (passwordAgainTextField.rightView as! UIImageView).image = UIImage(named: "passwordHide")
@@ -109,14 +109,35 @@ class RegisterPasswordViewController: UIViewController {
         }
     }
     
-    func previouseTapped() {
+    func previousTapped() {
         navigationController?.popViewControllerAnimated(true)
     }
     
     func nextTapped() {
-        navigationController?.pushViewController(RegisterQuestionViewController(), animated: true)
+        if passwordTextField.text != passwordAgainTextField.text {
+            showSimpleMessage("", message: "两次输入的密码不一致")
+        } else {
+            navigationController?.pushViewController(RegisterQuestionViewController(), animated: true)
+        }
     }
 }
 
 extension RegisterPasswordViewController: UITextFieldDelegate {
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if string == "" && range.length == textField.text?.characters.count {
+            nextItem.enabled = false
+        } else {
+            if textField == passwordTextField && passwordAgainTextField.text != "" {
+                nextItem.enabled = true
+            } else if textField == passwordAgainTextField && passwordTextField.text != "" {
+                nextItem.enabled = true
+            }
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        view.endEditing(true)
+        return true
+    }
 }

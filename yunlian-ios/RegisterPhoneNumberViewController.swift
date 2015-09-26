@@ -25,6 +25,8 @@ class RegisterPhoneNumberViewController: UIViewController {
     var phoneNumberTextField: UITextField!
     var smsCodeTextField: UITextField!
     var getSmsCodeButton: UIButton!
+    var seconds: Int = 60
+    var timer: NSTimer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,17 @@ class RegisterPhoneNumberViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        timer?.invalidate()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        if let _ = self.timer {
+            getSmsCodeButton.setTitle("获取验证码", forState: UIControlState.Normal)
+            getSmsCodeButton.enabled = true
+        }
     }
     
     func setupViews() {
@@ -59,11 +72,12 @@ class RegisterPhoneNumberViewController: UIViewController {
         smsCodeTextField.backgroundColor = UIColor.whiteColor()
         smsCodeTextField.layer.cornerRadius = UX.CornerRadius
         smsCodeTextField.tintColor = UIConstants.TintColor
-        smsCodeTextField.keyboardType = UIKeyboardType.PhonePad
+        smsCodeTextField.keyboardType = UIKeyboardType.NumberPad
         smsCodeTextField.placeholder = "短信验证码"
         
         getSmsCodeButton = UIButton()
         view.addSubview(getSmsCodeButton)
+        getSmsCodeButton.addTarget(self, action: "getSmsCodeTapped", forControlEvents: UIControlEvents.TouchUpInside)
         getSmsCodeButton.titleLabel?.font = UIConstants.DefaultMediumFont
         getSmsCodeButton.backgroundColor = UX.GetSmsCodeButtonBackgroudColor
         getSmsCodeButton.layer.cornerRadius = UX.CornerRadius
@@ -91,6 +105,24 @@ class RegisterPhoneNumberViewController: UIViewController {
             make.left.equalTo(phoneNumberTextField)
             make.right.equalTo(getSmsCodeButton.snp_left).offset(-UX.SmsMiddleSpace)
         }
+    }
+    
+    func getSmsCodeTapped() {
+        getSmsCodeButton.enabled = false
+        seconds = 60
+        timer = NSTimer(timeInterval: 1, target: self, selector: "ticktack:", userInfo: seconds, repeats: true)
+        NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSDefaultRunLoopMode)
+//        if phoneNumberTextField.text!.isTelNumber() {
+//            let timer = NSTimer(timeInterval: 1, target: self, selector: "ticktack", userInfo: 60, repeats: true)
+//            timer.fire()
+//        } else {
+//            showSimpleMessage("", message: "手机号码格式不对")
+//        }
+    }
+    
+    func ticktack(timer: NSTimer) {
+        seconds--
+        getSmsCodeButton.setTitle("\(seconds)秒", forState: UIControlState.Normal)
     }
     
     func nextTapped() {
