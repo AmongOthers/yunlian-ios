@@ -78,9 +78,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.clearButtonMode = UITextFieldViewMode.WhileEditing
         loginButton = UIButton()
         view.addSubview(loginButton)
+        loginButton.enabled = false
         loginButton.setTitle("登录", forState: UIControlState.Normal)
         loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        loginButton.setTitleColor(UIConstants.FirstGray, forState: UIControlState.Disabled)
         loginButton.backgroundColor = UIConstants.TintColor
+        loginButton.setBackgroundImage(UIImage(fillColor: UIConstants.DisabledColor), forState: UIControlState.Disabled)
         loginButton.layer.cornerRadius = LoginViewControllerUX.CornerRadius
         loginButton.addTarget(self, action: "loginTapped", forControlEvents: UIControlEvents.TouchUpInside)
         takeBackPasswordButton = UIButton()
@@ -130,31 +133,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         var parameters = [String: AnyObject]()
         parameters["phoneNumber"] = phoneNumber
         parameters["password"] = password
-        var afterLoading: (() -> Void)? = nil
-        let loading = showLoading()
-        YunlianNetwork.yunlianRequest(.Login, parameters: parameters) { (result) -> Void in
-            defer {
-                self.dismissViewControllerAnimated(false, completion: afterLoading)
-            }
-            switch result {
-            case .Success(let json):
-                let isSuccessful = json["isSucessed"].boolValue
-                if isSuccessful {
-                    let userId = json["result"]["userId"].stringValue
-                    NSUserDefaults.standardUserDefaults().setObject(userId, forKey: "USER_ID")
-                    self.presentViewController(ViewController(), animated: true, completion: nil)
-                } else {
-                    let info = json["info"].stringValue
-                    afterLoading = { self.showSimpleMessage("登录遇到问题", message: info) }
-                }
-                break
-            case .NetworkNotConnected:
-                afterLoading = { self.showSimpleMessage("未连接到互联网", message: "请检查网络配置") }
-                break
-            default:
-                afterLoading = { self.showSimpleMessage("发生错误", message: "请重试") }
-                break
-            }
+        yunlianRequest(.Login, parameters: parameters) { (json) -> Void in
+            let userId = json["result"]["userId"].stringValue
+            NSUserDefaults.standardUserDefaults().setObject(userId, forKey: "USER_ID")
+            self.presentViewController(ViewController(), animated: true, completion: nil)
         }
     }
     
@@ -173,6 +155,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func registerTapped() {
         navigationController?.pushViewController(RegisterPhoneNumberViewController(), animated: false)
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if string == "" && range.length == textField.text?.characters.count {
+            loginButton.enabled = false
+        } else {
+            if textField == mobileTextField && passwordTextField.text != "" {
+                loginButton.enabled = true
+            } else if textField == passwordTextField && mobileTextField.text != "" {
+                loginButton.enabled = true
+            }
+        }
+        return true
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {

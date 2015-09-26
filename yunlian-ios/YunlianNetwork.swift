@@ -28,7 +28,7 @@ enum Api: String {
 
 class YunlianNetwork {
 //    static let RootPath = "http://127.0.0.1:6600"
-    static let RootPath = "http://www.baidu.com"
+    static let RootPath = "http://192.168.1.104:5050"
     
     static let YunlianEncoding = ParameterEncoding.Custom { (URLRequest, parameters) -> (NSMutableURLRequest, NSError?) in
         var mutableURLRequest = URLRequest.URLRequest

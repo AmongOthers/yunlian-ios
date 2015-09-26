@@ -20,6 +20,8 @@ class RegisterPasswordViewController: UIViewController {
         static let MiddleSpace: CGFloat = 17
     }
     
+    var registerInfo: RegisterInfo?
+    
     var previousItem: UIBarButtonItem!
     var nextItem: UIBarButtonItem!
     var passwordTextField: UITextField!
@@ -39,7 +41,7 @@ class RegisterPasswordViewController: UIViewController {
         navigationItem.leftBarButtonItem = previousItem
         nextItem = UIBarButtonItem(title: "下一步", style: UIBarButtonItemStyle.Plain, target: self, action: "nextTapped")
         navigationItem.rightBarButtonItem = nextItem
-        nextItem.enabled = false
+//        nextItem.enabled = false
         
         passwordTextField = UITextFieldWithInsets(frame: CGRectZero, insetX: UX.TextFieldInsetX, insetY: 0)
         passwordTextField.delegate = self
@@ -114,10 +116,24 @@ class RegisterPasswordViewController: UIViewController {
     }
     
     func nextTapped() {
-        if passwordTextField.text != passwordAgainTextField.text {
+        if false && passwordTextField.text != passwordAgainTextField.text {
             showSimpleMessage("", message: "两次输入的密码不一致")
         } else {
-            navigationController?.pushViewController(RegisterQuestionViewController(), animated: true)
+            registerInfo?.password = passwordTextField.text
+            var parameters = [String: AnyObject]()
+            parameters["isFull"] = true
+            yunlianRequest(.GetQuestion, parameters: parameters, whenSuccessful: { (json) -> Void in
+                let controller = RegisterQuestionViewController()
+                var questions = [Int: String]()
+                let questionsJSON = json["result"]["questions"].arrayValue
+                questionsJSON.forEach() { j -> Void in
+                    let i = j["id"].intValue
+                    questions[i] = j["description"].stringValue
+                }
+                controller.questions = questions
+                controller.registerInfo = self.registerInfo
+                self.navigationController?.pushViewController(controller, animated: true)
+            })
         }
     }
 }

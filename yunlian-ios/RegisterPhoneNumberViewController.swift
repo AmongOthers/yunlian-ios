@@ -22,11 +22,15 @@ class RegisterPhoneNumberViewController: UIViewController {
         static let MiddleSpace: CGFloat = 17
     }
     
+    var registerInfo: RegisterInfo?
+    
     var phoneNumberTextField: UITextField!
     var smsCodeTextField: UITextField!
     var getSmsCodeButton: UIButton!
     var seconds: Int = 60
     var timer: NSTimer?
+    var nextItem: UIBarButtonItem!
+    var cancelItem: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,13 +58,15 @@ class RegisterPhoneNumberViewController: UIViewController {
     
     func setupViews() {
         navigationItem.hidesBackButton = true
-        let cancelItem = UIBarButtonItem(title: "取消", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelTapped")
+        cancelItem = UIBarButtonItem(title: "取消", style: UIBarButtonItemStyle.Plain, target: self, action: "cancelTapped")
         navigationItem.leftBarButtonItem = cancelItem
-        let nextItem = UIBarButtonItem(title: "下一步", style: UIBarButtonItemStyle.Plain, target: self, action: "nextTapped")
+        nextItem = UIBarButtonItem(title: "下一步", style: UIBarButtonItemStyle.Plain, target: self, action: "nextTapped")
+        nextItem.enabled = false
         navigationItem.rightBarButtonItem = nextItem
         
         phoneNumberTextField = UITextFieldWithInsets(frame: CGRectZero, insetX: UX.TextFieldInsetX, insetY: 0)
         view.addSubview(phoneNumberTextField)
+        phoneNumberTextField.text = "15915892134"
         phoneNumberTextField.backgroundColor = UIColor.whiteColor()
         phoneNumberTextField.layer.cornerRadius = UX.CornerRadius
         phoneNumberTextField.tintColor = UIConstants.TintColor
@@ -69,6 +75,7 @@ class RegisterPhoneNumberViewController: UIViewController {
         
         smsCodeTextField = UITextFieldWithInsets(frame: CGRectZero, insetX: UX.TextFieldInsetX, insetY: 0)
         view.addSubview(smsCodeTextField)
+        smsCodeTextField.delegate = self
         smsCodeTextField.backgroundColor = UIColor.whiteColor()
         smsCodeTextField.layer.cornerRadius = UX.CornerRadius
         smsCodeTextField.tintColor = UIConstants.TintColor
@@ -108,28 +115,50 @@ class RegisterPhoneNumberViewController: UIViewController {
     }
     
     func getSmsCodeTapped() {
-        getSmsCodeButton.enabled = false
-        seconds = 60
-        timer = NSTimer(timeInterval: 1, target: self, selector: "ticktack:", userInfo: seconds, repeats: true)
-        NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSDefaultRunLoopMode)
-//        if phoneNumberTextField.text!.isTelNumber() {
-//            let timer = NSTimer(timeInterval: 1, target: self, selector: "ticktack", userInfo: 60, repeats: true)
-//            timer.fire()
-//        } else {
-//            showSimpleMessage("", message: "手机号码格式不对")
-//        }
+        if phoneNumberTextField.text!.isTelNumber() {
+//            getSmsCodeButton.enabled = false
+//            seconds = 60
+//            timer = NSTimer(timeInterval: 1, target: self, selector: "ticktack:", userInfo: seconds, repeats: true)
+//            NSRunLoop.currentRunLoop().addTimer(timer!, forMode: NSDefaultRunLoopMode)
+            var parameters = [String: AnyObject]()
+            parameters["phoneNumber"] = phoneNumberTextField.text
+            yunlianRequest(.VerifyCode, parameters: parameters, whenSuccessful: { (json) -> Void in
+                let verifyCode = json["result"]["verifyCode"]
+                print(verifyCode)
+            })
+        } else {
+            showSimpleMessage("", message: "手机号码格式不对")
+        }
     }
     
     func ticktack(timer: NSTimer) {
-        seconds--
-        getSmsCodeButton.setTitle("\(seconds)秒", forState: UIControlState.Normal)
+//        seconds--
+//        getSmsCodeButton.setTitle("\(seconds)秒", forState: UIControlState.Normal)
     }
     
     func nextTapped() {
-        navigationController?.pushViewController(RegisterPasswordViewController(), animated: true)
+        let verifyCode = smsCodeTextField.text
+        let md5Str = verifyCode?.md5
+        let encryptedStr = NSData.AES256EncryptWithPlainText(md5Str)
+        print(encryptedStr)
+        registerInfo = RegisterInfo()
+        let controller = RegisterPasswordViewController()
+        controller.registerInfo = registerInfo
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     func cancelTapped() {
         navigationController?.popViewControllerAnimated(false)
+    }
+}
+
+extension RegisterPhoneNumberViewController: UITextFieldDelegate {
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        if string == "" && range.length == textField.text?.characters.count {
+            nextItem.enabled = false
+        } else {
+            nextItem.enabled = true
+        }
+        return true
     }
 }

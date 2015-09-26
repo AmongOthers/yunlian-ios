@@ -13,6 +13,7 @@ struct UIConstants {
     static let TintColor = UIColor(rgb: 0xff8244)
     static let TintColorGreen = UIColor(rgb: 0x56c119)
     static let BackgroundColor = UIColor(rgb: 0x607d8b)
+    static let DisabledColor = UIColor(rgb: 0xB0B0B0)
     static let SelectedBackgroundColor = UIColor(rgb: 0x546f7c)
     static let BarHeight = 44
     static let StatusBarHeight = 20

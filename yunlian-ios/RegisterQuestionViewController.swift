@@ -25,6 +25,8 @@ class RegisterQuestionViewController: UIViewController {
         static let TextField2Offset: CGFloat = TextField1Offset + ItemInset * 2 + ActionLabelHeight * 2
     }
     
+    var registerInfo: RegisterInfo?
+    
     var tipLabel: UILabel!
     var questionLabels: [UILabel]!
     var questionActionLabels: [UILabel]!
@@ -147,6 +149,31 @@ class RegisterQuestionViewController: UIViewController {
     }
     
     func nextTapped() {
+        var parameters = [String: AnyObject]()
+                parameters["userId"] = 2
+                var ids = [Int]()
+                self.questionActionLabels.forEach({ (label) -> () in
+                    ids.append(label.tag)
+                })
+                parameters["questionIds"] = ids
+                var answers = [String]()
+                self.answerTextFields.forEach({ (text) -> () in
+                    answers.append(text.text!)
+                })
+                parameters["answers"] = answers
+                self.yunlianRequest(Api.AnswerQuestion, parameters: parameters, whenSuccessful: { (json) -> Void in
+                    print(json)
+                })
+//        var parameters = [String: AnyObject]()
+//        parameters["phoneNumber"] = registerInfo?.phoneNumber
+//        parameters["password"] = registerInfo?.password
+//        yunlianRequest(.Register, parameters: parameters) { (json) -> Void in
+//            print(json)
+//            NSUserDefaults.standardUserDefaults().setObject("2", forKey: "userId")
+//            if let userId = NSUserDefaults.standardUserDefaults().stringForKey("userId") {
+//                
+//            }
+//        }
     }
     
     func backgroundTapped(_: UIGestureRecognizer) {
