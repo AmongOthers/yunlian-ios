@@ -37,14 +37,13 @@ class RegisterQuestionViewController: UIViewController {
     var answerTextFields: [UITextField]!
     var viewOriginFrame: CGRect!
     var activeField: UITextField?
-    var skipButton: UIButton!
     
     var questions = [0: "你的第一个女朋友的名字", 1: "你的第一个上司的名字", 2: "你的第一条狗的名字", 3: "你的第一个老板的名字"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false
-        title = "选择安全问题"
+        title = "设置安全问题"
         view.backgroundColor = UIConstants.BackgroundGray
         view.userInteractionEnabled = true
         view.gestureRecognizers = [UITapGestureRecognizer(target: self, action: "backgroundTapped:")]
@@ -64,9 +63,9 @@ class RegisterQuestionViewController: UIViewController {
     
     func setupViews() {
         navigationItem.hidesBackButton = true
-        let previousItem = UIBarButtonItem(title: "上一步", style: UIBarButtonItemStyle.Plain, target: self, action: "previousTapped")
+        let previousItem = UIBarButtonItem(title: "取消", style: UIBarButtonItemStyle.Plain, target: self, action: "previousTapped")
         navigationItem.leftBarButtonItem = previousItem
-        let nextItem = UIBarButtonItem(title: "下一步", style: UIBarButtonItemStyle.Plain, target: self, action: "nextTapped")
+        let nextItem = UIBarButtonItem(title: "提交", style: UIBarButtonItemStyle.Plain, target: self, action: "nextTapped")
         navigationItem.rightBarButtonItem = nextItem
         
         scrollView = UIScrollView()
@@ -79,7 +78,7 @@ class RegisterQuestionViewController: UIViewController {
         scrollView.addSubview(contentView)
         
         tipLabel = UILabel()
-        scrollView.addSubview(tipLabel)
+        contentView.addSubview(tipLabel)
         tipLabel.font = UIConstants.DefaultMediumFont
         tipLabel.textColor = UIConstants.FontColorGray
         tipLabel.numberOfLines = 2
@@ -93,7 +92,7 @@ class RegisterQuestionViewController: UIViewController {
         for i in 0...2 {
             let questionActionLabel = UILabelWithInsets(frame: CGRectZero, insets: UIEdgeInsetsMake(0, 5, 0, 5))
             questionActionLabels.append(questionActionLabel)
-            scrollView.addSubview(questionActionLabel)
+            contentView.addSubview(questionActionLabel)
             questionActionLabel.text = "请选择"
             questionActionLabel.textColor = UIConstants.TintColor
             questionActionLabel.font = UIConstants.DefaultMediumFont
@@ -105,34 +104,27 @@ class RegisterQuestionViewController: UIViewController {
             questionActionLabel.tag = -1
         
             let questionLabel = UILabel()
-            scrollView.addSubview(questionLabel)
+            contentView.addSubview(questionLabel)
             questionLabels.append(questionLabel)
             questionLabel.font = UIConstants.DefaultMediumFont
             questionLabel.textColor = UIConstants.FontColorGray
             questionLabel.text = "问题\(i + 1)"
             
             let answerLabel = UILabel()
-            scrollView.addSubview(answerLabel)
+            contentView.addSubview(answerLabel)
             answerLabels.append(answerLabel)
             answerLabel.font = UIConstants.DefaultMediumFont
             answerLabel.textColor = UIConstants.FontColorGray
             answerLabel.text = "答案"
             
             let answerTextField = UITextFieldWithInsets(frame: CGRectZero, insetX: 5, insetY: 0)
-            scrollView.addSubview(answerTextField)
+            contentView.addSubview(answerTextField)
             answerTextField.delegate = self
             answerTextFields.append(answerTextField)
             answerTextField.font = UIConstants.DefaultMediumFont
             answerTextField.textColor = UIConstants.FontColorGray
             answerTextField.backgroundColor = UIColor.whiteColor()
         }
-        
-        skipButton = UIButton()
-        scrollView.addSubview(skipButton)
-        skipButton.setTitle("跳过", forState: UIControlState.Normal)
-        skipButton.titleLabel?.font = UIConstants.DefaultMediumFont
-        skipButton.setTitleColor(UIConstants.TintColor, forState: UIControlState.Normal)
-        skipButton.addTarget(self, action: "skip", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     func setupConstraints() {
@@ -181,11 +173,6 @@ class RegisterQuestionViewController: UIViewController {
                 make.centerY.equalTo(answerTextField)
             }    
         }
-        skipButton.snp_remakeConstraints { (make) -> Void in
-            make.bottom.equalTo(contentView).offset(-UX.BottomOffset)
-            make.right.equalTo(questionActionLabels[0])
-        }
-        
     }
     
     func previousTapped() {
