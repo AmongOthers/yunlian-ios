@@ -13,8 +13,9 @@ class RegisterQuestionViewController: UIViewController {
     struct UX {
         static let LabelWidth: CGFloat = 38
         static let TopOffset: CGFloat = 20
-        static let LeftOffset = 8
-        static let RightOffset = -8
+        static let BottomOffset: CGFloat = 20
+        static let LeftOffset: CGFloat = 8
+        static let RightOffset: CGFloat = -8
         static let TipHeight: CGFloat = 50
         static let MiddleSpace: CGFloat = 10
         static let CornerRadius: CGFloat = 3
@@ -27,17 +28,22 @@ class RegisterQuestionViewController: UIViewController {
     
     var registerInfo: RegisterInfo?
     
+    var scrollView: UIScrollView!
+    var contentView: UIView!
     var tipLabel: UILabel!
     var questionLabels: [UILabel]!
     var questionActionLabels: [UILabel]!
     var answerLabels: [UILabel]!
     var answerTextFields: [UITextField]!
     var viewOriginFrame: CGRect!
+    var activeField: UITextField?
+    var skipButton: UIButton!
     
     var questions = [0: "你的第一个女朋友的名字", 1: "你的第一个上司的名字", 2: "你的第一条狗的名字", 3: "你的第一个老板的名字"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        automaticallyAdjustsScrollViewInsets = false
         title = "选择安全问题"
         view.backgroundColor = UIConstants.BackgroundGray
         view.userInteractionEnabled = true
@@ -47,6 +53,15 @@ class RegisterQuestionViewController: UIViewController {
         setupConstraints()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        registerForKeyboardNotifications()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        unregisterForKeyboardNotifications()
+    }
+    
+    
     func setupViews() {
         navigationItem.hidesBackButton = true
         let previousItem = UIBarButtonItem(title: "上一步", style: UIBarButtonItemStyle.Plain, target: self, action: "previousTapped")
@@ -54,8 +69,17 @@ class RegisterQuestionViewController: UIViewController {
         let nextItem = UIBarButtonItem(title: "下一步", style: UIBarButtonItemStyle.Plain, target: self, action: "nextTapped")
         navigationItem.rightBarButtonItem = nextItem
         
+        scrollView = UIScrollView()
+        view.addSubview(scrollView)
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.bounces = false
+        
+        contentView = UIView()
+        scrollView.addSubview(contentView)
+        
         tipLabel = UILabel()
-        view.addSubview(tipLabel)
+        scrollView.addSubview(tipLabel)
         tipLabel.font = UIConstants.DefaultMediumFont
         tipLabel.textColor = UIConstants.FontColorGray
         tipLabel.numberOfLines = 2
@@ -69,7 +93,7 @@ class RegisterQuestionViewController: UIViewController {
         for i in 0...2 {
             let questionActionLabel = UILabelWithInsets(frame: CGRectZero, insets: UIEdgeInsetsMake(0, 5, 0, 5))
             questionActionLabels.append(questionActionLabel)
-            view.addSubview(questionActionLabel)
+            scrollView.addSubview(questionActionLabel)
             questionActionLabel.text = "请选择"
             questionActionLabel.textColor = UIConstants.TintColor
             questionActionLabel.font = UIConstants.DefaultMediumFont
@@ -81,55 +105,71 @@ class RegisterQuestionViewController: UIViewController {
             questionActionLabel.tag = -1
         
             let questionLabel = UILabel()
-            view.addSubview(questionLabel)
+            scrollView.addSubview(questionLabel)
             questionLabels.append(questionLabel)
             questionLabel.font = UIConstants.DefaultMediumFont
             questionLabel.textColor = UIConstants.FontColorGray
             questionLabel.text = "问题\(i + 1)"
             
             let answerLabel = UILabel()
-            view.addSubview(answerLabel)
+            scrollView.addSubview(answerLabel)
             answerLabels.append(answerLabel)
             answerLabel.font = UIConstants.DefaultMediumFont
             answerLabel.textColor = UIConstants.FontColorGray
             answerLabel.text = "答案"
             
             let answerTextField = UITextFieldWithInsets(frame: CGRectZero, insetX: 5, insetY: 0)
-            view.addSubview(answerTextField)
+            scrollView.addSubview(answerTextField)
             answerTextField.delegate = self
             answerTextFields.append(answerTextField)
             answerTextField.font = UIConstants.DefaultMediumFont
             answerTextField.textColor = UIConstants.FontColorGray
             answerTextField.backgroundColor = UIColor.whiteColor()
         }
+        
+        skipButton = UIButton()
+        scrollView.addSubview(skipButton)
+        skipButton.setTitle("跳过", forState: UIControlState.Normal)
+        skipButton.titleLabel?.font = UIConstants.DefaultMediumFont
+        skipButton.setTitleColor(UIConstants.TintColor, forState: UIControlState.Normal)
+        skipButton.addTarget(self, action: "skip", forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     func setupConstraints() {
+        scrollView.snp_remakeConstraints { (make) -> Void in
+            make.top.equalTo(snp_topLayoutGuideBottom)
+            make.left.right.bottom.equalTo(view)
+        }
+        contentView.snp_remakeConstraints { (make) -> Void in
+            make.width.equalTo(view.frame.width)
+            make.height.equalTo(view.frame.height - 64)
+            make.edges.equalTo(scrollView)
+        }
         tipLabel.snp_remakeConstraints { (make) -> Void in
-            make.top.equalTo(snp_topLayoutGuideBottom).offset(UX.TopOffset)
+            make.top.equalTo(scrollView).offset(UX.TopOffset)
             make.height.equalTo(UX.TipHeight)
-            make.left.equalTo(view).offset(UX.LeftOffset)
-            make.right.equalTo(view).offset(UX.RightOffset)
+            make.centerX.equalTo(scrollView)
+            make.width.equalTo(view.frame.size.width - 2 * UX.LeftOffset)
         }
         for i in 0...2 {
             let questionActionLabel = questionActionLabels[i]
             let questionLabel = questionLabels[i]
             let answerTextField = answerTextFields[i]
             let answerLabel = answerLabels[i]
+            questionLabel.snp_remakeConstraints { (make) -> Void in
+                make.left.equalTo(contentView).offset(UX.LeftOffset)
+                make.width.equalTo(UX.LabelWidth)
+                make.centerY.equalTo(questionActionLabel)
+            }
             questionActionLabel.snp_remakeConstraints { (make) -> Void in
                 if (i == 0) {
                     make.top.equalTo(tipLabel.snp_bottom).offset(UX.ItemInset)
                 } else {
                     make.top.equalTo(answerTextFields[i - 1].snp_bottom).offset(UX.ItemInset)
                 }
-                make.right.equalTo(view).offset(UX.RightOffset)
+                make.right.equalTo(contentView).offset(UX.RightOffset)
                 make.left.equalTo(questionLabel.snp_right).offset(UX.MiddleSpace)
                 make.height.equalTo(UX.ActionLabelHeight)
-            }
-            questionLabel.snp_remakeConstraints { (make) -> Void in
-                make.left.equalTo(view).offset(UX.LeftOffset)
-                make.width.equalTo(UX.LabelWidth)
-                make.centerY.equalTo(questionActionLabel)
             }
             answerTextField.snp_remakeConstraints { (make) -> Void in
                 make.top.equalTo(questionActionLabel.snp_bottom).offset(UX.ItemInset)
@@ -141,6 +181,10 @@ class RegisterQuestionViewController: UIViewController {
                 make.centerY.equalTo(answerTextField)
             }    
         }
+        skipButton.snp_remakeConstraints { (make) -> Void in
+            make.bottom.equalTo(contentView).offset(-UX.BottomOffset)
+            make.right.equalTo(questionActionLabels[0])
+        }
         
     }
     
@@ -150,30 +194,20 @@ class RegisterQuestionViewController: UIViewController {
     
     func nextTapped() {
         var parameters = [String: AnyObject]()
-                parameters["userId"] = 2
-                var ids = [Int]()
-                self.questionActionLabels.forEach({ (label) -> () in
-                    ids.append(label.tag)
-                })
-                parameters["questionIds"] = ids
-                var answers = [String]()
-                self.answerTextFields.forEach({ (text) -> () in
-                    answers.append(text.text!)
-                })
-                parameters["answers"] = answers
-                self.yunlianRequest(Api.AnswerQuestion, parameters: parameters, whenSuccessful: { (json) -> Void in
-                    print(json)
-                })
-//        var parameters = [String: AnyObject]()
-//        parameters["phoneNumber"] = registerInfo?.phoneNumber
-//        parameters["password"] = registerInfo?.password
-//        yunlianRequest(.Register, parameters: parameters) { (json) -> Void in
-//            print(json)
-//            NSUserDefaults.standardUserDefaults().setObject("2", forKey: "userId")
-//            if let userId = NSUserDefaults.standardUserDefaults().stringForKey("userId") {
-//                
-//            }
-//        }
+        parameters["userId"] = 2
+        var ids = [Int]()
+        self.questionActionLabels.forEach({ (label) -> () in
+            ids.append(label.tag)
+        })
+        parameters["questionIds"] = ids
+        var answers = [String]()
+        self.answerTextFields.forEach({ (text) -> () in
+            answers.append(text.text!)
+        })
+        parameters["answers"] = answers
+        self.yunlianRequest(Api.AnswerQuestion, parameters: parameters, whenSuccessful: { (json) -> Void in
+            print(json)
+        })
     }
     
     func backgroundTapped(_: UIGestureRecognizer) {
@@ -210,19 +244,47 @@ class RegisterQuestionViewController: UIViewController {
         alert.addAction(cancel)
         presentViewController(alert, animated: true, completion: nil)
     }
-}
-
-extension RegisterQuestionViewController: UITextFieldDelegate {
-    func textFieldDidBeginEditing(textField: UITextField) {
-        if textField != answerTextFields[0] {
-            view.frame = CGRectOffset(viewOriginFrame, 0, -UX.TextField1Offset)
-        } else {
-            view.frame = CGRectOffset(viewOriginFrame, 0, -UX.TextField0Offset)
+    
+    func registerForKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func unregisterForKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func keyboardWasShown(aNotification: NSNotification) {
+        let info = (aNotification.userInfo)!
+        let kbSize = (info[UIKeyboardFrameBeginUserInfoKey]?.CGRectValue.size)!
+        let contentInsets = UIEdgeInsets(top: 0, left: 0, bottom: kbSize.height, right: 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        
+        var aRect = self.view.frame
+        aRect.size.height -= kbSize.height
+        if let activeField = activeField {
+            if !CGRectContainsPoint(aRect, activeField.frame.origin) {
+                scrollView.scrollRectToVisible(activeField.frame, animated: true)
+            }
         }
     }
     
+    func keyboardWillBeHidden(aNotification: NSNotification) {
+        let contentInsets = UIEdgeInsetsZero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+    }
+}
+
+extension RegisterQuestionViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        activeField = textField
+    }
+    
     func textFieldDidEndEditing(textField: UITextField) {
-        view.frame = viewOriginFrame
+        activeField = nil
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
