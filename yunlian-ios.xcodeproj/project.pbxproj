@@ -17,6 +17,11 @@
 		CED5A9131BB6575E00C288E7 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9121BB6575E00C288E7 /* StringExtension.swift */; settings = {ASSET_TAGS = (); }; };
 		CED5A9171BB691C100C288E7 /* RegisterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9161BB691C100C288E7 /* RegisterInfo.swift */; settings = {ASSET_TAGS = (); }; };
 		CED5A9191BB7F21B00C288E7 /* RegisterFinishedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9181BB7F21B00C288E7 /* RegisterFinishedViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A91C1BB8E22D00C288E7 /* ModifyInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A91B1BB8E22D00C288E7 /* ModifyInfoViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A91E1BB8E3BB00C288E7 /* ModifyInfoBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A91D1BB8E3BB00C288E7 /* ModifyInfoBaseCell.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A9201BB90DB400C288E7 /* ModifyAvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A91F1BB90DB400C288E7 /* ModifyAvatarCell.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A9221BB91F2600C288E7 /* ModifyGenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9211BB91F2600C288E7 /* ModifyGenderCell.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A9241BB9244500C288E7 /* ModifyTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9231BB9244500C288E7 /* ModifyTextCell.swift */; settings = {ASSET_TAGS = (); }; };
 		D106DCB91B9B1C6900C5D6F3 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */; };
 		D106DCBD1B9C09EA00C5D6F3 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBC1B9C09EA00C5D6F3 /* News.swift */; };
 		D106DCBF1B9C19C600C5D6F3 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */; };
@@ -120,6 +125,11 @@
 		CED5A9121BB6575E00C288E7 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		CED5A9161BB691C100C288E7 /* RegisterInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterInfo.swift; sourceTree = "<group>"; };
 		CED5A9181BB7F21B00C288E7 /* RegisterFinishedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterFinishedViewController.swift; sourceTree = "<group>"; };
+		CED5A91B1BB8E22D00C288E7 /* ModifyInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyInfoViewController.swift; sourceTree = "<group>"; };
+		CED5A91D1BB8E3BB00C288E7 /* ModifyInfoBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyInfoBaseCell.swift; sourceTree = "<group>"; };
+		CED5A91F1BB90DB400C288E7 /* ModifyAvatarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyAvatarCell.swift; sourceTree = "<group>"; };
+		CED5A9211BB91F2600C288E7 /* ModifyGenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyGenderCell.swift; sourceTree = "<group>"; };
+		CED5A9231BB9244500C288E7 /* ModifyTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyTextCell.swift; sourceTree = "<group>"; };
 		D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftData.swift; path = ThirdPart/SwiftData.swift; sourceTree = "<group>"; };
 		D106DCBC1B9C09EA00C5D6F3 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
@@ -225,6 +235,18 @@
 			name = Network;
 			sourceTree = "<group>";
 		};
+		CED5A91A1BB8E20A00C288E7 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				CED5A91B1BB8E22D00C288E7 /* ModifyInfoViewController.swift */,
+				CED5A9231BB9244500C288E7 /* ModifyTextCell.swift */,
+				CED5A91D1BB8E3BB00C288E7 /* ModifyInfoBaseCell.swift */,
+				CED5A91F1BB90DB400C288E7 /* ModifyAvatarCell.swift */,
+				CED5A9211BB91F2600C288E7 /* ModifyGenderCell.swift */,
+			);
+			name = Mine;
+			sourceTree = "<group>";
+		};
 		D106DCB51B9B1AA000C5D6F3 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +282,7 @@
 		D10E8AD01B7EE1C100C8658D /* yunlian-ios */ = {
 			isa = PBXGroup;
 			children = (
+				CED5A91A1BB8E20A00C288E7 /* Mine */,
 				CED5A9021BB4336B00C288E7 /* Network */,
 				D155018C1BB19BB1006713A3 /* Register */,
 				D106DCB51B9B1AA000C5D6F3 /* News */,
@@ -563,6 +586,7 @@
 				D1A8DF871B8DFF6C00217467 /* CalendarViewController.swift in Sources */,
 				D1C6AAB11B92B19A000AF565 /* CalendarActivity.swift in Sources */,
 				D10D75331BA3DA0400B62261 /* ProfileRemarkSectionHeaderView.swift in Sources */,
+				CED5A9201BB90DB400C288E7 /* ModifyAvatarCell.swift in Sources */,
 				D106DCBD1B9C09EA00C5D6F3 /* News.swift in Sources */,
 				D124F08C1B85554200F86780 /* BlackListContactCell.swift in Sources */,
 				D124F09D1B8968BA00F86780 /* SearchContactsViewController.swift in Sources */,
@@ -574,6 +598,7 @@
 				CED5A9111BB5821800C288E7 /* UILabelWithInsets.swift in Sources */,
 				D124F07B1B82C50B00F86780 /* FriendsContactCell.swift in Sources */,
 				D1A8DF781B8AA7A600217467 /* ProfileHeaderView.swift in Sources */,
+				CED5A9221BB91F2600C288E7 /* ModifyGenderCell.swift in Sources */,
 				D182B3EE1BA1B1AA0045F7E8 /* PhotoScrollView.swift in Sources */,
 				CED5A9091BB4E3EE00C288E7 /* UIViewControllerExtension.swift in Sources */,
 				D106DCC71B9C87BE00C5D6F3 /* NewFriendCell.swift in Sources */,
@@ -587,8 +612,11 @@
 				D10E8B071B7F2C6500C8658D /* UIConstants.swift in Sources */,
 				D124F09B1B88AE3900F86780 /* TestViewController.swift in Sources */,
 				D1A8DF751B89DA6B00217467 /* ProfileViewController.swift in Sources */,
+				CED5A91C1BB8E22D00C288E7 /* ModifyInfoViewController.swift in Sources */,
 				D15501921BB232EB006713A3 /* UITextFieldWithInset.swift in Sources */,
 				D1C6AAB51B92F1DA000AF565 /* PersonCell.swift in Sources */,
+				CED5A91E1BB8E3BB00C288E7 /* ModifyInfoBaseCell.swift in Sources */,
+				CED5A9241BB9244500C288E7 /* ModifyTextCell.swift in Sources */,
 				D124F0811B84161400F86780 /* Helper.swift in Sources */,
 				D1A8DF731B89D3F100217467 /* SearchResultCell.swift in Sources */,
 				D124F0721B80A4DD00F86780 /* ContactsHeaderView.swift in Sources */,
