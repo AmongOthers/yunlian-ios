@@ -24,6 +24,7 @@ class ModifyAvatarCell: ModifyInfoBaseCell {
         contentView.addSubview(avatar)
         avatar.image = UIImage(named: "1")
         avatar.layer.cornerRadius = UX.AvatarSize / 2
+        avatar.contentMode = UIViewContentMode.ScaleAspectFill
         avatar.clipsToBounds = true
     }
     

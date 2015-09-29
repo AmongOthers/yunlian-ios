@@ -69,7 +69,6 @@ class ProfileViewController: UIViewController, ProfileHeaderViewDelegate, UITabl
         
         headerView = ProfileHeaderView()
         headerView.delegate = self
-//        headerView.frame = CGRectMake(0, 0, view.frame.size.width, UX.HeaderHeight)
         view.addSubview(headerView)
         
         tableView = UITableView(frame: CGRectZero, style: UITableViewStyle.Grouped)

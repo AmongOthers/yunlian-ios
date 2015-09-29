@@ -76,9 +76,30 @@ extension ModifyInfoViewController: UITableViewDelegate {
                     textField.becomeFirstResponder()
                 }
             })
+        } else if let genderCell = cell as? ModifyGenderCell {
+            genderCell.toggle()
+            view.endEditing(true)
+        } else {
+            view.endEditing(true)
+            let imagePicker = UIImagePickerController()
+            imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+            imagePicker.delegate = self
+            imagePicker.allowsEditing = true
+            presentViewController(imagePicker, animated: true, completion: nil)
         }
         tableView.deselectRowAtIndexPath(indexPath, animated: false)
     }
+}
+
+extension ModifyInfoViewController: UIImagePickerControllerDelegate {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forItem: 0, inSection: 0)) as! ModifyAvatarCell
+        cell.avatar.image = image
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
+extension ModifyInfoViewController: UINavigationControllerDelegate {
 }
 
 extension ModifyInfoViewController: UITableViewDataSource {

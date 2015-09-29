@@ -22,6 +22,7 @@
 		CED5A9201BB90DB400C288E7 /* ModifyAvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A91F1BB90DB400C288E7 /* ModifyAvatarCell.swift */; settings = {ASSET_TAGS = (); }; };
 		CED5A9221BB91F2600C288E7 /* ModifyGenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9211BB91F2600C288E7 /* ModifyGenderCell.swift */; settings = {ASSET_TAGS = (); }; };
 		CED5A9241BB9244500C288E7 /* ModifyTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9231BB9244500C288E7 /* ModifyTextCell.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A9281BBA8C2100C288E7 /* SettingsButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9271BBA8C2100C288E7 /* SettingsButtonCell.swift */; settings = {ASSET_TAGS = (); }; };
 		D106DCB91B9B1C6900C5D6F3 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */; };
 		D106DCBD1B9C09EA00C5D6F3 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBC1B9C09EA00C5D6F3 /* News.swift */; };
 		D106DCBF1B9C19C600C5D6F3 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */; };
@@ -130,6 +131,7 @@
 		CED5A91F1BB90DB400C288E7 /* ModifyAvatarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyAvatarCell.swift; sourceTree = "<group>"; };
 		CED5A9211BB91F2600C288E7 /* ModifyGenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyGenderCell.swift; sourceTree = "<group>"; };
 		CED5A9231BB9244500C288E7 /* ModifyTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModifyTextCell.swift; sourceTree = "<group>"; };
+		CED5A9271BBA8C2100C288E7 /* SettingsButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsButtonCell.swift; sourceTree = "<group>"; };
 		D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftData.swift; path = ThirdPart/SwiftData.swift; sourceTree = "<group>"; };
 		D106DCBC1B9C09EA00C5D6F3 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				CED5A91D1BB8E3BB00C288E7 /* ModifyInfoBaseCell.swift */,
 				CED5A91F1BB90DB400C288E7 /* ModifyAvatarCell.swift */,
 				CED5A9211BB91F2600C288E7 /* ModifyGenderCell.swift */,
+				CED5A9271BBA8C2100C288E7 /* SettingsButtonCell.swift */,
 			);
 			name = Mine;
 			sourceTree = "<group>";
@@ -502,7 +505,7 @@
 				TargetAttributes = {
 					D10E8ACD1B7EE1C100C8658D = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = JG9G4PFMT2;
+						DevelopmentTeam = 53FQVECWN3;
 					};
 					D10E8AE21B7EE1C200C8658D = {
 						CreatedOnToolsVersion = 6.4;
@@ -574,6 +577,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED5A9281BBA8C2100C288E7 /* SettingsButtonCell.swift in Sources */,
 				D10D75711BA56DB600B62261 /* ImageStubCell.swift in Sources */,
 				D10E8B041B7F2C2A00C8658D /* UIColorExtensions.swift in Sources */,
 				D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */,
@@ -779,9 +783,9 @@
 				);
 				INFOPLIST_FILE = "yunlian-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yunlian.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunlian.yunlian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "941a0288-b94d-4c67-83a3-9cd2b497e6f8";
 				SWIFT_OBJC_BRIDGING_HEADER = "yunlian-ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -800,9 +804,9 @@
 				);
 				INFOPLIST_FILE = "yunlian-ios/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yunlian.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yunlian.yunlian;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "941a0288-b94d-4c67-83a3-9cd2b497e6f8";
 				SWIFT_OBJC_BRIDGING_HEADER = "yunlian-ios-Bridging-Header.h";
 			};
 			name = Release;

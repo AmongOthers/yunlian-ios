@@ -26,9 +26,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
 //        window?.rootViewController = ViewController()
-        window?.rootViewController = UINavigationController(rootViewController: ModifyInfoViewController())
+        window?.rootViewController = UINavigationController(rootViewController: SettingsViewController())
         window?.makeKeyAndVisible()
+        
+        let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Sound, UIUserNotificationType.Alert, UIUserNotificationType.Badge], categories: nil)
+        application.registerUserNotificationSettings(settings)
+//
         return true
+    }
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        application.registerForRemoteNotifications()
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        print(deviceToken)
+        print(String(data: deviceToken, encoding: NSUTF8StringEncoding))
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        if let apsInfo = userInfo["aps"] as? NSDictionary {
+            let uid = apsInfo["uid"]
+            let type = apsInfo["type"]
+            print(uid)
+            print(type)
+        }
+        if let uid = userInfo["uid"] as? Int {
+            print(uid)
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

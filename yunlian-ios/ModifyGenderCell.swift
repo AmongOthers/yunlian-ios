@@ -18,6 +18,16 @@ class ModifyGenderCell: ModifyInfoBaseCell {
     var maleButton: UIButton!
     var femaleButton: UIButton!
     
+    func toggle() {
+        if maleButton.selected {
+            maleButton.selected = false
+            femaleButton.selected = true
+        } else {
+            femaleButton.selected = false
+            maleButton.selected = true
+        }
+    }
+    
     override func setupViews() {
         super.setupViews()
         label.text = "性别"
