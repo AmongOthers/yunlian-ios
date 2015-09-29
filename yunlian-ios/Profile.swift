@@ -18,8 +18,9 @@ class Profile {
         let path = ((NSURL(string: NSHomeDirectory())?.URLByAppendingPathComponent("Documents"))?.path)!
         fileManager.enumeratorAtPath(path)?.forEach({ (fileName) -> () in
             let imagePath = (NSURL(string: path)?.URLByAppendingPathComponent(fileName as! String).path)!
-            let image = UIImage(data: fileManager.contentsAtPath(imagePath)!)!
-            self.pendingImages.append(image)
+            if let image = UIImage(data: fileManager.contentsAtPath(imagePath)!) {
+                self.pendingImages.append(image)
+            }
         })
     }
     

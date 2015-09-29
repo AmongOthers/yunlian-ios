@@ -18,14 +18,15 @@ class FriendsContactsViewController: UIViewController, UITableViewDelegate, UITa
     let HeaderIdentifier = "HeaderIdentifier"
     
     var tableView: UITableView!
-    var data = [Person]()
+    var data: [Person]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "1"))
-        data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "2"))
-        data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "3"))
+        data = Database.sharedInstance.fetchPersons()
+//        data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "1"))
+//        data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "2"))
+//        data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "3"))
         
 //         Do any additional setup after loading the view.
         tableView = UITableView()
@@ -57,7 +58,7 @@ class FriendsContactsViewController: UIViewController, UITableViewDelegate, UITa
         let index = indexPath.item
         cell.nameLabel.text = data[index].name
         cell.titleLabel.text = data[index].title
-        cell.avatarView.image = UIImage(named: data[index].avatar)
+        cell.avatarView.image = data[index].image
         if(index == data.count - 1) {
             cell.isLastCell = true
         } else {

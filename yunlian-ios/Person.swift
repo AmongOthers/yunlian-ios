@@ -12,6 +12,11 @@ class Person {
     var name: String
     var title: String
     var avatar: String
+    var image: UIImage? {
+        get {
+            return UIImage(named: avatar)
+        }
+    }
 //    var signature: String
 //    var telephone: String
 //    var mail: String

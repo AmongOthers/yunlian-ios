@@ -25,13 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = attrs
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.backgroundColor = UIColor.whiteColor()
-//        window?.rootViewController = ViewController()
-        window?.rootViewController = UINavigationController(rootViewController: SettingsViewController())
+        window?.rootViewController = ViewController()
+//        window?.rootViewController = UINavigationController(rootViewController: ViewController())
         window?.makeKeyAndVisible()
+        
+        //打印文档路径
+        let doc = NSHomeDirectory() + "/Documents"
+        print(doc)
         
         let settings = UIUserNotificationSettings(forTypes: [UIUserNotificationType.Sound, UIUserNotificationType.Alert, UIUserNotificationType.Badge], categories: nil)
         application.registerUserNotificationSettings(settings)
-//
+        
+        Database.sharedInstance.initDatabase()
+        
         return true
     }
     
