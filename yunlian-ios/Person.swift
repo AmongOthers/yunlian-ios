@@ -10,6 +10,7 @@ import Foundation
 
 class Person {
     var name: String
+    var pinyin: String?
     var title: String
     var avatar: String
     var image: UIImage? {

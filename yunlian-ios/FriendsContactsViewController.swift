@@ -18,17 +18,11 @@ class FriendsContactsViewController: UIViewController, UITableViewDelegate, UITa
     let HeaderIdentifier = "HeaderIdentifier"
     
     var tableView: UITableView!
-    var data: [Person]!
+    let sections: [String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        data = Database.sharedInstance.fetchPersons()
-//        data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "1"))
-//        data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "2"))
-//        data.append(Person(name: "郑文伟", title: "高级软件工程师", avatar: "3"))
-        
-//         Do any additional setup after loading the view.
         tableView = UITableView()
         view.addSubview(tableView)
         tableView.snp_makeConstraints { (make) -> Void in
@@ -45,36 +39,46 @@ class FriendsContactsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        //首字母+其他（数字和其他字符）
-        return 4
+        return sections.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return Database.sharedInstance.fetchPersons(sections[section])!.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! FriendsContactCell
         let index = indexPath.item
-        cell.nameLabel.text = data[index].name
-        cell.titleLabel.text = data[index].title
-        cell.avatarView.image = data[index].image
-        if(index == data.count - 1) {
-            cell.isLastCell = true
-        } else {
-            cell.isLastCell = false
+        let data = Database.sharedInstance.fetchPersons(sections[indexPath.section])
+        if data?.count > 0 {
+            cell.nameLabel.text = data?[index].name
+            cell.titleLabel.text = data?[index].title
+            cell.avatarView.image = data?[index].image
+            if(index == data!.count - 1) {
+                cell.isLastCell = true
+            } else {
+                cell.isLastCell = false
+            }    
         }
         return cell
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderIdentifier) as? FriendsContactHeader
-        header?.label.text = "A"
-        return header
+        let count = Database.sharedInstance.fetchPersons(sections[section])!.count
+        if count > 0 {
+            let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderIdentifier) as? FriendsContactHeader
+            header?.label.text = sections[section]
+            return header
+        }
+        return nil
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UX.HeightForHeader
+        let count = Database.sharedInstance.fetchPersons(sections[section])!.count
+        if count > 0 {
+            return UX.HeightForHeader
+        }
+        return 0
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

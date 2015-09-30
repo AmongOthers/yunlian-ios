@@ -83,7 +83,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
         loginButton.setTitleColor(UIConstants.FirstGray, forState: UIControlState.Disabled)
         loginButton.backgroundColor = UIConstants.TintColor
-        loginButton.setBackgroundImage(UIImage(fillColor: UIConstants.DisabledColor), forState: UIControlState.Disabled)
+//        loginButton.setBackgroundImage(UIImage(fillColor: UIConstants.DisabledColor), forState: UIControlState.Disabled)
         loginButton.layer.cornerRadius = LoginViewControllerUX.CornerRadius
         loginButton.addTarget(self, action: "loginTapped", forControlEvents: UIControlEvents.TouchUpInside)
         takeBackPasswordButton = UIButton()
