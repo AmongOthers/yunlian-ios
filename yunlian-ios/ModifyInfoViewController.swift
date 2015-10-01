@@ -37,12 +37,12 @@ class ModifyInfoViewController: UIViewController {
         tableView.backgroundColor = UIColor.whiteColor()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.registerClass(ModifyAvatarCell.self, forCellReuseIdentifier: ModifyInfoViewController.AvatarCellIdentifier)
-        tableView.registerClass(ModifyGenderCell.self, forCellReuseIdentifier: ModifyInfoViewController.GenderCellIdentifier)
-        tableView.registerClass(ModifyTextCell.self, forCellReuseIdentifier: ModifyInfoViewController.TextCellIdentifier)
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.tableFooterView = UIView()
         tableView.bounces = false
+        tableView.registerClass(ModifyAvatarCell.self, forCellReuseIdentifier: ModifyInfoViewController.AvatarCellIdentifier)
+        tableView.registerClass(ModifyGenderCell.self, forCellReuseIdentifier: ModifyInfoViewController.GenderCellIdentifier)
+        tableView.registerClass(ModifyTextCell.self, forCellReuseIdentifier: ModifyInfoViewController.TextCellIdentifier)
     }
     
     func setupConstraints() {

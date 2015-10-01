@@ -81,4 +81,17 @@ class Database {
         }
         return nil
     }
+    
+    func countPersons(key: String? = nil) -> Int {
+        var result: (result: [SwiftData.SDRow], error: Int?)?
+        if key != nil {
+            result = SD.executeQuery("SELECT count(*) FROM Contacts WHERE Key = ?", withArgs: [key!])
+        } else {
+            result = SD.executeQuery("SELECT count(*) FROM Contacts")
+        }
+        if result?.error == nil {
+            return result!.result[0]["count(*)"]!.asInt()!
+        }
+        return 0
+    }
 }

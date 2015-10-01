@@ -30,6 +30,15 @@
 		CED5A93E1BBBD22500C288E7 /* PinyinFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9361BBBD22500C288E7 /* PinyinFormatter.m */; settings = {ASSET_TAGS = (); }; };
 		CED5A93F1BBBD22500C288E7 /* PinyinHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9381BBBD22500C288E7 /* PinyinHelper.m */; settings = {ASSET_TAGS = (); }; };
 		CED5A9401BBBD22500C288E7 /* unicode_to_hanyu_pinyin.txt in Resources */ = {isa = PBXBuildFile; fileRef = CED5A93A1BBBD22500C288E7 /* unicode_to_hanyu_pinyin.txt */; settings = {ASSET_TAGS = (); }; };
+		CED5A9421BBBEA3100C288E7 /* PersonsQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9411BBBEA3100C288E7 /* PersonsQuery.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A9441BBCCB7900C288E7 /* NewActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9431BBCCB7900C288E7 /* NewActivityViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A9461BBCCF5300C288E7 /* ActivityBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9451BBCCF5300C288E7 /* ActivityBaseCell.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A9481BBCD62C00C288E7 /* ActivityTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9471BBCD62C00C288E7 /* ActivityTextCell.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A94A1BBCDC5600C288E7 /* ActivityTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9491BBCDC5600C288E7 /* ActivityTimeCell.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A94C1BBCDF7600C288E7 /* ActivityTimespanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A94B1BBCDF7600C288E7 /* ActivityTimespanCell.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A94E1BBCE1A400C288E7 /* ActivityInviteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A94D1BBCE1A400C288E7 /* ActivityInviteCell.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A9501BBCE89A00C288E7 /* InvitePersonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A94F1BBCE89A00C288E7 /* InvitePersonCell.swift */; settings = {ASSET_TAGS = (); }; };
+		CED5A9521BBCE9D800C288E7 /* ActivityRemindCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED5A9511BBCE9D800C288E7 /* ActivityRemindCell.swift */; settings = {ASSET_TAGS = (); }; };
 		D106DCB91B9B1C6900C5D6F3 /* SwiftData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */; };
 		D106DCBD1B9C09EA00C5D6F3 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBC1B9C09EA00C5D6F3 /* News.swift */; };
 		D106DCBF1B9C19C600C5D6F3 /* NewsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */; };
@@ -152,6 +161,15 @@
 		CED5A9371BBBD22500C288E7 /* PinyinHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PinyinHelper.h; sourceTree = "<group>"; };
 		CED5A9381BBBD22500C288E7 /* PinyinHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PinyinHelper.m; sourceTree = "<group>"; };
 		CED5A93A1BBBD22500C288E7 /* unicode_to_hanyu_pinyin.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unicode_to_hanyu_pinyin.txt; sourceTree = "<group>"; };
+		CED5A9411BBBEA3100C288E7 /* PersonsQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonsQuery.swift; sourceTree = "<group>"; };
+		CED5A9431BBCCB7900C288E7 /* NewActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewActivityViewController.swift; sourceTree = "<group>"; };
+		CED5A9451BBCCF5300C288E7 /* ActivityBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityBaseCell.swift; sourceTree = "<group>"; };
+		CED5A9471BBCD62C00C288E7 /* ActivityTextCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTextCell.swift; sourceTree = "<group>"; };
+		CED5A9491BBCDC5600C288E7 /* ActivityTimeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTimeCell.swift; sourceTree = "<group>"; };
+		CED5A94B1BBCDF7600C288E7 /* ActivityTimespanCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityTimespanCell.swift; sourceTree = "<group>"; };
+		CED5A94D1BBCE1A400C288E7 /* ActivityInviteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityInviteCell.swift; sourceTree = "<group>"; };
+		CED5A94F1BBCE89A00C288E7 /* InvitePersonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvitePersonCell.swift; sourceTree = "<group>"; };
+		CED5A9511BBCE9D800C288E7 /* ActivityRemindCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityRemindCell.swift; sourceTree = "<group>"; };
 		D106DCB81B9B1C6900C5D6F3 /* SwiftData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftData.swift; path = ThirdPart/SwiftData.swift; sourceTree = "<group>"; };
 		D106DCBC1B9C09EA00C5D6F3 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		D106DCBE1B9C19C600C5D6F3 /* NewsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsHeader.swift; sourceTree = "<group>"; };
@@ -274,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				CED5A92A1BBAB54600C288E7 /* Database.swift */,
+				CED5A9411BBBEA3100C288E7 /* PersonsQuery.swift */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -513,6 +532,14 @@
 				D1C6AAAE1B913CD5000AF565 /* CalendarTableViewCell.swift */,
 				D1C6AAB41B92F1DA000AF565 /* PersonCell.swift */,
 				D1C6AAB61B930FE9000AF565 /* ActivityViewController.swift */,
+				CED5A9431BBCCB7900C288E7 /* NewActivityViewController.swift */,
+				CED5A9451BBCCF5300C288E7 /* ActivityBaseCell.swift */,
+				CED5A9471BBCD62C00C288E7 /* ActivityTextCell.swift */,
+				CED5A9491BBCDC5600C288E7 /* ActivityTimeCell.swift */,
+				CED5A94B1BBCDF7600C288E7 /* ActivityTimespanCell.swift */,
+				CED5A94D1BBCE1A400C288E7 /* ActivityInviteCell.swift */,
+				CED5A9511BBCE9D800C288E7 /* ActivityRemindCell.swift */,
+				CED5A94F1BBCE89A00C288E7 /* InvitePersonCell.swift */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -644,13 +671,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED5A9281BBA8C2100C288E7 /* SettingsButtonCell.swift in Sources */,
+				CED5A9421BBBEA3100C288E7 /* PersonsQuery.swift in Sources */,
 				D10D75711BA56DB600B62261 /* ImageStubCell.swift in Sources */,
 				D10E8B041B7F2C2A00C8658D /* UIColorExtensions.swift in Sources */,
+				CED5A94A1BBCDC5600C288E7 /* ActivityTimeCell.swift in Sources */,
 				D10E8AD61B7EE1C100C8658D /* ViewController.swift in Sources */,
 				D1A8DF7A1B8CA03500217467 /* ProfileSectionHeaderView.swift in Sources */,
 				CED5A93B1BBBD22500C288E7 /* ChineseToPinyinResource.m in Sources */,
 				D106DCB91B9B1C6900C5D6F3 /* SwiftData.swift in Sources */,
 				D106DCC51B9C72A000C5D6F3 /* NewFriendViewController.swift in Sources */,
+				CED5A9481BBCD62C00C288E7 /* ActivityTextCell.swift in Sources */,
 				D10D75351BA3DCD300B62261 /* ImageRemarkCell.swift in Sources */,
 				D106DCC11B9C19D900C5D6F3 /* NewsCell.swift in Sources */,
 				CED5A9131BB6575E00C288E7 /* StringExtension.swift in Sources */,
@@ -659,6 +689,7 @@
 				CED5A92B1BBAB54600C288E7 /* Database.swift in Sources */,
 				D10D75331BA3DA0400B62261 /* ProfileRemarkSectionHeaderView.swift in Sources */,
 				CED5A9201BB90DB400C288E7 /* ModifyAvatarCell.swift in Sources */,
+				CED5A9461BBCCF5300C288E7 /* ActivityBaseCell.swift in Sources */,
 				D106DCBD1B9C09EA00C5D6F3 /* News.swift in Sources */,
 				D124F08C1B85554200F86780 /* BlackListContactCell.swift in Sources */,
 				D124F09D1B8968BA00F86780 /* SearchContactsViewController.swift in Sources */,
@@ -698,10 +729,13 @@
 				D1C6AABB1B948583000AF565 /* SwiftDate.swift in Sources */,
 				D10E8B0D1B7F38A700C8658D /* ContactsViewController.swift in Sources */,
 				D124F0881B8551F200F86780 /* OnewayContactsViewController.swift in Sources */,
+				CED5A94C1BBCDF7600C288E7 /* ActivityTimespanCell.swift in Sources */,
 				CED5A9041BB4337800C288E7 /* YunlianNetwork.swift in Sources */,
+				CED5A94E1BBCE1A400C288E7 /* ActivityInviteCell.swift in Sources */,
 				D10D75371BA3DD9300B62261 /* ImageCell.swift in Sources */,
 				D1C6AAB71B930FE9000AF565 /* ActivityViewController.swift in Sources */,
 				D11D21131B7F818000309569 /* TextFieldLeftView.swift in Sources */,
+				CED5A9521BBCE9D800C288E7 /* ActivityRemindCell.swift in Sources */,
 				D1C6AAAF1B913CD5000AF565 /* CalendarTableViewCell.swift in Sources */,
 				D1A8DF981B8FEE8900217467 /* CalendarHeaderView.swift in Sources */,
 				D10E8B111B7F38ED00C8658D /* NewsViewController.swift in Sources */,
@@ -712,6 +746,7 @@
 				D124F0861B84C4B000F86780 /* OnewayContactCell.swift in Sources */,
 				D124F0971B88AC4600F86780 /* UIImage+Helper.m in Sources */,
 				CED5A9171BB691C100C288E7 /* RegisterInfo.swift in Sources */,
+				CED5A9501BBCE89A00C288E7 /* InvitePersonCell.swift in Sources */,
 				D124F07D1B82C55800F86780 /* FriendsContactHeader.swift in Sources */,
 				D106DCBF1B9C19C600C5D6F3 /* NewsHeader.swift in Sources */,
 				D10E8B131B7F39C300C8658D /* SettingsViewController.swift in Sources */,
@@ -722,6 +757,7 @@
 				CED5A90F1BB5771D00C288E7 /* RegisterQuestionViewController.swift in Sources */,
 				D155018B1BB19585006713A3 /* NSData+AES256.m in Sources */,
 				D15501901BB19C17006713A3 /* RegisterPhoneNumberViewController.swift in Sources */,
+				CED5A9441BBCCB7900C288E7 /* NewActivityViewController.swift in Sources */,
 				D1A8DF711B89D24200217467 /* SearchContactsResultController.swift in Sources */,
 				CED5A93E1BBBD22500C288E7 /* PinyinFormatter.m in Sources */,
 				D124F0781B82BE9C00F86780 /* FriendsContactsViewController.swift in Sources */,

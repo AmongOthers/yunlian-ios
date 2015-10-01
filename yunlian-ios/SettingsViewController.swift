@@ -135,7 +135,9 @@ class SettingsViewController: UIViewController {
     }
     
     func editTapped() {
-        navigationController?.pushViewController(ModifyInfoViewController(), animated: true)
+        let controller = ModifyInfoViewController()
+        controller.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 

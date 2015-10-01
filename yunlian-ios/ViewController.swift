@@ -17,6 +17,8 @@ class ViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBar.barStyle = UIBarStyle.Default
+        tabBar.translucent = true
         tabBar.tintColor = UIConstants.TintColor
         contactsController = ContactsViewController()
         contactsController.title = "名片夹"

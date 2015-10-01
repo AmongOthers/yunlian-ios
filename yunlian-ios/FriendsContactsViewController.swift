@@ -19,6 +19,8 @@ class FriendsContactsViewController: UIViewController, UITableViewDelegate, UITa
     
     var tableView: UITableView!
     let sections: [String] = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"]
+    
+    var query = PersonsQuery()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +45,13 @@ class FriendsContactsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Database.sharedInstance.fetchPersons(sections[section])!.count
+        return query.count(sections[section])
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(CellIdentifier) as! FriendsContactCell
         let index = indexPath.item
-        let data = Database.sharedInstance.fetchPersons(sections[indexPath.section])
+        let data = query.lookUp(sections[indexPath.section])
         if data?.count > 0 {
             cell.nameLabel.text = data?[index].name
             cell.titleLabel.text = data?[index].title
@@ -64,7 +66,7 @@ class FriendsContactsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let count = Database.sharedInstance.fetchPersons(sections[section])!.count
+        let count = query.count(sections[section])
         if count > 0 {
             let header = tableView.dequeueReusableHeaderFooterViewWithIdentifier(HeaderIdentifier) as? FriendsContactHeader
             header?.label.text = sections[section]
@@ -74,7 +76,7 @@ class FriendsContactsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        let count = Database.sharedInstance.fetchPersons(sections[section])!.count
+        let count = query.count(sections[section])
         if count > 0 {
             return UX.HeightForHeader
         }

@@ -113,6 +113,7 @@ class CalendarTableViewCell: UITableViewCell {
         layout.sectionInset = UIEdgeInsetsMake(UX.CollectionViewHorizontalInsets, UX.CollectionViewVerticalInsets, UX.CollectionViewHorizontalInsets, UX.CollectionViewVerticalInsets)
         personCollectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: layout)
         peopleBar.addSubview(personCollectionView)
+        personCollectionView.showsHorizontalScrollIndicator = false
         personCollectionView.backgroundColor = UIColor.whiteColor()
         personCollectionView.delegate = self
         personCollectionView.dataSource = self

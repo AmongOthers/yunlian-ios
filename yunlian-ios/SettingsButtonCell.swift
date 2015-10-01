@@ -30,6 +30,7 @@ class SettingsButtonCell: UITableViewCell {
     }
     
     func setupViews() {
+        selectionStyle = UITableViewCellSelectionStyle.None
         contentView.backgroundColor = UIConstants.BackgroundGray
         lockButton = UIButton()
         contentView.addSubview(lockButton)
